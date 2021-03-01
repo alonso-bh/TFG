@@ -1,0 +1,6 @@
+El dataset con los datos de hospitalizaciones, que es la segunda fuente de datos que vamos a usar, se va actualizando diariamente en la página de la Junta de Andalucía, con lo que no es necesario descargarlo. En la herramienta que usaremos se configurará para que se cargue de la web directamente, algo que permitirá actualizar automáticamente los datos (usando un simple "botón" de la herramienta referida).
+
+Los datos de hospitalizados, UCI, etc se encuentran en la web: 
+	https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=4a4c3556-634d-4f83-8d17-ee96de550f4e&type=0&foto=si&ejecutaDesde=&codConsulta=39409&consTipoVisua=JP
+
+	A la que se accede desde la página web (donde se muestra la tabla formateada): https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/39409?CodOper=b3_2314&codConsulta=39409
