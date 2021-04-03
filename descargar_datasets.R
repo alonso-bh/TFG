@@ -2,16 +2,18 @@
 library(RCurl)
 
 
-# función para concatenar
+# funcion para concatenar
 concatenar_strings <- function(cad1, cad2){
-tmp <- cbind(cad1, cad2)
-library(stringr)
-str_c(tmp, collapse = "")
+  tmp <- cbind(cad1, cad2)
+  library(stringr)
+  str_c(tmp, collapse = "")
 }
-# preparar el formato de fecha para nombrar así a la carpeta de hoy
+
+
+# preparar el formato de fecha para nombrar as? a la carpeta de hoy
 hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
 
-# crear la carpeta para el día de hoy
+# crear la carpeta para el d?a de hoy
 setwd("C:\\Users\\UX430U\\Desktop\\TFG")
 nombre_carpeta <- concatenar_strings("datos/", hoy)
 nombre_carpeta
@@ -47,13 +49,19 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
 # descargar datos de residencias
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=484ce06f-403a-457e-b75b-750f47561823&type=0&foto=si&ejecutaDesde=&codConsulta=38528&consTipoVisua=JP",destfile="residencias.xls",method="curl")
 
+# descargar datos de residencias por rangos de edades
+download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=618a9dcc-cd79-4075-b933-48f33c69c737&type=0&foto=si&ejecutaDesde=&codConsulta=38378&consTipoVisua=JP",destfile="residencias_edad.xls",method="curl")
+
+# descargar datos diarios sobre personal profesional de riesgo
+download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=753943e2-375b-4d77-80bd-368aac3e255e&type=0&foto=si&ejecutaDesde=&codConsulta=40256&consTipoVisua=JP",destfile="profesionales.xls",method="curl")
 
 # datos diarios hospitalizaciones y otros
 setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=c4a0a3cd-43ec-4a09-9184-2e5bf28c348e&type=0&foto=si&ejecutaDesde=&codConsulta=39409&consTipoVisua=JP",destfile="sit_hospitalaria.xls",method="curl")
 
 
-# comprobaciones previas a la descarga (no descargar si no están actualizados)
+
+# comprobaciones previas a la descarga (no descargar si no est?n actualizados)
 #install.packages("rvest")
 #library('rvest')
 
@@ -65,6 +73,6 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
 #   html_text()
 # parrafo
 
-# obtener la línea donde está la fecha
+# obtener la l?nea donde est? la fecha
 # linea_fecha <- parrafo %>% 
 #   html_nodes("strong") %>% html_text()
