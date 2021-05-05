@@ -15,6 +15,7 @@ if (length(args)==0) {
 #setwd("C:/Users/UX430U/Desktop/TFG")
 
 source("proyecto_tfg/utils.R")
+library(RCurl)
 
 # generar la carpeta para guardar los datos de hoy 
 hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
@@ -93,19 +94,26 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
 source("proyecto_tfg/preparar_datos_profesionales.R")
 #preparar_datos_profesionales(getwd()) 
 
+
 # vacunas
-path_vacunas <- concatenar_strings(nombre_carpeta, "/vacunas.ods")
-download.file("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Informe_Comunicacion_20210423.ods", 
-              destfile = "vacunas.ods", 
-              method = "curl")
+# path_vacunas <- concatenar_strings(c(nombre_carpeta, "/vacunas.ods"))
+# download.file("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Informe_Comunicacion_20210423.ods", 
+#               destfile = path_vacunas, 
+#               method = "curl")
 
 
-# datos diarios hospitalizaciones y otros
-path_dias_naturales <- concatenar_strings("datos", "/")
-source("proyecto_tfg/preparar_hospitalizaciones.R")
+# datos días naturales (incluye datos de hospitales) 
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=c4a0a3cd-43ec-4a09-9184-2e5bf28c348e&type=0&foto=si&ejecutaDesde=&codConsulta=39409&consTipoVisua=JP",
-              destfile="datos/sit_hospitalaria.xls", 
+              destfile=path_dias_naturales, 
               method="curl")
-#preparar_datos_hospitalizaciones(getwd()) 
+
+
+## Tarea final: 
+#  EJECUTAR FUNCIONES PARA PROCESAR Y ALMACENAR LOS DATOS DESCARGADOS DE HOY
+
+
+source("proyecto_tfg/preparar_hospitalizaciones.R")
+
+preparar_datos_dias_naturales(path_dias_naturales) 
 
 
