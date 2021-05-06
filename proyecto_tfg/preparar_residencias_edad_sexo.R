@@ -1,19 +1,25 @@
 
 
-preparar_datos_residencias_edad_sexo <- function(path_dir_hoy = getwd()){ 
+################################################################################
+#' Función para preparar y guardar los datos sobre residencias por edad y sexo
+#' 
+#' @param path es una cadena de caracteres (string) que indica el 
+#' camino a la carpeta del proyecto (TFG).  
+preparar_datos_residencias_edad_sexo <- function(path_fichero){ 
 
   library('flattabler')
   library("rio")
   library('readr')
   library('tidyr') # for fill function 
   
-  setwd(path_dir_hoy)
-  #-setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\27-04")
+  source("proyecto_tfg/utils.R")
+  
+  
+  #-setwd("C:/Users/UX430U/Desktop/TFG")
   #-esta_fecha <- "27/04/2021"
   
   # import excel
-  excel <- import("residencias_edad.xls")
-  #View(excel)
+  excel <- import(path_fichero)
   
   sexos <- c(excel[8,3], excel[8,7]) 
   
@@ -82,8 +88,8 @@ preparar_datos_residencias_edad_sexo <- function(path_dir_hoy = getwd()){
   View(data_clear)
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
-  setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
-  dataset_ayer <- "residencias_edad_sexo_ayer.csv" 
+  #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
+  dataset_ayer <- "datos/ayer/residencias_edad_sexo_ayer.csv" 
   
   if ( file.exists(dataset_ayer) ) {
     
@@ -96,7 +102,7 @@ preparar_datos_residencias_edad_sexo <- function(path_dir_hoy = getwd()){
     
     # Almacenar los datos de hoy (sin restarlos, claro) para poder restarlos a
     # los de el día siguiente. Se reescribe el fichero residencias_edad_sexo_ayer.csv
-    write.table(hoy, "residencias_edad_sexo_ayer.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(hoy, dataset_ayer , row.names=FALSE, col.names=TRUE, sep = ';')
     
     
     # restar cada columna y modificarla en el dataset final del día de hoy 
@@ -127,19 +133,20 @@ preparar_datos_residencias_edad_sexo <- function(path_dir_hoy = getwd()){
     View(hoy)
     
     # añadir al dataset de residencias_edad_sexo.csv los datos de hoy
-    setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
+    #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
+    residencias_edadsexo_csv <- "datos/residencias_edad_sexo.csv"
     
-    if( file.exists("residencias_edad_sexo.csv") ){ 
+    if( file.exists(residencias_edadsexo_csv) ){ 
       print("El archivo de residencias_edad_sexo.csv ya tiene datos, vamos a solapar los de hoy. ")
       
-      todo_residencias <- import("residencias_edad_sexo.csv")
+      todo_residencias <- import(residencias_edadsexo_csv)
       todo_residencias <- rbind(todo_residencias, hoy)  #append data
       
-      write.table(todo_residencias, "residencias_edad_sexo.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(todo_residencias, residencias_edadsexo_csv, row.names=FALSE, col.names=TRUE, sep = ';')
       
     } else {
       print("No existía aún el fichero residencias_edad_sexo.csv. Los creamos hoy. ")
-      write.table(hoy, "residencias_edad_sexo.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(hoy, residencias_edadsexo_csv, row.names=FALSE, col.names=TRUE, sep = ';')
     }
     
   
