@@ -1,16 +1,23 @@
 
 
-preparar_datos_residencias <- function(path_dir_hoy = getwd()){ 
+################################################################################
+#' Función para preparar y guardar los datos sobre residencias
+#' 
+#' @param path es una cadena de caracteres (string) que indica el 
+#' camino a la carpeta del proyecto (TFG).
+preparar_datos_residencias <- function(path_fichero){ 
 
   library('flattabler')
   library("rio")
   library('readr')
   
-  setwd(path_dir_hoy)
-
+  source("proyecto_tfg/utils.R")
+  
+  #path_fichero <- "datos/dd-mm/residencias.xls"
+  #esta_fecha <- "dd/mm/aaaa"
+  
   # import excel
-  excel <- import("residencias.xls")
-  #View(excel)
+  excel <- import(path_fichero)
   
   # borrar filas nulas (primeras y últimas)
   excel <- excel[-c(1,2,3,4,5,6,7,53,54),]
@@ -23,8 +30,10 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
   residencias_today<-excel[!(excel$V1=="Andalucía" | excel$V1=="Almería" | excel$V1=="Cádiz" | excel$V1=="Huelva" | excel$V1=="Sevilla" | excel$V1=="Jaén" | excel$V1=="Granada" | excel$V1=="Córdoba" | excel$V1=="Málaga"),]
   
   # ---------------------------------
-  # Now we can manually  "unpivot" the table in orden to delete the row of the type os "residencia"
-  # 1. get the first column
+  # Ahora podemos hacer "unpivot" sobre la tabla para borrar la cabecera con el 
+  #  tipo de residencia. Pasos son: 
+  #
+  # 1. obtener primera columna
   column1 <- residencias_today[,1]
   
   # 2. unpivot (we generate and then fix 2 subdatasets for both type of "residencias")
@@ -34,8 +43,7 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
   data_resid_mayores <- residencias_today[,c(1,2,3,4,5,6,7)]
   var_resid_mayores <- type_residencias[1]
   
-  
-  # creating and filling the (new) date column
+  # Crear y solapar la nueva columna
   data_resid_mayores$V8 = var_resid_mayores
   data_resid_mayores[1,8] <- new_col
   
@@ -61,7 +69,8 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
   
   # add date (Fecha) column and fill it
   date_today <- format(Sys.time(), "%d/%m/%Y")  # get current date 
-  date_today <- "31/03/2021"
+  
+  #date_today <- esta_fecha  # descomentar para pruebas 
   
   data_clear$V9 <- date_today 
   data_clear[1,9] <- "Fecha" 
@@ -70,11 +79,10 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
   colnames(data_clear) <- data_clear[1,]
   data_clear <- data_clear[-c(1),]
   
-  View(data_clear)
+  #View(data_clear)
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
-  setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
-  dataset_ayer <- "residencias_ayer.csv" 
+  dataset_ayer <- "datos/ayer/residencias_ayer.csv" 
   
   if ( file.exists(dataset_ayer) ) {
     
@@ -87,7 +95,7 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
 
     # Almacenar los datos de hoy (sin restarlos, claro) para poder restarlos a
     # los de el día siguiente. Se reescribe el fichero residencias_ayer.csv
-    write.table(hoy, "residencias_ayer.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(hoy, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
     
     
     # restar cada columna y modificarla en el dataset final del día de hoy 
@@ -115,36 +123,34 @@ preparar_datos_residencias <- function(path_dir_hoy = getwd()){
     aux <- aux1-aux2   #
     hoy$Fallecidos <- as.character(aux)
     
-    #View(hoy)
+    # View(hoy)
     
     # añadir al dataset de residencias.csv los datos de hoy
-    setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
+    residencias_csv <- "datos/residencias.csv"
     
-    if( file.exists("residencias.csv") ){ 
+    if( file.exists(residencias_csv) ){ 
       print("El archivo de residencias.csv ya tiene datos, vamos a solapar los de hoy. ")
       
-      todo_residencias <- import("residencias.csv")
+      todo_residencias <- import(residencias_csv)
       todo_residencias <- rbind(todo_residencias, hoy)  #append data
       
-      write.table(todo_residencias, "residencias.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(todo_residencias, residencias_csv, row.names=FALSE, col.names=TRUE, sep = ';')
       
     } else {
-      print("No existía aún el fichero residencias.csv. Los creamos hoy. ")
-      write.table(hoy, "residencias.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      print("No existía aún el fichero residencias.csv. Lo creamos hoy. ")
+      write.table(hoy, residencias_csv, row.names=FALSE, col.names=TRUE, sep = ';')
     }
-    
+  
     
   } else{ 
     # esto solo ocurre una vez, con el primer día del que tengamos datos, y 
     # sirve para restarlo a los del día siguiente, que será el primer día válido
     
-    # guardamos directamente nuestro dataset tal cual está
     print("El archivo residencias_ayer.csv no existía aún. Se va a crear por primera vez con los datos de hoy.  ")
-    write.table(data_clear, "residencias_ayer.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(data_clear, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
-  
   
 }
 
-#setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\31-03")
-#preparar_datos_residencias()
+#setwd("C:\\Users\\UX430U\\Desktop\\TFG")
+#preparar_datos_residencias("datos/07-05/residencias.xls", "07/05/2021")
