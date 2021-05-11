@@ -11,8 +11,7 @@ if (length(args)==0) {
   setwd(args[1])
 }
 
-
-#setwd("C:/Users/UX430U/Desktop/TFG")
+#setwd("C:/Users/UX430U/Desktop/TFG")  # descomentar para pruebas 
 
 source("proyecto_tfg/utils.R")
 library(RCurl)
@@ -22,7 +21,6 @@ hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
 nombre_carpeta <- concatenar_strings(c("datos/", hoy))
 nombre_carpeta
 dir.create(nombre_carpeta)
-#setwd(nombre_carpeta)
 
 
 #########################
@@ -82,8 +80,6 @@ path_residencias_edad_sexo <- concatenar_strings(c(nombre_carpeta, "/residencias
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=618a9dcc-cd79-4075-b933-48f33c69c737&type=0&foto=si&ejecutaDesde=&codConsulta=38378&consTipoVisua=JP", 
               destfile=path_residencias_edad_sexo, 
               method="curl")
-source("proyecto_tfg/preparar_residencias_edad_sexo.R")
-#preparar_datos_residencias_edad_sexo(getwd())
 
 
 # descargar datos diarios sobre personal profesional de riesgo
@@ -91,18 +87,10 @@ path_profesionales <- concatenar_strings(c(nombre_carpeta, "/profesionales.xls")
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=753943e2-375b-4d77-80bd-368aac3e255e&type=0&foto=si&ejecutaDesde=&codConsulta=40256&consTipoVisua=JP", 
               destfile=path_profesionales, 
               method="curl")
-source("proyecto_tfg/preparar_datos_profesionales.R")
-#preparar_datos_profesionales(getwd()) 
-
-
-# vacunas
-# path_vacunas <- concatenar_strings(c(nombre_carpeta, "/vacunas.ods"))
-# download.file("https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/documentos/Informe_Comunicacion_20210423.ods", 
-#               destfile = path_vacunas, 
-#               method = "curl")
 
 
 # datos días naturales (incluye datos de hospitales) 
+path_dias_naturales <- "datos/datos_dias_naturales.xls"
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=c4a0a3cd-43ec-4a09-9184-2e5bf28c348e&type=0&foto=si&ejecutaDesde=&codConsulta=39409&consTipoVisua=JP",
               destfile=path_dias_naturales, 
               method="curl")
@@ -112,8 +100,14 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
 #  EJECUTAR FUNCIONES PARA PROCESAR Y ALMACENAR LOS DATOS DESCARGADOS DE HOY
 
 
-source("proyecto_tfg/preparar_hospitalizaciones.R")
+source("proyecto_tfg/preparar_datos_dias_naturales.R")
+source("proyecto_tfg/preparar_residencias_edad_sexo.R")
+source("proyecto_tfg/preparar_residencias.R")
+source("proyecto_tfg/preparar_datos_municipio.R")
+source("proyecto_tfg/preparar_datos_profesionales.R")
 
+preparar_datos_municipio(path_provincias) 
+preparar_datos_residencias_edad_sexo(path_residencias_edad_sexo)
 preparar_datos_dias_naturales(path_dias_naturales) 
-
-
+preparar_datos_residencias(path_residencias)
+preparar_datos_profesionales(path_profesionales)
