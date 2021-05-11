@@ -10,17 +10,17 @@
 #' @param Camino hacia el directorio donde están los datos de hoy sobre 
 #' profesionales, previamente descargados de la web de la Junta 
 #' 
-preparar_datos_profesionales <- function(path_dir_hoy = getwd()){
+preparar_datos_profesionales <- function(path_fichero){
   
   library('readr')
   library("rio")
   library("tidyr") 
   
-  setwd(path_dir_hoy)
+  esta_fecha <- "11/05/2021"
+  #path_fichero <- "datos/05-05/profesionales.xls"
   
   # import excel
-  excel <- import("profesionales.xls")
-  #View(excel)
+  excel <- import(path_fichero)
   
   # quitar primeras y últimas filas "sucias" (sin datos)
   excel <- excel[-c(1,2,3,4,5,6,38,39),]
@@ -38,13 +38,13 @@ preparar_datos_profesionales <- function(path_dir_hoy = getwd()){
   excel <- excel[!(excel$Sexo == "Ambos sexos"),]
   
   # añadir columna con la fecha de hoy (notificación)
-  date_today = format(Sys.Date(), "%d/%m/%Y")  # get current date 
+  date_today <- format(Sys.Date(), "%d/%m/%Y")  # get current date 
+  date_today <- esta_fecha # descomentar para pruebas 
+  
   excel$Fecha <- date_today
   
-  
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
-  setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
-  dataset_ayer <- "profesionales_ayer.csv" 
+  dataset_ayer <- "datos/ayer/profesionales_ayer.csv" 
   
   if ( file.exists(dataset_ayer) ) {
 
@@ -60,7 +60,7 @@ preparar_datos_profesionales <- function(path_dir_hoy = getwd()){
     
     # Almacenar los datos de hoy (sin restarlos, claro) para poder restarlos a
     # los de el día siguiente. Se reescribe el fichero profesionales_ayer.csv
-    write.table(hoy, "profesionales_ayer.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(hoy, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
     
     
     # restar cada columna y modificarla en el dataset final del día de hoy 
@@ -91,19 +91,19 @@ preparar_datos_profesionales <- function(path_dir_hoy = getwd()){
     View(hoy)
     
     # añadir al dataset de profesionales los datos de hoy
-    setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
-    
-    if( file.exists("profesionales.csv") ){ 
+    profesionales_csv <- "datos/profesionales.csv"
+
+    if( file.exists(profesionales_csv) ){ 
       print("El archivo de profesionales.csv ya tiene datos, vamos a solapar los de hoy. ")
       
-      todo_profesionales <- import("profesionales.csv")
+      todo_profesionales <- import(profesionales_csv)
       todo_profesionales <- rbind(todo_profesionales, hoy)  #append data
       
       
-      write.table(todo_profesionales, "profesionales.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(todo_profesionales, profesionales_csv , row.names=FALSE, col.names=TRUE, sep = ';')
       
     } else {
-      write.table(hoy, "profesionales.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(hoy, profesionales_csv, row.names=FALSE, col.names=TRUE, sep = ';')
     }
     
     
@@ -113,11 +113,11 @@ preparar_datos_profesionales <- function(path_dir_hoy = getwd()){
     
     # guardamos directamente nuestro dataset tal cual está
     print("El archivo profesionales_ayer.csv no existía aún. ")
-    write.table(excel, "profesionales_ayer.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(excel, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
   
 } # fin de la función de trabajo con datos d eprofesionales 
 
 
+#preparar_datos_profesionales("datos/10-05/profesionales.xls")
 
-#preparar_datos_profesionales()
