@@ -1,0 +1,2 @@
+WEB RAIZ DE LA JUNTA DE ANDALUCIA DE DONDE SE HAN OBTENIDO LOS DATOS (INFORME COVID)
+	A la que se accede desde la página web (donde se muestra la tabla formateada): https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/operaciones/consulta/anual/39409?CodOper=b3_2314&codConsulta=39409
