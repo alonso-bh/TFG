@@ -18,9 +18,11 @@ library(RCurl)
 
 # generar la carpeta para guardar los datos de hoy 
 hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
+#hoy <- "14-05"
 nombre_carpeta <- concatenar_strings(c("datos/", hoy))
 nombre_carpeta
 dir.create(nombre_carpeta)
+
 
 
 #########################
@@ -95,6 +97,19 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
               destfile=path_dias_naturales, 
               method="curl")
 
+# datos vacunación Andalucía 
+path_vacunas_1dosis <- concatenar_strings(c(nombre_carpeta, "/datos_pauta_incompleta.xls"))
+download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=49762111-3329-42fa-b230-1fef664eadf4&type=0&foto=si&ejecutaDesde=&codConsulta=53533&consTipoVisua=JP",
+              destfile = path_vacunas_1dosis,
+              method = "curl")
+
+
+path_vacunas_2dosis <- concatenar_strings(c(nombre_carpeta, "/datos_pauta_completa.xls"))
+download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=013c864d-aa76-4366-bcfc-a9732eac5d7e&type=0&foto=si&ejecutaDesde=&codConsulta=53534&consTipoVisua=JP",
+              destfile = path_vacunas_2dosis,
+              method = "curl")
+
+
 
 ## Tarea final: 
 #  EJECUTAR FUNCIONES PARA PROCESAR Y ALMACENAR LOS DATOS DESCARGADOS DE HOY
@@ -105,9 +120,13 @@ source("proyecto_tfg/preparar_residencias_edad_sexo.R")
 source("proyecto_tfg/preparar_residencias.R")
 source("proyecto_tfg/preparar_datos_municipio.R")
 source("proyecto_tfg/preparar_datos_profesionales.R")
+source("proyecto_tfg/preparar_datos_vacunacion_basicos.R")
+
 
 preparar_datos_municipio(path_provincias) 
 preparar_datos_residencias_edad_sexo(path_residencias_edad_sexo)
 preparar_datos_dias_naturales(path_dias_naturales) 
 preparar_datos_residencias(path_residencias)
 preparar_datos_profesionales(path_profesionales)
+preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
+
