@@ -12,11 +12,15 @@
 generar_dimension_cuando <- function(path_proyecto){
   
   library(rio)
+  library('readr')
   
   setwd(path_proyecto)
   # setwd("C:\\Users\\UX430U\\Desktop\\TFG")
   
-  cuando <- import("datos/datos_provincia_diarios.csv")
+  cuando <- import("datos/datos_dias_naturales.csv")
+  
+  cuando <- cuando[!(cuando$Territorio == "Andalucía"),]
+  
   
   #install.packages("lubridate")
   library(lubridate)
@@ -27,15 +31,16 @@ generar_dimension_cuando <- function(path_proyecto){
   cuando$Semana <- week(dmy(cuando$`Fecha diagnóstico`))
   
   # eliminar las columnas que no son de la dimensión 
-  cuando <- cuando[,c(1,8,9,10)]
+  cuando <- cuando[, c("Fecha diagnóstico", "Mes", "Año", "Semana")]
   
   # borrar duplicados
   cuando <- cuando[!duplicated(cuando),]
-  colnames(cuando) <- c("Fecha", "Mes", "Año", "Semana", "Nombre del Mes")
+  colnames(cuando) <- c("Fecha", "Mes", "Año", "Semana")
 
   # añadir la columna mes (inicialmente vacía) "Nombre del Mes" 
   # para rellenarla con el nombre del mes asociado a la columna Mes (número)
   cuando$`Nombre del Mes` <- ""
+  
   for(i in 1:nrow(cuando)){
     if(cuando[i,"Mes"] == 1){
       cuando[i,"Nombre del Mes"] <- "Enero"
@@ -74,7 +79,279 @@ generar_dimension_cuando <- function(path_proyecto){
   
   # Segundo tipo de Fecha: escoger cualquiera de otros datasets con datos COVID
   # descargados del IECA que contenga la fecha de notitifación de esos datos
+  cuando2 <- import("datos/municipios.csv")
+  
+  # añadir las columnas de mes, año y semana del año (niveles de la dimensión)
+  cuando2$Mes <- month(dmy(cuando2$`Fecha`) )
+  cuando2$Año <- year(dmy(cuando2$`Fecha`))
+  cuando2$Semana <- week(dmy(cuando2$`Fecha`))
+  
+  
+  # seleccionar solo atributos de tiempo
+  cuando2 <- cuando2[,c("Fecha", "Mes", "Año", "Semana")]
+  
+  # eliminar duplicados 
+  cuando2 <- cuando2[!duplicated(cuando2),]
+  
+  # añadir columna con el nombre del mes
+  cuando2$`Nombre del Mes` <- ""
+  
+  for(i in 1:nrow(cuando2)){
+    if(cuando2[i,"Mes"] == 1){
+      cuando2[i,"Nombre del Mes"] <- "Enero"
+    } else if(cuando2[i,"Mes"] == 2){
+      cuando2[i,"Nombre del Mes"] <- "Febrero"
+    } else if(cuando2[i,"Mes"] == 3){
+      cuando2[i,"Nombre del Mes"] <- "Marzo"
+    } else if(cuando2[i,"Mes"] == 4){
+      cuando2[i,"Nombre del Mes"] <- "Abril"
+    } else if(cuando2[i,"Mes"] == 5){
+      cuando2[i,"Nombre del Mes"] <- "Mayo"
+    } else if(cuando2[i,"Mes"] == 6){
+      cuando2[i,"Nombre del Mes"] <- "Junio"
+    } else if(cuando2[i,"Mes"] == 7){
+      cuando2[i,"Nombre del Mes"] <- "Julio"
+    } else if(cuando2[i,"Mes"] == 8){
+      cuando2[i,"Nombre del Mes"] <- "Agosto"
+    } else if(cuando2[i,"Mes"] == 9){
+      cuando2[i,"Nombre del Mes"] <- "Septiembre"
+    } else if(cuando2[i,"Mes"] == 10){
+      cuando2[i,"Nombre del Mes"] <- "Octubre"
+    } else if(cuando2[i,"Mes"] == 11){
+      cuando2[i,"Nombre del Mes"] <- "Noviembre"
+    } else if(cuando2[i,"Mes"] == 12){
+      cuando2[i,"Nombre del Mes"] <- "Diciembre"
+    } 
+  }
+  
+  # aplicación del caso de diseño: dimensión con varios roles 
+  # vamos a añadir el atributo "Día natural" para indicar que las fechas del
+  # dataset actual son por días naturales (L a D), frente a los que añadiremos
+  # después, que serán por fecha de notificación (días hábiles -> L a V).
+  cuando2$`Tipo de Fecha` <- "Día hábil"
+  
+  # paso final: solapar los dos dataset (mismas columnas en número y nombre=>OK)
+  cuando_global <- rbind(cuando, cuando2)
+
+  # añadir columna de los periodos covid (datos IECA)
+  #info_periodos <- import("datos/periodos_metadatos.xlsx")
+  #View(info_periodos)
+  # for(i in 1:nrow(cuando_global)){
+  #   if(cuando_global[i,"Fecha"] == 1){
+  #     cuando_global[i,"periodo_covid"] <- "Enero"
+  #   } else if (cuando_global[i,"Fecha"] == )
+  # }
+    
+  # volvemos a eliminar duplicados para asegurarnos
+  cuando_global <- cuando_global[!duplicated(cuando_global),]
+
+  colnames(cuando_global) <- c("fecha", "mes", "anio", "semana", "nombre_mes", "tipo_fecha" )
+  
+  # añadir llave generada
+  cuando_global$cod_cuando <- 1:nrow(cuando_global)
+  
+  # almacenar dimensión 
+  write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+
+}
+
+
+################################################################################
+#' GENERAR DIMENSION QUIEN
+#' @param path_proyecto es el camino a la carpeta principal de trabajo (TFG),
+#' que tendrá el mismo orden de ficheros y directorios actual para que funcionen
+#' las funciones implementadas tal cual están.
+
+generar_dimension_quien <- function(path_proyecto){
+  
+  library("rio")
+  
+  setwd(path_proyecto)
+  
+  dimension <- import("datos/residencias_edad_sexo.csv")
+  
+  dimension <- dimension[,c("Vive en residencia", "Edad", "Sexo")]
+
+  # eliminar duplicados
+  dimension <- dimension[!duplicated(dimension),]
+  
+  colnames(dimension) <- c("tipo_residencia", "rango_edad", "sexo")
+  
+  # añadir llave generada
+  dimension$cod_quien <- 1:nrow(dimension)
+  
+  # guardar dimension
+  write.table(dimension, "datos/dimension_quien.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
+}
+
+
+################################################################################
+generar_dimension_donde_provincia <- function(path_proyecto){
+  
+  library(rio)
+  
+  setwd(path_proyecto)
+  
+  provincias <- import("datos/datos_dias_naturales.csv")
+  provincias$cod_donde_provincia <- " "
+  
+  provincias <- provincias[!(provincias$Territorio == "Andalucía"),]
+  
+  provincias <- provincias[,c("Territorio","cod_donde_provincia")]
+  provincias <- provincias[!duplicated(provincias),]
+  
+  # añadir la llave generada
+  provincias$cod_donde_provincia <- 1:nrow(provincias)
+  
+  # cambiar nombre de la primera columna al de "nombre_provincia", más específico
+  # que "Territorio"
+  colnames(provincias)[1] <- "nombre_provincia"
+  
+  # enriquecimiento de la dimensión: usando directamente el fichero cod_provincias.csv
+  # añadimos el código de cada provincia correspondiente
+  codprov <- import("datos/cod_provincias.csv")
+  
+  library(dplyr)
+  
+  # añadir las claves de la provincia del INE
+  provincias <- left_join(provincias, codprov, by="nombre_provincia")
+  
+  # almacenar la tabla de la dimensión
+  write.table(provincias, "datos/dimension_donde_provincia.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+}
+
+
+generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
+  
+  library(rio)
+
+  #path_proyecto <- "C:/Users/UX430U/Desktop/TFG"  # descomentar para pruebas 
+  setwd(path_proyecto)
+  
+  ds <- import("datos/residencias.csv")  
+
+  # View(excel)
+  
+  ds$cod_donde_ds <- ""
+
+  ds <- ds[,c("Territorio", "cod_donde_ds")]  
+  
+  ds <- ds[!duplicated(ds),]
+  
+  colnames(ds)[1] <- "distrito_sanitario"
+
+  ds$cod_donde_ds <- 1:nrow(ds)
+  
+  # añadimos la provincia asociada a cada DS
+  # la información se extrae de la web del IECA, de los propios ficheros de datos
+  
+  ds$nombre_provincia <- ""
+  # provincia de Almería
+  for(i in 1:3){
+    ds[i, "nombre_provincia"] <- "Almería"
+  }
+
+  # cádiz 
+  for(i in 4:8){
+    ds[i, "nombre_provincia"] <- "Cádiz"
+  }
+    
+  # córdoba
+  for(i in 9:12){
+    ds[i, "nombre_provincia"] <- "Córdoba"
+  }
+  
+  # granada
+  for(i in 13:16){
+    ds[i, "nombre_provincia"] <- "Granada"
+  }
+
+  # huelva
+  for(i in 17:19){
+    ds[i, "nombre_provincia"] <- "Huelva"
+  }
+
+  # jaén
+  for(i in 20:23){
+    ds[i, "nombre_provincia"] <- "Jaén"
+  }
+  
+  # málaga
+  for(i in 24:29){
+    ds[i, "nombre_provincia"] <- "Málaga"
+  }
+  
+  # sevilla
+  for(i in 30:34){
+    ds[i, "nombre_provincia"] <- "Sevilla"
+  }
+
+  codprovincias <- import("datos/cod_provincias.csv")  
+
+  library(dplyr)
+  
+  ds <- left_join(ds, codprov, by="nombre_provincia")
+  
+  # almacenar la tabla de la dimensión
+  write.table(ds, "datos/dimension_donde_ds.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
+}
+
+
+generar_dimension_donde_municipio (path_proyecto = getwd()){
+  
+  library(rio)
+
+  setwd(path_proyecto)
+  
+  dimension <- import("datos/municipios.csv")
   
   
   
 }
+
+
+
+# 
+generar_dimension_quien_vacunas <- function(path_proyecto){
+  
+  library(rio)
+
+  dimension <- import("datos/vacunas.csv")
+
+  dimension$cod_quien_vacunas <- ""
+
+  dimension <- dimension[,c("Edad", "cod_quien_vacunas")]
+  colnames(dimension) <- c("rango_edad", "cod_quien_vacunas")
+
+  dimension <- dimension[!duplicated(dimension),]
+
+  dimension$cod_quien_vacunas <- 1:nrow(dimension)          
+
+  # almacenar la dimension 
+  write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
+}
+
+
+generar_dimension_residencia(path_proyecto = getwd()){
+  
+  library(rio)
+
+  dimension <- import("datos/residencias.csv")
+
+  dimension$cod_residencia = ""
+
+  dimension <- dimension[,c("cod_residencia", "Vive en residencia")]
+
+  colnames(dimension)[2] <- "tipo_residencia"
+
+  dimension <- dimension[!duplicated(dimension),]
+
+  dimension$cod_residencia <- 1:nrow(dimension)
+
+  write.table(dimension, "datos/dimension_residencia.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
+}
+
