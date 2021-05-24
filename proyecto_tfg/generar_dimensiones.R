@@ -2,6 +2,9 @@
 # Script para generar las dimensiones aplicando los casos de diseño 
 # especificados en la documentación del proyecto.
 
+setwd("C:\\Users\\UX430U\\Desktop\\TFG")
+
+
 ################################################################################
 #' Función para generar la dimensión Cuándo a partir de las fechas:
 #' - días naturales de los datos (1 dataset)
@@ -145,13 +148,19 @@ generar_dimension_cuando <- function(path_proyecto){
   # volvemos a eliminar duplicados para asegurarnos
   cuando_global <- cuando_global[!duplicated(cuando_global),]
 
-  colnames(cuando_global) <- c("fecha", "mes", "anio", "semana", "nombre_mes", "tipo_fecha" )
+  colnames(cuando_global) <- c("fecha", 
+                               "mes", 
+                               "anio", 
+                               "semana", 
+                               "nombre_mes", 
+                               "tipo_fecha" )
   
   # añadir llave generada
   cuando_global$cod_cuando <- 1:nrow(cuando_global)
   
   # almacenar dimensión 
-  write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
 
 }
 
@@ -181,7 +190,8 @@ generar_dimension_quien <- function(path_proyecto){
   dimension$cod_quien <- 1:nrow(dimension)
   
   # guardar dimension
-  write.table(dimension, "datos/dimension_quien.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(dimension, "datos/dimension_quien.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
 
@@ -208,7 +218,7 @@ generar_dimension_donde_provincia <- function(path_proyecto){
   # que "Territorio"
   colnames(provincias)[1] <- "nombre_provincia"
   
-  # enriquecimiento de la dimensión: usando directamente el fichero cod_provincias.csv
+  # enriquecimiento de la dimensión: usando directamente cod_provincias.csv
   # añadimos el código de cada provincia correspondiente
   codprov <- import("datos/cod_provincias.csv")
   
@@ -218,10 +228,14 @@ generar_dimension_donde_provincia <- function(path_proyecto){
   provincias <- left_join(provincias, codprov, by="nombre_provincia")
   
   # almacenar la tabla de la dimensión
-  write.table(provincias, "datos/dimension_donde_provincia.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(provincias, "datos/dimension_donde_provincia.csv", 
+              row.names=FALSE, col.names=TRUE, sep = ';')
 }
 
-
+################################################################################
+#' FUNCION PARA GENERAR LA TABLA DE LA DIMENSION DONDE-DS 
+#' 
+#' @param path_proyecto Es el path a la carpeta principal del proyecto.
 generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
   
   library(rio)
@@ -232,15 +246,10 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
   ds <- import("datos/residencias.csv")  
 
   # View(excel)
-  
   ds$cod_donde_ds <- ""
-
   ds <- ds[,c("Territorio", "cod_donde_ds")]  
-  
   ds <- ds[!duplicated(ds),]
-  
   colnames(ds)[1] <- "distrito_sanitario"
-
   ds$cod_donde_ds <- 1:nrow(ds)
   
   # añadimos la provincia asociada a cada DS
@@ -294,7 +303,8 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
   ds <- left_join(ds, codprov, by="nombre_provincia")
   
   # almacenar la tabla de la dimensión
-  write.table(ds, "datos/dimension_donde_ds.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(ds, "datos/dimension_donde_ds.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
 
@@ -302,19 +312,88 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
 generar_dimension_donde_municipio (path_proyecto = getwd()){
   
   library(rio)
+  library(dplyr)
+  source("proyecto_tfg/utils.R")
 
   setwd(path_proyecto)
   
   dimension <- import("datos/municipios.csv")
   
+  dimension$cod_donde_municipio = ""
+  dimension <- dimension[,c("Lugar de residencia", 
+                            "Población" ,  
+                            "cod_donde_municipio")]  
+  colnames(dimension) <- c("nombre_municipio", 
+                           "poblacion_ine", 
+                           "cod_donde_municipio" )
   
+  dimension <- dimension[!duplicated(dimension),]
+  
+  
+  # enriquecer la dimension con el código de municipio del INE
+  info_ine <- import("datos/20codmun.xlsx")
+  colnames(info_ine) <- info_ine[1,]
+  info_ine <- info_ine[-1,]    
+  info_ine <- info_ine[ (info_ine$CODAUTO == '01') ,]
+  info_ine <- info_ine[,c("CMUN", "NOMBRE")]
+  colnames(info_ine) <- c("codigo_municipio_ine", "nombre_municipio")  
+
+  # cambiar la forma de escribir los determinantes definidos al final del 
+  #  nombre del pueblo. Ejemplo: Luisiana, La --> Luisiana (La) que es como 
+  #  está en los datos del IECA 
+  info_ine$nombre_municipio <- gsub(", El", " (El)", info_ine$nombre_municipio)
+  info_ine$nombre_municipio <- gsub(", Las", " (Las)", info_ine$nombre_municipio)
+  info_ine$nombre_municipio <- gsub(", La", " (La)", info_ine$nombre_municipio)
+  info_ine$nombre_municipio <- gsub(", Los", " (Los)", info_ine$nombre_municipio)
+  
+  # añadir en info_ine el prefijo " (capital)" a los nombres de las 8 capitales
+  #  de provincia 
+  for(i in 1:nrow(info_ine)){
+    if (info_ine[i,"nombre_municipio" ] == "Almería" ||
+        info_ine[i,"nombre_municipio" ] == "Cádiz"   ||
+        info_ine[i,"nombre_municipio" ] == "Córdoba" ||
+        info_ine[i,"nombre_municipio" ] == "Granada" ||
+        info_ine[i,"nombre_municipio" ] == "Huelva"  ||
+        info_ine[i,"nombre_municipio" ] == "Jaén"    ||
+        info_ine[i,"nombre_municipio" ] == "Málaga"  ||
+        info_ine[i,"nombre_municipio" ] == "Sevilla"  ){
+      
+      capital <- concatenar_strings(c(info_ine[i,"nombre_municipio"], " (capital)"))
+      info_ine[i,"nombre_municipio"] <- capital
+    }
+  }
+  
+  # añadir codigos de municipios a la dimension con un LEFT-JOIN
+  dimension <- left_join(dimension, info_ine, by = "nombre_municipio")
+  dimension$cod_donde_municipio <- 1:nrow(dimension)
+  
+  
+  # info sobre distrito sanitario y provincia de cada municipio
+  info_dsprov <- import("datos/distritos_sanitarios.xlsx")
+  colnames(info_dsprov) <- c("nombre_municipio", 
+                             "distrito_sanitario", 
+                             "nombre_provincia")
+  
+  # añadir info extra: DS, Provincia, y cod INE de la provincia 
+  dimension <- left_join(dimension, info_dsprov, by="nombre_municipio")  
+  dimension <- left_join(dimension, codprov, by="nombre_provincia")
+  
+  # salvar dimensión en su fichero
+  write.table(dimension, "datos/dimension_donde_municipio.csv", 
+              row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
 
-
-# 
-generar_dimension_quien_vacunas <- function(path_proyecto){
+################################################################################
+#' GENERAR DIMENSION QUIEN PARA EL FICHERO DE VACUNAS
+#' 
+#' Nota: Ya teníamos una dimensión quién, con la edad y el sexo, pero solo
+#' para las residencias. Aquí tendremos solo un nivel: el de la edad, y con
+#' rangos de edad diferentes a aquellos, por lo que no podemos usar aquella 
+#' dimensión y por eso creamos esta. 
+#' @param path_proyecto Es el path a la carpeta principal del proyecto
+generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
   
   library(rio)
 
@@ -330,7 +409,8 @@ generar_dimension_quien_vacunas <- function(path_proyecto){
   dimension$cod_quien_vacunas <- 1:nrow(dimension)          
 
   # almacenar la dimension 
-  write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
 
@@ -351,7 +431,8 @@ generar_dimension_residencia(path_proyecto = getwd()){
 
   dimension$cod_residencia <- 1:nrow(dimension)
 
-  write.table(dimension, "datos/dimension_residencia.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(dimension, "datos/dimension_residencia.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
 

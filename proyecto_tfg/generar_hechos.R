@@ -15,15 +15,16 @@ generar_hechos_dias_naturales <- function(path_proyecto) {
   
   setwd(path_proyecto)
   
-  # cargar fichero plano de residencias.csv
   hechos <- import("datos/datos_dias_naturales.csv")
+  
+  # cargar dimensiones 
   dimension_cuando <- import("datos/dimension_cuando.csv")
   dimension_donde_provincia <- import("datos/dimension_donde_provincia.csv")
   
+  # seleccionar los datos de las dimensiones que nos sirven (necesario)
   hechos <- hechos[!(hechos$Territorio == "Andalucía"),]
   dimension_cuando <- dimension_cuando[!(dimension_cuando$tipo_fecha == 'Día hábil'),]
   
-    
   # normalizar nombres de columnas ("lower_case", y sin acentos)
   colnames(hechos) <- tolower(gsub(' ', '_', colnames(hechos)))
   colnames(hechos)[c(1,2)] <- c("fecha","nombre_provincia")
@@ -45,18 +46,45 @@ generar_hechos_dias_naturales <- function(path_proyecto) {
   
 }
 
+generar_hechos_dias_naturales(getwd())
 
 # HECHOS 2: Municipios
 generar_hechos_municipios <- function(path_proyecto){
   
   library(rio)
+  library(dplyr)
   
   setwd(path_proyecto)
   
   hechos <- import("datos/municipios.csv")
 
-  colnames(hechos) <- c()
+  colnames(hechos) <- c("nombre_municipio", 
+                        "poblacion", 
+                        "confirmados_pdia", 
+                        "confirmados_pdia_14d", 
+                        "tasa_confirmados_pdia_14d", 
+                        "confirmados_pdia_7d", 
+                        "total_confirmados", 
+                        "curados", 
+                        "fallecidos", 
+                        "fecha")
     
+  
+  # JOINs con las dimensiones para obtener llaves generadas
+  # dimensión cuándo
+  cuando <- import("datos/dimension_cuando.csv")
+  cuando <- cuando[(cuando$tipo_fecha == 'Día hábil'),] # solo días hábiles
+  hechos <- left_join(hechos, cuando, by='fecha') 
+  hechos <- hechos[,-c(10,11,12,13,14,15)]
+  
+  # dimension dónde
+  donde <- import("datos/dimension_donde_municipio.csv")
+  hechos <- left_join(hechos, donde, by = "nombre_municipio")  
+  hechos <- hechos[,-c(1,2,11,13,14,15,16)]
+  
+  # salvar tabla de hechos
+  write.table(hechos, "datos/hechos_municipios.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
 }
 
 
@@ -80,12 +108,11 @@ generar_hechos_residencias <- function(path_proyecto) {
                         "fallecidos", 
                         "tipo_residencia", 
                         "fecha")
-  
-  donde <- import("datos/dimension_donde_ds.csv")
 
+  
   # hacer JOINs con las dimensiones para obtener las llaves generadas
+  donde <- import("datos/dimension_donde_ds.csv")
   hechos <- left_join(hechos, donde, by="distrito_sanitario")
-    
   hechos <- hechos[,-c(1,11,12)]
   
   cuando <- import("datos/dimension_cuando.csv")
@@ -102,6 +129,36 @@ generar_hechos_residencias <- function(path_proyecto) {
   
 }
 
+
+
+# hecho4 : residencias por edad-sexo
+generar_hechos_residencias_edad_sexo <- function(path_proyecto){
+  
+  library(rio)
+  library(dplyr)
+  
+  hechos <- import("datos/residencias_edad_sexo.csv")  
+  
+  # JOIN con dimension quién
+  quien <- import("datos/dimension_quien.csv")
+  colnames(hechos) <- c("tipo_residencia", "rango_edad", "confirmados_pdia", "total_confirmados", "curados", "fallecidos", "sexo", "fecha")
+  hechos <- left_join(hechos, quien, by = c("tipo_residencia", "rango_edad", "sexo") )  
+  
+  # eliminar columnas inservibles tras la fusión
+  hechos <- hechos[,-c(1,2,7)]
+  
+  # hacer JOIN con la dimensión Cuándo 
+  cuando <- import("datos/dimension_cuando.csv")
+  cuando <- cuando[ (cuando$tipo_fecha == "Día hábil") , ]
+  hechos <- left_join(hechos, cuando, by = "fecha")
+  
+  # eliminar filas inservibles tras el join
+  hechos <- hechos[, c("confirmados_pdia", "total_confirmados", "curados", "fallecidos", "cod_quien", "cod_cuando")]
+
+  # almacenar la tabla
+  write.table(hechos, "datos/hechos_residencias_edad_sexo.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  
+}
 
 # Hechos 5: Vacunas
 generar_hechos_vacunas <- function(path_proyecto = getwd()){
