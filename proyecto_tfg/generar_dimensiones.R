@@ -158,6 +158,8 @@ generar_dimension_cuando <- function(path_proyecto){
   # añadir llave generada
   cuando_global$cod_cuando <- 1:nrow(cuando_global)
   
+  # cuando_global$fecha <- as.Date(cuando_global$fecha, format = "%d/%m/%y")
+  
   # almacenar dimensión 
   write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, 
               col.names=TRUE, sep = ';')
@@ -313,6 +315,7 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   
   library(rio)
   library(dplyr)
+  library(tidyr)
   source("proyecto_tfg/utils.R")
 
   setwd(path_proyecto)
@@ -378,6 +381,13 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   dimension <- left_join(dimension, info_dsprov, by="nombre_municipio")  
   dimension <- left_join(dimension, codprov, by="nombre_provincia")
   
+  # arreglar filas de municipios sin especificar
+  dimension <- dimension %>% fill(nombre_provincia, .direction = "down")
+  dimension <- dimension %>% fill(cod_provincia, .direction = "down")
+  dimension[ (is.na(dimension$distrito_sanitario)), "distrito_sanitario"] <- "DS no especificado"
+  dimension[ (is.na(dimension$codigo_municipio_ine)),"codigo_municipio_ine"] <- 0
+    
+  
   # salvar dimensión en su fichero
   write.table(dimension, "datos/dimension_donde_municipio.csv", 
               row.names=FALSE, col.names=TRUE, sep = ';')
@@ -420,9 +430,7 @@ generar_dimension_residencia(path_proyecto = getwd()){
   library(rio)
 
   dimension <- import("datos/residencias.csv")
-
   dimension$cod_residencia = ""
-
   dimension <- dimension[,c("cod_residencia", "Vive en residencia")]
 
   colnames(dimension)[2] <- "tipo_residencia"

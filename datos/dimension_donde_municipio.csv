@@ -102,7 +102,7 @@
 "Paterna del Río";365;101;"073";"Poniente de Almería";"Almería";4
 "Roquetas de Mar";98433;102;"079";"Poniente de Almería";"Almería";4
 "Vícar";26899;103;"102";"Poniente de Almería";"Almería";4
-"Municipio de Almería sin especificar";0;104;NA;NA;NA;NA
+"Municipio de Almería sin especificar";0;104;"0";"DS no especificado";"Almería";4
 "Algeciras";123078;105;"004";"Campo de Gibraltar Oeste";"Cádiz";11
 "Barrios (Los)";23777;106;"008";"Campo de Gibraltar Oeste";"Cádiz";11
 "Tarifa";18183;107;"035";"Campo de Gibraltar Oeste";"Cádiz";11
@@ -148,7 +148,7 @@
 "Villaluenga del Rosario";455;147;"040";"Sierra de Cádiz";"Cádiz";11
 "Villamartín";12134;148;"041";"Sierra de Cádiz";"Cádiz";11
 "Zahara";1379;149;"042";"Sierra de Cádiz";"Cádiz";11
-"Municipio de Cádiz sin especificar";0;150;NA;NA;NA;NA
+"Municipio de Cádiz sin especificar";0;150;"0";"DS no especificado";"Cádiz";11
 "Córdoba (capital)";326039;151;"021";"Córdoba (distrito)";"Córdoba";14
 "Aguilar de la Frontera";13382;152;"002";"Córdoba Sur";"Córdoba";14
 "Almedinilla";2370;153;"004";"Córdoba Sur";"Córdoba";14
@@ -227,7 +227,7 @@
 "Villanueva del Rey";1015;226;"071";"Córdoba Norte";"Córdoba";14
 "Villaralto";1118;227;"072";"Córdoba Norte";"Córdoba";14
 "Viso (El)";2517;228;"074";"Córdoba Norte";"Córdoba";14
-"Municipio de Córdoba sin especificar";0;229;NA;NA;NA;NA
+"Municipio de Córdoba sin especificar";0;229;"0";"DS no especificado";"Córdoba";14
 "Albondón";712;230;"004";"Granada Sur";"Granada";18
 "Albuñol";7353;231;"006";"Granada Sur";"Granada";18
 "Almegíjar";337;232;"016";"Granada Sur";"Granada";18
@@ -402,7 +402,7 @@
 "Zafarraya";2120;401;"192";"Metropolitano de Granada";"Granada";18
 "Zagra";885;402;"913";"Metropolitano de Granada";"Granada";18
 "Zubia (La)";19330;403;"193";"Metropolitano de Granada";"Granada";18
-"Municipio de Granada sin especificar";0;404;NA;NA;NA;NA
+"Municipio de Granada sin especificar";0;404;"0";"DS no especificado";"Granada";18
 "Alájar";759;405;"001";"Sierra de Huelva-Andévalo Central";"Huelva";21
 "Almonaster la Real";1788;406;"004";"Sierra de Huelva-Andévalo Central";"Huelva";21
 "Aracena";8255;407;"007";"Sierra de Huelva-Andévalo Central";"Huelva";21
@@ -477,7 +477,7 @@
 "Villablanca";2885;476;"073";"Huelva-Costa";"Huelva";21
 "Villanueva de las Cruces";387;477;"075";"Huelva-Costa";"Huelva";21
 "Villanueva de los Castillejos";2825;478;"076";"Huelva-Costa";"Huelva";21
-"Municipio de Huelva sin especificar";0;479;NA;NA;NA;NA
+"Municipio de Huelva sin especificar";0;479;"0";"DS no especificado";"Huelva";21
 "Alcalá la Real";21709;480;"002";"Jaén Sur";"Jaén";23
 "Alcaudete";10483;481;"003";"Jaén Sur";"Jaén";23
 "Castillo de Locubín";4049;482;"026";"Jaén Sur";"Jaén";23
@@ -575,7 +575,7 @@
 "Villacarrillo";10673;574;"095";"Jaén Nordeste";"Jaén";23
 "Villanueva del Arzobispo";8078;575;"097";"Jaén Nordeste";"Jaén";23
 "Villarrodrigo";391;576;"101";"Jaén Nordeste";"Jaén";23
-"Municipio de Jaén sin especificar";0;577;NA;NA;NA;NA
+"Municipio de Jaén sin especificar";0;577;"0";"DS no especificado";"Jaén";23
 "Alcaucín";2279;578;"002";"Axarquía";"Málaga";29
 "Alfarnate";1065;579;"003";"Axarquía";"Málaga";29
 "Alfarnatejo";364;580;"004";"Axarquía";"Málaga";29
@@ -679,7 +679,7 @@
 "Pizarra";9444;678;"080";"Valle del Guadalhorce";"Málaga";29
 "Tolox";2136;679;"090";"Valle del Guadalhorce";"Málaga";29
 "Yunquera";2869;680;"100";"Valle del Guadalhorce";"Málaga";29
-"Municipio de Málaga sin especificar";0;681;NA;NA;NA;NA
+"Municipio de Málaga sin especificar";0;681;"0";"DS no especificado";"Málaga";29
 "Albaida del Aljarafe";3201;682;"003";"Aljarafe";"Sevilla";41
 "Almensilla";6175;683;"010";"Aljarafe";"Sevilla";41
 "Aznalcázar";4588;684;"012";"Aljarafe";"Sevilla";41
@@ -791,4 +791,4 @@
 "Paradas";6857;790;"071";"Sevilla Sur";"Sevilla";41
 "Pruna";2605;791;"076";"Sevilla Sur";"Sevilla";41
 "Utrera";50962;792;"095";"Sevilla Sur";"Sevilla";41
-"Municipio de Sevilla sin especificar";0;793;NA;NA;NA;NA
+"Municipio de Sevilla sin especificar";0;793;"0";"DS no especificado";"Sevilla";41
