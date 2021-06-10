@@ -13,16 +13,18 @@
 #' las dos primeras letras, en MAYÚSCULA, del nombre de cada provincia. 
 #' 
 preparar_provincia <- function(data_xls, provincia){
+  
   codprov <- c('AL', 'CA','CO', 'GR',  'HU', 'JA', 'MA', 'SE')
   
-  fecha = format(Sys.time(), "%d/%m/%Y")  # get current date 
+  fecha <- format(Sys.time(), "%d/%m/%Y")  # get current date 
+  # fecha <- fecha_aux
 
   # import xls as dataframe in order to transform the data
   datos <- import(data_xls)
   
   # eliminar filas innecesarias y filas asociadas a los distritos sanitarios
   #  (datos agrupados) 
-  if (provincia == codprov[1]){  # almería
+  if (provincia == codprov[1]){          # almería
     datos <- datos[-c(1,2,3,4,5,8,56,98),]  
   }   else if(provincia == codprov[2]){  # cadiz
     datos <- datos[-c(1,2,3,4,5,59,60,61,62,8,12,18,31,38),] 
@@ -49,72 +51,64 @@ preparar_provincia <- function(data_xls, provincia){
   
   # add date column in order to identify the date asssociated to the data
   datos$Fecha = fecha
+  
   return(datos)
 }
 
 
 
 # ------------------------------------------------------------------------------
-# Tareas a realizar:
-#   
-# a. Get the dataset of the day.
-# b. Extract null rows and add "Fecha" (date) column with today's date 
-# c. Append the data to the general dataset of the "provincia" (csv)
-# 
-# ------------------------------------------------------------------------------
-
-
-
-preparar_datos_municipio <- function(path_dir_hoy = ""){ # recibiría 'datos/25-02', por ejemplo 
+#' Preparar datos del municipio: 
+preparar_datos_municipio <- function(path_ficheros){ 
   
   library("rio")
   library('readr')
-  library(stringr)
+  library('stringr')
   
+  # zona de pruebas
+  # setwd("C:/Users/UX430U/Desktop/TFG")                    # descomentar para pruebas
   source("proyecto_tfg/utils.R")
   
-  path_dir_hoy <- "datos/25-02"
+  # path_ficheros <- obtener_path_provincias_hoy("datos/10-06")  # cada día
   
-  path_provincias <- c(
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_04.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_11.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_14.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_18.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_21.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_23.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_29.xls")),
-    concatenar_strings(c(path_dir_hoy, "/", "Covid_41.xls")) 
-  )
+  # transformar cada dataset de cada provincia antes de unirlos  
+  # ZONA DE PRUEBAS
+  # fecha_aux <- "17/02/2021"
+  # almeria <- preparar_provincia(path_ficheros[1], 'AL', fecha_aux)
+  # cadiz   <- preparar_provincia(path_ficheros[2], 'CA', fecha_aux)
+  # cordoba <- preparar_provincia(path_ficheros[3], 'CO', fecha_aux)
+  # granada <- preparar_provincia(path_ficheros[4], 'GR', fecha_aux)
+  # huelva  <- preparar_provincia(path_ficheros[5], 'HU', fecha_aux)
+  # jaen    <- preparar_provincia(path_ficheros[6], 'JA', fecha_aux)
+  # malaga  <- preparar_provincia(path_ficheros[7], 'MA', fecha_aux)
+  # sevilla <- preparar_provincia(path_ficheros[8], 'SE', fecha_aux)
   
+  almeria <- preparar_provincia(path_ficheros[1], 'AL' )
+  cadiz   <- preparar_provincia(path_ficheros[2], 'CA' )
+  cordoba <- preparar_provincia(path_ficheros[3], 'CO' )
+  granada <- preparar_provincia(path_ficheros[4], 'GR' )
+  huelva  <- preparar_provincia(path_ficheros[5], 'HU' )
+  jaen    <- preparar_provincia(path_ficheros[6], 'JA' )
+  malaga  <- preparar_provincia(path_ficheros[7], 'MA' )
+  sevilla <- preparar_provincia(path_ficheros[8], 'SE' )
   
-  almeria <- preparar_provincia(path_provincias[1], 'AL')
-  cadiz   <- preparar_provincia(path_provincias[2], 'CA')
-  cordoba <- preparar_provincia(path_provincias[3], 'CO')
-  granada <- preparar_provincia(path_provincias[4], 'GR')
-  huelva  <- preparar_provincia(path_provincias[5], 'HU')
-  jaen    <- preparar_provincia(path_provincias[6], 'JA')
-  malaga  <- preparar_provincia(path_provincias[7], 'MA')
-  sevilla <- preparar_provincia(path_provincias[8], 'SE')
-  
-  
-  datos_globales <- rbind(almeria, cadiz, cordoba, granada, huelva, jaen, malaga, sevilla)
+  # fusionarlos 
+  datos_globales <- rbind(almeria, cadiz, cordoba, granada, 
+                          huelva, jaen, malaga, sevilla)
   
   # comprobar que solo quedan los municipios en el dataset, 
   #  más 8 registros tipo "Municipio de la provincia X sin especificar", propio 
   #  de los datos originales, y que no podemos eliminar. 
   if( nrow(datos_globales) != (785+8) ){
     stop("ERROR: Es posible que no se hayan extraído los municipios correctamente.")
-    
   }
-  
   
   # reemplazar NA (nulos) por el 0 
   datos_globales[is.na(datos_globales)] <- 0
-  #datos_globales$`Tasa PDIA 14 días` <- gsub('-', '0', datos_globales$`Tasa PDIA 14 días`)
+  datos_globales$`Tasa PDIA 14 días` <- gsub('-', 0, 
+                                             datos_globales$`Tasa PDIA 14 días`)
   
-  
-  # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
-  #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
+  # preparar dataset del día anterior para hacer la resta de casos/fallecidos...
   dataset_ayer <- "datos/ayer/municipios_ayer.csv" 
   
   if ( file.exists(dataset_ayer) ) {
@@ -131,7 +125,6 @@ preparar_datos_municipio <- function(path_dir_hoy = ""){ # recibiría 'datos/25-
     # los de el día siguiente. Se reescribe el fichero municipios_ayer.csv
     write.table(hoy, dataset_ayer , row.names=FALSE, col.names=TRUE, sep = ';')
     
-  
     # restar cada columna y modificarla en el dataset final del día de hoy 
     # columna 3: Confirmados PDIA 
     aux1 <- c(as.numeric( hoy[,3]))
@@ -160,27 +153,24 @@ preparar_datos_municipio <- function(path_dir_hoy = ""){ # recibiría 'datos/25-
     #View(hoy)
     
     # añadir al dataset de municipios los datos de hoy
-    #setwd("C:/Users/UX430U/Desktop/TFG/datos/ayer")
-    
-    dataset_historico <- "datos/municipios.csv" # datos preparados de cada día notificado
+    municipios_csv <- "datos/municipios.csv" # datos preparados de cada día notificado
     
     # sustituir los puntos por comas para trabajar con ellos en las herramientas
     # de Microsoft (SSMS/SSAS/Power BI/...)
-    hoy$`Tasa PDIA 14 días` <- str_replace(hoy$`Tasa PDIA 14 días`, '\\.',',')
+    #hoy$`Tasa PDIA 14 días` <- str_replace(hoy$`Tasa PDIA 14 días`, '\\.' , ',')
     
     
-    if( file.exists(dataset_historico) ){ 
+    if( file.exists(municipios_csv) ){ 
       print("El archivo de municipios.csv ya tiene datos, vamos a solapar los de hoy. ")
       
-      todo_municipios <- import(dataset_historico)
+      todo_municipios <- import(municipios_csv)
       todo_municipios <- rbind(todo_municipios, hoy)  #append data
-      
-      
-      write.table(todo_municipios, dataset_historico, row.names=FALSE, col.names=TRUE, sep = ';')
+       
+      write.table(todo_municipios, municipios_csv, row.names=FALSE, col.names=TRUE, sep = ';')
       
     } else {
       print("El fichero municipios.csv no existía. Lo creamos hoy. ")
-      write.table(hoy, dataset_historico, row.names=FALSE, col.names=TRUE, sep = ';')
+      write.table(hoy, municipios_csv, row.names=FALSE, col.names=TRUE, sep = ';')
     }
     
     
@@ -190,8 +180,10 @@ preparar_datos_municipio <- function(path_dir_hoy = ""){ # recibiría 'datos/25-
     
     # guardamos directamente nuestro dataset tal cual está
     print("El archivo municipios_ayer.csv no existía aún. ")
-    write.table(excel, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(datos_globales, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
-  
 }
+
+
+# preparar_datos_municipio("", path_aux = "datos/04-06",  fecha_aux = "04/06/2021")
 

@@ -14,10 +14,10 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
   
   source("proyecto_tfg/utils.R")
   
-  
-  #-setwd("C:/Users/UX430U/Desktop/TFG")
-  #-esta_fecha <- "27/04/2021"
-  
+  #setwd("C:/Users/UX430U/Desktop/TFG")
+  # esta_fecha <- "03/06/2021"
+  # path_fichero <- "datos/03-06/residencias_edad.xls"
+
   # import excel
   excel <- import(path_fichero)
   
@@ -76,7 +76,8 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
   
   # añadir columna con la fecha de hoy 
   date_today <- format(Sys.time(), "%d/%m/%Y")  # get current date 
-
+  #date_today <- esta_fecha
+  
   data_clear$V9 <- date_today 
   data_clear[1,8] <- "Fecha" 
   
@@ -85,7 +86,7 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
   colnames(data_clear) <- data_clear[1,]
   data_clear <- data_clear[-c(1),]
   
-  View(data_clear)
+  #View(data_clear)
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
   #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
@@ -130,8 +131,7 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
     aux <- aux1-aux2   #
     hoy$Fallecidos <- as.character(aux)
     
-    View(hoy)
-    
+
     # añadir al dataset de residencias_edad_sexo.csv los datos de hoy
     #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
     residencias_edadsexo_csv <- "datos/residencias_edad_sexo.csv"
@@ -161,5 +161,7 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
 
   
 } # fin de la función 
+
+
 
 

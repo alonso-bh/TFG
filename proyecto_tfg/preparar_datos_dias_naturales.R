@@ -11,7 +11,6 @@
 #' fichero XLS descargado del portal IECA. La ruta debería ser relativa (aunque
 #' si es absoluta, evidentemente, no importa) dentro de la carpeta de trabajo
 #' "TFG".  
-#' 
 preparar_datos_dias_naturales <- function(path_fichero){
   
   library('tidyr')   # para el fill

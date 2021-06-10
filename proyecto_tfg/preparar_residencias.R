@@ -8,13 +8,14 @@
 preparar_datos_residencias <- function(path_fichero){ 
 
   library('flattabler')
-  library("rio")
+  library("rio") 
   library('readr')
   
+  setwd("C:/Users/UX430U/Desktop/TFG")
+  # path_fichero <- "datos/10-06/residencias.xls"
+  # esta_fecha   <-       "10/06/2021"
+
   source("proyecto_tfg/utils.R")
-  
-  #path_fichero <- "datos/dd-mm/residencias.xls"
-  #esta_fecha <- "dd/mm/aaaa"
   
   # import excel
   excel <- import(path_fichero)
@@ -69,7 +70,6 @@ preparar_datos_residencias <- function(path_fichero){
   
   # add date (Fecha) column and fill it
   date_today <- format(Sys.time(), "%d/%m/%Y")  # get current date 
-  
   #date_today <- esta_fecha  # descomentar para pruebas 
   
   data_clear$V9 <- date_today 
@@ -153,4 +153,4 @@ preparar_datos_residencias <- function(path_fichero){
 }
 
 #setwd("C:\\Users\\UX430U\\Desktop\\TFG")
-#preparar_datos_residencias("datos/07-05/residencias.xls", "07/05/2021")
+#preparar_datos_residencias("datos/13-05/residencias.xls")

@@ -18,7 +18,7 @@ library(RCurl)
 
 # generar la carpeta para guardar los datos de hoy 
 hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
-#hoy <- "14-05"
+# hoy <- "03-06"
 nombre_carpeta <- concatenar_strings(c("datos/", hoy))
 nombre_carpeta
 dir.create(nombre_carpeta)
@@ -123,10 +123,10 @@ source("proyecto_tfg/preparar_datos_profesionales.R")
 source("proyecto_tfg/preparar_datos_vacunacion_basicos.R")
 
 
-preparar_datos_municipio(path_provincias) 
+#preparar_datos_municipio(path_provincias) 
 preparar_datos_residencias_edad_sexo(path_residencias_edad_sexo)
 preparar_datos_dias_naturales(path_dias_naturales) 
-preparar_datos_residencias(path_residencias)
+#preparar_datos_residencias(path_residencias)
 preparar_datos_profesionales(path_profesionales)
-preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
+# preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
 

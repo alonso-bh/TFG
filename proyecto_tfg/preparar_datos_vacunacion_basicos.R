@@ -9,14 +9,14 @@
 #' @param tipo es el tipo de dataset; toma los valores:
 #'     'I' : dataset pauta incompleta
 #'     'C' : dataset pauta completa
-tabla_plana <- function(datos, tipo){
+tabla_plana <- function(datos, tipo, version){
   
   library(stringr)
   
-  #datos  <- import("datos/17-05/datos_pauta_incompleta.xls")
-  #datos  <- import("datos/17-05/datos_pauta_completa.xls")
+  # datos  <- import("datos/01-06/datos_pauta_incompleta.xls")
+  # datos  <- import("datos/31-05/datos_pauta_completa.xls")
   
-  # Borrar filas inicialesy finales nulas
+  # Borrar filas iniciales y finales nulas
   datos <- datos[-c(1:6),]
   #completa   <- completa[-c(1:6),] 
   
@@ -32,10 +32,44 @@ tabla_plana <- function(datos, tipo){
   edades <- datos[1,]
   edades <- edades[!is.na(edades)]
   
-  # borrar dos primeras filas
-  datos <- datos[-c(1,2),]
+  # cambios en función del tipo de dataset: 
+  # - versión 1: basta con eliminar las filas de cabecera (para desdinamizar)
+  # - versión 2: - lo mismo que en versión 1 
+  #              - fusionar rangos nuevos al antiguo (caso SCD) 
+  if(version == 2){
+    
+    edades <- gsub("De 25 a 39", "De 25 a 49", edades)
+    
+    for(i in 1:length(edades)){
+      if (grepl("^De 40 a 49", edades[i])){    # uso de Expr.Regs. y grepl (lib. base-R)
+        edades <- edades[-i]
+      }
+    }
+    
+    # borrar dos primeras filas
+    datos <- datos[-c(1,2),]
+    
+    # sumamos los valores de ambos rangos (columnas 10-11 y 12-13) por separado,
+    # y las colocamos en el lugar de las anteriores
+    rango1_num  <- datos[,10]
+    rango1_porc <- datos[,11]
+    rango2_num  <- datos[,12]
+    rango2_porc <- datos[,13]
+
+    # añadir nuevos datos en la posición que irían en el formato "antiguo"
+    datos[,10] <- as.numeric(rango1_num)  + as.numeric(rango2_num)
+    datos[,11] <- as.numeric(rango1_porc) + as.numeric(rango2_porc)
+    
+    # eliminar las columnas "sobrantes" (rango2)
+    datos <- datos[,-c(12,13)]
+    
+  } else if (version == 1){
+    datos <- datos[-c(1,2),]
+  }
+
   #completa <- completa[-c(1,2),]
   
+  # en función de la versión, tenemos que añadir una columna u otra
   # desdinamizar el dataset de la paunta datos
   grupo1 <- datos[,c(1,2,3)]
   grupo2 <- datos[,c(1,4,5)]
@@ -62,7 +96,6 @@ tabla_plana <- function(datos, tipo){
     cabecera <- c("Provincia", "Num personas con pauta completa", "% personas con pauta completa", "Edad")
   }
   
-  
   # solapar fragmentos en cada dataset: 'completa' e 'datos'
   colnames(grupo1) <- cabecera
   colnames(grupo2) <- cabecera
@@ -77,10 +110,10 @@ tabla_plana <- function(datos, tipo){
                  grupo5, grupo6, grupo7, grupo8 )
   
   return (datos)
-  
 }
 
 
+################################################################################
 #' FUNCION PARA PROCESAR LOS DATOS DE VACUNACIÓN USADOS
 #' 
 #' Recibe un array básico -c()- con dos cadenas de caracteres: 
@@ -92,18 +125,19 @@ tabla_plana <- function(datos, tipo){
 preparar_datos_vacunacion_basicos <- function(paths_vacunacion){
   
   library(rio)
+  library(tidyr)
+  library(dplyr)
   
-  #setwd("C:/Users/UX430U/Desktop/TFG")  # descomentar para pruebas 
-  
-  #incompleta  <- import("datos/17-05/datos_pauta_incompleta.xls")
-  #completa    <- import("datos/17-05/datos_pauta_completa.xls")
-  
+  # setwd("C:/Users/UX430U/Desktop/TFG")
+  # incompleta  <- import("datos/02-06/datos_pauta_incompleta.xls")
+  # completa    <- import("datos/02-06/datos_pauta_completa.xls")
+
   incompleta <- import(paths_vacunacion[1])
   completa   <- import(paths_vacunacion[2])
   
   # procesar tablas
-  incompleta <- tabla_plana (incompleta, 'i')
-  completa   <- tabla_plana (  completa, 'c')
+  incompleta <- tabla_plana (incompleta, 'i', 2)
+  completa   <- tabla_plana (  completa, 'c', 2)
   
   # fusionar tablas horizontalmente 
   
@@ -114,7 +148,7 @@ preparar_datos_vacunacion_basicos <- function(paths_vacunacion){
   
   # añadir columna con la fecha de hoy
   fecha = format(Sys.time(), "%d/%m/%Y")  # get current date 
-  # fecha <- "17/05/2021"
+  # fecha <- "01/06/2021"
   datos_globales$Fecha <- fecha
   
   # restar los datos del día anterior para ver los valores netos de hoy

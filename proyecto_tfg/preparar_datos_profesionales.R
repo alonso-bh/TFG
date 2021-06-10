@@ -15,10 +15,10 @@ preparar_datos_profesionales <- function(path_fichero){
   library('readr')
   library("rio")
   library("tidyr") 
-  
-  esta_fecha <- "11/05/2021"
-  #path_fichero <- "datos/05-05/profesionales.xls"
-  
+# 
+#   esta_fecha <- "03/06/2021"
+#   path_fichero <- "datos/03-06/profesionales.xls"
+
   # import excel
   excel <- import(path_fichero)
   
@@ -39,7 +39,7 @@ preparar_datos_profesionales <- function(path_fichero){
   
   # añadir columna con la fecha de hoy (notificación)
   date_today <- format(Sys.Date(), "%d/%m/%Y")  # get current date 
-  date_today <- esta_fecha # descomentar para pruebas 
+  #date_today <- esta_fecha # descomentar para pruebas 
   
   excel$Fecha <- date_today
   

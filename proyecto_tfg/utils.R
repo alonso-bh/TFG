@@ -3,9 +3,8 @@
 
 
 
-
 ################################################################################
-#' FUNCION PARA CONCATENAR DOS CADENAS DE CARACTERES
+#' FUNCION PARA CONCATENAR CADENAS DE CARACTERES
 #' 
 #' Recibe una lista de cadenas de caracteres y devuelve una nueva cadena 
 #' de caracteres con la concatenación, sin ningún separador entre 

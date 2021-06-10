@@ -5,7 +5,7 @@
 
 #setwd("C:\\Users\\UX430U\\Desktop\\TFG")
 
-
+################################################################################
 # HECHOS 1: Días naturales
 generar_hechos_dias_naturales <- function(path_proyecto) {
   
@@ -46,13 +46,16 @@ generar_hechos_dias_naturales <- function(path_proyecto) {
   
 }
 
-generar_hechos_dias_naturales(getwd())
+# generar_hechos_dias_naturales(getwd())
 
+
+################################################################################
 # HECHOS 2: Municipios
 generar_hechos_municipios <- function(path_proyecto){
   
   library(rio)
   library(dplyr)
+  library(stringr)
   
   setwd(path_proyecto)
   
@@ -66,7 +69,7 @@ generar_hechos_municipios <- function(path_proyecto){
                         "confirmados_pdia_7d", 
                         "total_confirmados", 
                         "curados", 
-                        "fallecidos", 
+                        "fallecidos",
                         "fecha")
     
   
@@ -82,12 +85,25 @@ generar_hechos_municipios <- function(path_proyecto){
   hechos <- left_join(hechos, donde, by = "nombre_municipio")  
   hechos <- hechos[,-c(1,2,11,13,14,15,16)]
   
+  # reduciendo decimales de la tasa
+  # hechos$tasa_confirmados_pdia_14d <- str_replace(hechos$tasa_confirmados_pdia_14d , ',' , '\\.')
+  hechos$tasa_confirmados_pdia_14d <- as.double(hechos$tasa_confirmados_pdia_14d)
+  hechos$tasa_confirmados_pdia_14d <- round(hechos$tasa_confirmados_pdia_14d, digits = 2)
+  hechos$tasa_confirmados_pdia_14d <- str_replace(hechos$tasa_confirmados_pdia_14d , '\\.' , ',')  
+  
+  # revisar que no haya nulos en las mediciones
+  hechos[ (is.na(hechos$tasa_confirmados_pdia_14d)) , "tasa_confirmados_pdia_14d"] <- 0
+  
   # salvar tabla de hechos
-  write.table(hechos, "datos/hechos_municipios.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(hechos, "datos/hechos_municipios.csv", quote = FALSE, row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
+# generar_hechos_municipios("C:/Users/UX430U/Desktop/TFG")
 
+
+
+################################################################################
 # HECHOS 3: Residencias geográfico
 generar_hechos_residencias <- function(path_proyecto) {
   
@@ -130,7 +146,10 @@ generar_hechos_residencias <- function(path_proyecto) {
 }
 
 
+# generar_hechos_residencias(getwd())
 
+
+################################################################################
 # hecho4 : residencias por edad-sexo
 generar_hechos_residencias_edad_sexo <- function(path_proyecto){
   
@@ -152,7 +171,7 @@ generar_hechos_residencias_edad_sexo <- function(path_proyecto){
   cuando <- cuando[ (cuando$tipo_fecha == "Día hábil") , ]
   hechos <- left_join(hechos, cuando, by = "fecha")
   
-  # eliminar filas inservibles tras el join
+  # eliminar columnas inservibles tras el join
   hechos <- hechos[, c("confirmados_pdia", "total_confirmados", "curados", "fallecidos", "cod_quien", "cod_cuando")]
 
   # almacenar la tabla
@@ -160,8 +179,12 @@ generar_hechos_residencias_edad_sexo <- function(path_proyecto){
   
 }
 
+# generar_hechos_residencias_edad_sexo(getwd())
+
+
+################################################################################
 # Hechos 5: Vacunas
-generar_hechos_vacunas <- function(path_proyecto = getwd()){
+generar_hechos_vacunas <- function(path_proyecto){
   
   library(rio)
   library(dplyr)
@@ -177,7 +200,7 @@ generar_hechos_vacunas <- function(path_proyecto = getwd()){
                         "n_personas_pauta_completa", 
                         "%personas_pauta_completa", 
                         "fecha")
-
+  
   # hacer los JOIN con las dimensiones participantes de este foco de atención:
   
   # dimensión cuándo
@@ -200,3 +223,6 @@ generar_hechos_vacunas <- function(path_proyecto = getwd()){
   write.table(hechos, "datos/hechos_vacunas.csv", row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
+
+
+# generar_hechos_vacunas(getwd())

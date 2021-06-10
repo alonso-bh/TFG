@@ -163,8 +163,9 @@ generar_dimension_cuando <- function(path_proyecto){
   # almacenar dimensión 
   write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, 
               col.names=TRUE, sep = ';')
-
 }
+
+# generar_dimension_cuando("C:/Users/UX430U/Desktop/TFG/")
 
 
 ################################################################################
@@ -194,8 +195,8 @@ generar_dimension_quien <- function(path_proyecto){
   # guardar dimension
   write.table(dimension, "datos/dimension_quien.csv", row.names=FALSE, 
               col.names=TRUE, sep = ';')
-  
 }
+
 
 
 ################################################################################
