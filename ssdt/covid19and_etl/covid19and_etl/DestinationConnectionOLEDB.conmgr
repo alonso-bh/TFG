@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DestinationConnectionOLEDB"
+  DTS:DTSID="{CA918517-1519-4F0E-AB2E-2AD36EDE27EE}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-BJ5E84H;Initial Catalog=covid19and;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
