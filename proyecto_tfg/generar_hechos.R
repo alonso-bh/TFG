@@ -220,7 +220,8 @@ generar_hechos_vacunas <- function(path_proyecto){
   hechos <- hechos[,-3]
   
   # una vez preparada la tabla de hechos, la almacenamos
-  write.table(hechos, "datos/hechos_vacunas.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(hechos, "datos/hechos_vacunas.csv", row.names=FALSE, quote = FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
 
