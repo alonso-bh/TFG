@@ -1,9 +1,9 @@
 "rango_edad";"cod_quien_vacunas";"adultos"
-"De 80 y más años";1;FALSE
-"De 70 a 79 años";2;FALSE
-"De 60 a 69 años";3;FALSE
-"De 50 a 59 años";4;FALSE
-"De 25 a 49 años";5;FALSE
-"De 18 a 24 años";6;FALSE
-"De 16 a 17 años";7;TRUE
-"Menores de 16 años";8;TRUE
+"De 80 y más años";1;TRUE
+"De 70 a 79 años";2;TRUE
+"De 60 a 69 años";3;TRUE
+"De 50 a 59 años";4;TRUE
+"De 25 a 49 años";5;TRUE
+"De 18 a 24 años";6;TRUE
+"De 16 a 17 años";7;FALSE
+"Menores de 16 años";8;FALSE
