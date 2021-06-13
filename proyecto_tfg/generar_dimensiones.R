@@ -2,7 +2,7 @@
 # Script para generar las dimensiones aplicando los casos de diseño 
 # especificados en la documentación del proyecto.
 
-setwd("C:\\Users\\UX430U\\Desktop\\TFG")
+#setwd("C:\\Users\\UX430U\\Desktop\\TFG")
 
 
 ################################################################################
@@ -14,7 +14,7 @@ setwd("C:\\Users\\UX430U\\Desktop\\TFG")
 #' que necesitamos). 
 generar_dimension_cuando <- function(path_proyecto){
   
-  library(rio)
+  library('rio')
   library('readr')
   
   setwd(path_proyecto)
@@ -161,8 +161,8 @@ generar_dimension_cuando <- function(path_proyecto){
   # cuando_global$fecha <- as.Date(cuando_global$fecha, format = "%d/%m/%y")
   
   # almacenar dimensión 
-  write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, 
-              col.names=TRUE, sep = ';')
+  write.table(cuando_global, "datos/dimension_cuando2.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';', quote = FALSE)
 }
 
 # generar_dimension_cuando("C:/Users/UX430U/Desktop/TFG/")
@@ -419,10 +419,18 @@ generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
 
   dimension$cod_quien_vacunas <- 1:nrow(dimension)          
 
+  # añadimos el nivel "mayores de edad"
+  dimension$adultos <- TRUE
+  for(i in 1:nrow(dimension)){
+    if( grepl( "^Menores de 16", dimension[i,"rango_edad"]) | 
+        grepl( "^De 16 a 17", dimension[i,"rango_edad"] ) ){
+      dimension[i,"adultos"] <- FALSE
+    }
+  }
+  
   # almacenar la dimension 
   write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, 
               col.names=TRUE, sep = ';')
-  
 }
 
 
