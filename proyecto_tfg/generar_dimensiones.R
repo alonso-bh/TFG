@@ -194,7 +194,7 @@ generar_dimension_quien <- function(path_proyecto){
   
   # guardar dimension
   write.table(dimension, "datos/dimension_quien.csv", row.names=FALSE, 
-              col.names=TRUE, sep = ';')
+              quote = FALSE , col.names=TRUE, sep = ';')
 }
 
 
@@ -232,7 +232,7 @@ generar_dimension_donde_provincia <- function(path_proyecto){
   
   # almacenar la tabla de la dimensión
   write.table(provincias, "datos/dimension_donde_provincia.csv", 
-              row.names=FALSE, col.names=TRUE, sep = ';')
+              quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
 }
 
 ################################################################################
@@ -307,7 +307,7 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
   
   # almacenar la tabla de la dimensión
   write.table(ds, "datos/dimension_donde_ds.csv", row.names=FALSE, 
-              col.names=TRUE, sep = ';')
+              quote = FALSE , col.names=TRUE, sep = ';')
   
 }
 
@@ -391,7 +391,7 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   
   # salvar dimensión en su fichero
   write.table(dimension, "datos/dimension_donde_municipio.csv", 
-              row.names=FALSE, col.names=TRUE, sep = ';')
+              quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
@@ -430,7 +430,7 @@ generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
   
   # almacenar la dimension 
   write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, 
-              col.names=TRUE, sep = ';')
+              quote = FALSE , col.names=TRUE, sep = ';')
 }
 
 
@@ -449,7 +449,7 @@ generar_dimension_residencia(path_proyecto = getwd()){
   dimension$cod_residencia <- 1:nrow(dimension)
 
   write.table(dimension, "datos/dimension_residencia.csv", row.names=FALSE, 
-              col.names=TRUE, sep = ';')
+              quote = FALSE , col.names=TRUE, sep = ';')
   
 }
 

@@ -42,7 +42,7 @@ generar_hechos_dias_naturales <- function(path_proyecto) {
   hechos <- hechos[,-c(1,9)]
   
   # almacenar esta tabla de hechos
-  write.table(hechos, "datos/hechos_dias_naturales.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(hechos, "datos/hechos_dias_naturales.csv", quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
@@ -141,7 +141,7 @@ generar_hechos_residencias <- function(path_proyecto) {
   hechos <- left_join(hechos, residencia_dim, by = "tipo_residencia")
   hechos <- hechos[,-7]    
   
-  write.table(hechos, "datos/hechos_residencias.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(hechos, "datos/hechos_residencias.csv", quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
@@ -175,7 +175,7 @@ generar_hechos_residencias_edad_sexo <- function(path_proyecto){
   hechos <- hechos[, c("confirmados_pdia", "total_confirmados", "curados", "fallecidos", "cod_quien", "cod_cuando")]
 
   # almacenar la tabla
-  write.table(hechos, "datos/hechos_residencias_edad_sexo.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(hechos, "datos/hechos_residencias_edad_sexo.csv", row.names=FALSE, col.names=TRUE, quote = FALSE , sep = ';')
   
 }
 
