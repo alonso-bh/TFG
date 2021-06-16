@@ -6,6 +6,24 @@
     <Name>covid19and_olap.database</Name>
     <FullPath>covid19and_olap.database</FullPath>
   </Database>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Residencia.dim</Name>
+      <FullPath>Residencia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dónde Provincia.dim</Name>
+      <FullPath>Dónde Provincia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dónde DS.dim</Name>
+      <FullPath>Dónde DS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Quién Vacunas.dim</Name>
+      <FullPath>Quién Vacunas.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
   <DataSources>
     <ProjectItem>
       <Name>Covid19and.ds</Name>
