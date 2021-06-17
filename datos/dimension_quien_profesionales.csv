@@ -1,0 +1,21 @@
+sexo;categoria_profesional;cod_quien_profesionales
+Hombres;Sanitario en centro sanitario;1
+Hombres;Sanitario en centro sociosanitario;2
+Hombres;Sanitario en otro centro;3
+Hombres;No sanitario en centro sanitario;4
+Hombres;No sanitario en centro sociosanitario;5
+Hombres;Atención al público;6
+Hombres;Fuerzas Armadas y Cuerpos de Seguridad;7
+Hombres;Personal de ayuda a domicilio;8
+Hombres;Personal de oficina de farmacia;9
+Hombres;Otra profesión de riesgo;10
+Mujeres;Sanitario en centro sanitario;11
+Mujeres;Sanitario en centro sociosanitario;12
+Mujeres;Sanitario en otro centro;13
+Mujeres;No sanitario en centro sanitario;14
+Mujeres;No sanitario en centro sociosanitario;15
+Mujeres;Atención al público;16
+Mujeres;Fuerzas Armadas y Cuerpos de Seguridad;17
+Mujeres;Personal de ayuda a domicilio;18
+Mujeres;Personal de oficina de farmacia;19
+Mujeres;Otra profesión de riesgo;20
