@@ -227,3 +227,40 @@ generar_hechos_vacunas <- function(path_proyecto){
 
 
 # generar_hechos_vacunas(getwd())
+
+
+generar_hechos_profesionales <- function (path_proyecto = getwd()){
+  
+  library(rio)
+  
+  hechos <- import("datos/profesionales.csv")
+
+  colnames(hechos) <- c("sexo",
+                        "categoria_profesional",
+                        "confirmados_pdia",
+                        "confirmados_pdia_14d",
+                        "confirmados_pdia_7d",
+                        "total_confirmados", 
+                        "fallecidos",
+                        "curados",
+                        "fecha")  
+  
+  # hacer JOINs con dimensiones QUIEN-PROFESIONALES Y CUANDO
+  library(dplyr)
+  
+  # dimensión cuándo
+  cuando <- import("datos/dimension_cuando.csv")
+  cuando <- cuando[(cuando$tipo_fecha == 'Día hábil'),] # solo días hábiles
+  hechos <- left_join(hechos, cuando, by='fecha') 
+  hechos <- hechos[,-c(9,10,11,12,13,14)]
+
+  # JOIN con dimension quién-profesional
+  quien <- import("datos/dimension_quien_profesionales.csv")
+  hechos <- left_join(hechos, quien)
+  hechos <- hechos[,-c(1,2)]      
+  
+  # guardar en CSV la tabla de hechos
+  write.table(hechos, "datos/hechos_profesionales.csv", row.names=FALSE, 
+              quote = FALSE, col.names=TRUE, sep = ';')
+
+} 

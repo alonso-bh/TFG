@@ -17,7 +17,7 @@ generar_dimension_cuando <- function(path_proyecto){
   library('rio')
   library('readr')
   
-  setwd(path_proyecto)
+  # setwd(path_proyecto)
   # setwd("C:\\Users\\UX430U\\Desktop\\TFG")
   
   cuando <- import("datos/datos_dias_naturales.csv")
@@ -178,7 +178,7 @@ generar_dimension_quien <- function(path_proyecto){
   
   library("rio")
   
-  setwd(path_proyecto)
+  # setwd(path_proyecto)
   
   dimension <- import("datos/residencias_edad_sexo.csv")
   
@@ -204,7 +204,7 @@ generar_dimension_donde_provincia <- function(path_proyecto){
   
   library(rio)
   
-  setwd(path_proyecto)
+  # setwd(path_proyecto)
   
   provincias <- import("datos/datos_dias_naturales.csv")
   provincias$cod_donde_provincia <- " "
@@ -244,7 +244,7 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
   library(rio)
 
   #path_proyecto <- "C:/Users/UX430U/Desktop/TFG"  # descomentar para pruebas 
-  setwd(path_proyecto)
+  # setwd(path_proyecto)
   
   ds <- import("datos/residencias.csv")  
 
@@ -319,7 +319,7 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   library(tidyr)
   source("proyecto_tfg/utils.R")
 
-  setwd(path_proyecto)
+  # setwd(path_proyecto)
   
   dimension <- import("datos/municipios.csv")
   
@@ -453,3 +453,30 @@ generar_dimension_residencia(path_proyecto = getwd()){
   
 }
 
+
+
+generar_dimension_quien_profesionales <- function(path_proyecto = getwd()){
+  
+  library(rio)
+  #setwd(path_proyecto)
+  
+  # importar la tabla con los datos de profesionales
+  dimension <- import("datos/profesionales.csv")
+
+  # quedarnos con las columnas de la dimensión: rango edad y tipo de sanitario
+  dimension <- dimension[,c(1,2)]
+  
+  # cambiar los nombrse de las cols
+  colnames(dimension) <- c("sexo", "categoria_profesional")
+  
+  # eliminar filas repetidas (recordemos que estamos en una dimensión)
+  dimension <- dimension[!duplicated(dimension),]
+  
+  # añadir la llave generada
+  dimension$cod_quien_profesionales <- 1:nrow(dimension)
+  
+  # almacenar dimensión en formato CSV 
+  write.table(dimension, "datos/dimension_quien_profesionales.csv", row.names=FALSE, 
+              quote = FALSE , col.names=TRUE, sep = ';')
+  
+}
