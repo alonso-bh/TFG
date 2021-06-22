@@ -12,8 +12,8 @@ preparar_datos_residencias <- function(path_fichero){
   library('readr')
   
   setwd("C:/Users/UX430U/Desktop/TFG")
-  # path_fichero <- "datos/10-06/residencias.xls"
-  # esta_fecha   <-       "10/06/2021"
+  # path_fichero <- "datos/22-06/residencias.xls"
+  # esta_fecha   <-       "22/06/2021"
 
   source("proyecto_tfg/utils.R")
   
@@ -28,7 +28,21 @@ preparar_datos_residencias <- function(path_fichero){
   # remove aggregation rows (data for Andalucia and Provincias)
   colnames(excel) <- list("V1","V2","V3","V4","V5","V6","V7", "V8", "V9", "V10", "V11", "V12", "V13")  # simplify columns name of dataset
   
-  residencias_today<-excel[!(excel$V1=="Andalucía" | excel$V1=="Almería" | excel$V1=="Cádiz" | excel$V1=="Huelva" | excel$V1=="Sevilla" | excel$V1=="Jaén" | excel$V1=="Granada" | excel$V1=="Córdoba" | excel$V1=="Málaga"),]
+  # eliminar filas con valores acumulados (de provincia y de la CA)
+  excel <- excel[-2,]                       # eliminar fila de Andalucía 
+  provincias <- import("datos/cod_provincias.csv")
+  provincias <- provincias$nombre_provincia
+  residencias_today <- excel[! is.element(excel$V1, provincias), ]
+  
+  # residencias_today<-excel[!(excel$V1=="Andalucía" | 
+  #                              excel$V1=="Almería" | 
+  #                              excel$V1=="Cádiz" | 
+  #                              excel$V1=="Huelva" | 
+  #                              excel$V1=="Sevilla" | 
+  #                              excel$V1=="Jaén" | 
+  #                              excel$V1=="Granada" | 
+  #                              excel$V1=="Córdoba" | 
+  #                              excel$V1=="Málaga"), ]
   
   # ---------------------------------
   # Ahora podemos hacer "unpivot" sobre la tabla para borrar la cabecera con el 
@@ -140,7 +154,7 @@ preparar_datos_residencias <- function(path_fichero){
       print("No existía aún el fichero residencias.csv. Lo creamos hoy. ")
       write.table(hoy, residencias_csv, row.names=FALSE, col.names=TRUE, sep = ';')
     }
-  
+    
     
   } else{ 
     # esto solo ocurre una vez, con el primer día del que tengamos datos, y 
