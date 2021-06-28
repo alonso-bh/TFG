@@ -23,6 +23,22 @@
       <Name>Quién Vacunas.dim</Name>
       <FullPath>Quién Vacunas.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Quién Profesionales.dim</Name>
+      <FullPath>Quién Profesionales.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Quién.dim</Name>
+      <FullPath>Quién.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dónde Municipio.dim</Name>
+      <FullPath>Dónde Municipio.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cuándo.dim</Name>
+      <FullPath>Cuándo.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>

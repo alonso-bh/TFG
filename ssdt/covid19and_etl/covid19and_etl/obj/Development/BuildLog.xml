@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>covid19and_etl</Name>
-    <LastWriteTime>2021-06-13T22:30:11.5902022Z</LastWriteTime>
+    <LastWriteTime>2021-06-28T21:08:02.47923Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -17,11 +17,6 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>importar_hechos_municipios.dtsx</Name>
-      <LastWriteTime>2021-06-10T23:54:13.54063Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
       <Name>importar_hechos_residencias.dtsx</Name>
       <LastWriteTime>2021-06-10T23:54:35.1968335Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
@@ -32,18 +27,8 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>importar_dimension_cuando.dtsx</Name>
-      <LastWriteTime>2021-06-13T09:47:51.3944794Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
       <Name>importar_dimension_donde_ds.dtsx</Name>
       <LastWriteTime>2021-06-13T09:48:01.1603098Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>importar_dimension_donde_municipio.dtsx</Name>
-      <LastWriteTime>2021-06-13T09:48:08.6286427Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -69,6 +54,31 @@
     <ProjectBuildItemInfo>
       <Name>importar_hechos_vacunas.dtsx</Name>
       <LastWriteTime>2021-06-13T22:00:35.7757946Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>importar_dimension_quien_profesionales.dtsx</Name>
+      <LastWriteTime>2021-06-19T10:27:27.5651771Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>importar_hechos_profesionales.dtsx</Name>
+      <LastWriteTime>2021-06-19T10:27:57.6120868Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>importar_dimension_donde_municipio.dtsx</Name>
+      <LastWriteTime>2021-06-24T15:17:30.9756395Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>importar_hechos_municipios.dtsx</Name>
+      <LastWriteTime>2021-06-24T15:17:37.0719809Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>importar_dimension_cuando.dtsx</Name>
+      <LastWriteTime>2021-06-28T21:07:56.0519186Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/13/2021 2:14:34 AM"
+  DTS:CreationDate="6/28/2021 11:05:24 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="DESKTOP-BJ5E84H"
   DTS:CreatorName="DESKTOP-BJ5E84H\aulas"
   DTS:Description="SSIS Package Description"
-  DTS:DTSID="{4A2CAB08-5871-4C02-8ED1-0B09930FA8DC}"
+  DTS:DTSID="{140CA4E1-81C0-414F-943D-F23075405DD7}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.5058.0"
   DTS:LocaleID="3082"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="importar_dimension_cuando"
-  DTS:VersionGUID="{FE573CD8-5AB4-465E-888E-53512B57EB52}">
+  DTS:VersionGUID="{146ACF2D-0157-4C41-BE8C-FDEEFE229D1B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{8F3DB9C2-2C33-4CEE-BAD8-20CE5C5CE249}"
+      DTS:DTSID="{2F925BD8-908B-4984-A1EF-CFA188F0A729}"
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{1EEC4B3C-51A6-4C06-B61D-F3632EFE71DE}"
+      DTS:DTSID="{32C71EBE-28C1-4116-94EB-0CD76CFC84E3}"
       DTS:ObjectName="SourceConnectionFlatFile">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -48,7 +48,7 @@
               DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="fecha"
-              DTS:DTSID="{9FCB8439-5541-45B2-B5DA-100C79C6DEA0}"
+              DTS:DTSID="{E185BB1F-D217-44F8-BB64-545967205BC3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="16"
               DTS:TextQualified="True"
               DTS:ObjectName="mes"
-              DTS:DTSID="{64B6A5AC-5591-448A-8F16-9E06EAED5B2F}"
+              DTS:DTSID="{BC94DFD7-B50A-4D02-9666-E80B74E7C250}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +64,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="anio"
-              DTS:DTSID="{08B0AACA-0B09-4E51-9779-12DD3144F7C0}"
+              DTS:DTSID="{6B6E2EB5-1D79-49D6-A735-8F3C0B8B1A43}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="16"
               DTS:TextQualified="True"
               DTS:ObjectName="semana"
-              DTS:DTSID="{EFA4F464-7B79-4F8A-9810-13C6FDA7B6F7}"
+              DTS:DTSID="{D3EED0A3-3EB6-4670-A230-9F668E2F248D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,16 +81,23 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="nombre_mes"
-              DTS:DTSID="{D8B4AD94-E6F2-43D6-B86D-703D27AB1715}"
+              DTS:DTSID="{39A2ACC1-072E-4865-8DE4-7935051BB7D5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="11"
-              DTS:DataType="129"
+              DTS:DataType="11"
               DTS:TextQualified="True"
-              DTS:ObjectName="tipo_fecha"
-              DTS:DTSID="{0ED6F483-43C2-4545-BC97-4A3EA81D76B7}"
+              DTS:ObjectName="es_dia_natural"
+              DTS:DTSID="{37E0D362-5D2E-473A-85DF-6DDC268C57D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="es_dia_habil"
+              DTS:DTSID="{6AE4E4C0-9990-493C-A429-187C60537980}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -98,7 +105,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_cuando"
-              DTS:DTSID="{C8C969F7-AE01-42FD-9010-BFDBCBA0289D}"
+              DTS:DTSID="{05116088-219A-4B3D-AAB7-A7199301E612}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -111,7 +118,7 @@
       DTS:refId="Package\Data Flow Task 1"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:DelayValidation="True"
-      DTS:DTSID="{1547FE99-7229-44BD-913A-FE32AE5B8176}"
+      DTS:DTSID="{6D5C6AE5-9934-4F7E-A35A-BF8D64EF5A64}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -329,13 +336,17 @@
                       externalMetadataColumnId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[nombre_mes]"
                       lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[nombre_mes]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].Columns[tipo_fecha]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="11"
-                      cachedName="tipo_fecha"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[tipo_fecha]"
-                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[tipo_fecha]" />
+                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].Columns[es_dia_natural]"
+                      cachedDataType="bool"
+                      cachedName="es_dia_natural"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[es_dia_natural]"
+                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_natural]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].Columns[es_dia_habil]"
+                      cachedDataType="bool"
+                      cachedName="es_dia_habil"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[es_dia_habil]"
+                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_habil]" />
                     <inputColumn
                       refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].Columns[cod_cuando]"
                       cachedDataType="i2"
@@ -368,11 +379,13 @@
                       length="30"
                       name="nombre_mes" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[tipo_fecha]"
-                      codePage="1252"
-                      dataType="str"
-                      length="11"
-                      name="tipo_fecha" />
+                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[es_dia_natural]"
+                      dataType="bool"
+                      name="es_dia_natural" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[es_dia_habil]"
+                      dataType="bool"
+                      name="es_dia_habil" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - dimension_cuando.Inputs[Destination Input].ExternalColumns[cod_cuando]"
                       dataType="i2"
@@ -539,15 +552,33 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[tipo_fecha]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_natural]"
+                      dataType="bool"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[tipo_fecha]"
-                      length="11"
-                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[tipo_fecha]"
-                      name="tipo_fecha"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[es_dia_natural]"
+                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_natural]"
+                      name="es_dia_natural"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_habil]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[es_dia_habil]"
+                      lineageId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].Columns[es_dia_habil]"
+                      name="es_dia_habil"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -606,11 +637,13 @@
                       length="30"
                       name="nombre_mes" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[tipo_fecha]"
-                      codePage="1252"
-                      dataType="str"
-                      length="11"
-                      name="tipo_fecha" />
+                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[es_dia_natural]"
+                      dataType="bool"
+                      name="es_dia_natural" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[es_dia_habil]"
+                      dataType="bool"
+                      name="es_dia_habil" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Source - dimension_cuando_csv.Outputs[Flat File Source Output].ExternalColumns[cod_cuando]"
                       dataType="i2"
@@ -665,7 +698,7 @@
     <DTS:Executable
       DTS:refId="Package\Drop table(s) SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{B3A3F155-6BF2-45A2-A258-354083EC7F8F}"
+      DTS:DTSID="{0AC30012-BE04-4167-A3AB-A90F6C5EB9C1}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Drop table(s) SQL Task 1"
@@ -674,14 +707,14 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8F3DB9C2-2C33-4CEE-BAD8-20CE5C5CE249}"
+          SQLTask:Connection="{2F925BD8-908B-4984-A1EF-CFA188F0A729}"
           SQLTask:SqlStatementSource="drop table [dbo].[dimension_cuando]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Preparation SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{BE696CAD-5A7B-48F9-8D59-705117EB2471}"
+      DTS:DTSID="{46FBAE82-B99C-41A3-B138-4974211E4FFE}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -691,28 +724,28 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{8F3DB9C2-2C33-4CEE-BAD8-20CE5C5CE249}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[dimension_cuando] (&#xA;[fecha] date,&#xA;[mes] smallint,&#xA;[anio] smallint,&#xA;[semana] smallint,&#xA;[nombre_mes] varchar(30),&#xA;[tipo_fecha] varchar(11),&#xA;[cod_cuando] smallint&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{2F925BD8-908B-4984-A1EF-CFA188F0A729}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[dimension_cuando] (&#xA;[fecha] date,&#xA;[mes] smallint,&#xA;[anio] smallint,&#xA;[semana] smallint,&#xA;[nombre_mes] varchar(30),&#xA;[es_dia_natural] bit,&#xA;[es_dia_habil] bit,&#xA;[cod_cuando] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{C550C99C-EA9A-4712-A303-8D4B333481EE\}]"
+      DTS:refId="Package.PrecedenceConstraints[{8CAB3433-0F83-4C4D-BE44-287C5CE800E6\}]"
       DTS:CreationName=""
-      DTS:DTSID="{C550C99C-EA9A-4712-A303-8D4B333481EE}"
-      DTS:From="Package\Preparation SQL Task 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="{C550C99C-EA9A-4712-A303-8D4B333481EE}"
-      DTS:To="Package\Data Flow Task 1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{EFBAE057-2DDD-4533-A639-2DAC602AF8D0\}]"
-      DTS:CreationName=""
-      DTS:DTSID="{EFBAE057-2DDD-4533-A639-2DAC602AF8D0}"
+      DTS:DTSID="{8CAB3433-0F83-4C4D-BE44-287C5CE800E6}"
       DTS:From="Package\Drop table(s) SQL Task 1"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="{EFBAE057-2DDD-4533-A639-2DAC602AF8D0}"
+      DTS:ObjectName="{8CAB3433-0F83-4C4D-BE44-287C5CE800E6}"
       DTS:To="Package\Preparation SQL Task 1"
       DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{C448B92F-3952-4416-BAA0-F994C75D9E15\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{C448B92F-3952-4416-BAA0-F994C75D9E15}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{C448B92F-3952-4416-BAA0-F994C75D9E15}"
+      DTS:To="Package\Data Flow Task 1" />
   </DTS:PrecedenceConstraints>
 </DTS:Executable>

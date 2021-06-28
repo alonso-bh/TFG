@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/11/2021 1:31:27 AM"
+  DTS:CreationDate="6/24/2021 5:03:10 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="DESKTOP-BJ5E84H"
   DTS:CreatorName="DESKTOP-BJ5E84H\aulas"
   DTS:Description="SSIS Package Description"
-  DTS:DTSID="{27828711-88B4-4C57-9AFD-DE88A59AF225}"
+  DTS:DTSID="{F4C658AF-2C5B-41ED-92C3-6A763A88113A}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.5058.0"
   DTS:LocaleID="3082"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="importar_hechos_municipios"
-  DTS:VersionGUID="{54AC9438-C676-4912-9F5B-AD2A8A53E437}">
+  DTS:VersionGUID="{733D180F-2493-4D36-9B66-B030630A5276}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{36A5A307-1712-48BE-91C2-4B9A27939703}"
+      DTS:DTSID="{DBD9F7E2-BCC7-439A-9B90-8AA021EB5463}"
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{4A37625F-31C2-4CC4-BD1B-9F04F2324721}"
+      DTS:DTSID="{6FDBB2BB-01C7-44E2-B3C1-4532225BCA50}"
       DTS:ObjectName="SourceConnectionFlatFile">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -45,10 +45,18 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="poblacion"
+              DTS:DTSID="{FC796C59-90EE-44CA-9F8D-CA20709A7F0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="confirmados_pdia"
-              DTS:DTSID="{6D4E1D13-4137-4F6E-A541-1CFC05079195}"
+              DTS:DTSID="{2C33F70A-CDB7-406F-B64B-804346B91E1E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +64,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="confirmados_pdia_14d"
-              DTS:DTSID="{060CF3E9-2961-4C2A-9B33-BCC4BA97F445}"
+              DTS:DTSID="{73B17E05-1EC9-4990-B15F-8260FB382951}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +72,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="tasa_confirmados_pdia_14d"
-              DTS:DTSID="{9E14A293-B11F-4EA9-B6A2-CB6F28363118}"
+              DTS:DTSID="{894336C5-3495-4DBD-BC82-8FCEE11D0EB3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +80,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="confirmados_pdia_7d"
-              DTS:DTSID="{344B8A22-CEF3-4034-A519-14AA57F33998}"
+              DTS:DTSID="{958E55DF-B9CB-4237-B3C9-BC2D21B8EAAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -80,7 +88,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="total_confirmados"
-              DTS:DTSID="{36C2A51E-FBF1-41D9-8BA8-2D07D6209168}"
+              DTS:DTSID="{DEE57A26-7CC6-49F3-8387-E1B08B413AE0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -88,7 +96,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="curados"
-              DTS:DTSID="{4408676D-4F00-4BE6-B6E1-6386300C73A8}"
+              DTS:DTSID="{76396666-D558-4255-8032-31BD56F4CFE9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -96,7 +104,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="fallecidos"
-              DTS:DTSID="{7A2A45E8-D8FC-4286-B3FD-D0F64DAFDE19}"
+              DTS:DTSID="{D72206F0-350C-4A5C-A42B-0B3FA5A162E6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +112,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_cuando"
-              DTS:DTSID="{C50095A7-77B5-41DF-AD40-701C081B070B}"
+              DTS:DTSID="{9965CD93-113E-4C35-A5A4-8161BF332B85}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +120,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_donde_municipio"
-              DTS:DTSID="{CB819AC8-F0F8-4BA2-9274-81384F22A9D1}"
+              DTS:DTSID="{5DC5FD5A-5319-4F44-AC26-F0FB7E40E7BB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -125,7 +133,7 @@
       DTS:refId="Package\Data Flow Task 1"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:DelayValidation="True"
-      DTS:DTSID="{131AC1FD-2EF1-4804-9E9F-3066B3BDB5B5}"
+      DTS:DTSID="{72254716-985C-4B9B-9571-315EF8B777A1}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -211,6 +219,12 @@
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - hechos_municipios.Inputs[Destination Input].Columns[poblacion]"
+                      cachedDataType="i4"
+                      cachedName="poblacion"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_municipios.Inputs[Destination Input].ExternalColumns[poblacion]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].Columns[poblacion]" />
+                    <inputColumn
                       refId="Package\Data Flow Task 1\Destination - hechos_municipios.Inputs[Destination Input].Columns[confirmados_pdia]"
                       cachedDataType="i2"
                       cachedName="confirmados_pdia"
@@ -267,6 +281,10 @@
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - hechos_municipios.Inputs[Destination Input].ExternalColumns[poblacion]"
+                      dataType="i4"
+                      name="poblacion" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - hechos_municipios.Inputs[Destination Input].ExternalColumns[confirmados_pdia]"
                       dataType="i2"
@@ -362,6 +380,26 @@
                   refId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].Columns[poblacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].ExternalColumns[poblacion]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].Columns[poblacion]"
+                      name="poblacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].Columns[confirmados_pdia]"
                       dataType="i2"
@@ -546,6 +584,10 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].ExternalColumns[poblacion]"
+                      dataType="i4"
+                      name="poblacion" />
+                    <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Source - hechos_municipios_csv.Outputs[Flat File Source Output].ExternalColumns[confirmados_pdia]"
                       dataType="i2"
                       name="confirmados_pdia" />
@@ -626,7 +668,7 @@
     <DTS:Executable
       DTS:refId="Package\Drop table(s) SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{7B6CA1F9-D389-4938-9EF5-907871E4414E}"
+      DTS:DTSID="{6A17F30B-8BDB-42B9-8534-F0B5CAFAABEA}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Drop table(s) SQL Task 1"
@@ -635,14 +677,14 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{36A5A307-1712-48BE-91C2-4B9A27939703}"
+          SQLTask:Connection="{DBD9F7E2-BCC7-439A-9B90-8AA021EB5463}"
           SQLTask:SqlStatementSource="drop table [dbo].[hechos_municipios]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Preparation SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{D3A44B48-AB75-46CD-8F3D-6B6F31F94B7E}"
+      DTS:DTSID="{ED87601E-79B6-4C54-85F2-7C5E053A8D2B}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -652,28 +694,28 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{36A5A307-1712-48BE-91C2-4B9A27939703}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_municipios] (&#xA;[confirmados_pdia] smallint,&#xA;[confirmados_pdia_14d] smallint,&#xA;[tasa_confirmados_pdia_14d] real,&#xA;[confirmados_pdia_7d] smallint,&#xA;[total_confirmados] smallint,&#xA;[curados] smallint,&#xA;[fallecidos] smallint,&#xA;[cod_cuando] smallint NOT NULL,&#xA;[cod_donde_municipio] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{DBD9F7E2-BCC7-439A-9B90-8AA021EB5463}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_municipios] (&#xA;[poblacion] int,&#xA;[confirmados_pdia] smallint,&#xA;[confirmados_pdia_14d] smallint,&#xA;[tasa_confirmados_pdia_14d] real,&#xA;[confirmados_pdia_7d] smallint,&#xA;[total_confirmados] smallint,&#xA;[curados] smallint,&#xA;[fallecidos] smallint,&#xA;[cod_cuando] smallint NOT NULL,&#xA;[cod_donde_municipio] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{3E5BAD69-E934-45E9-BBE7-72041D674ED1\}]"
+      DTS:refId="Package.PrecedenceConstraints[{3682A8B0-ED08-49E7-B071-F3E747045209\}]"
       DTS:CreationName=""
-      DTS:DTSID="{833B0868-FCB2-4179-9A3C-788FE8903933}"
-      DTS:From="Package\Drop table(s) SQL Task 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="{833B0868-FCB2-4179-9A3C-788FE8903933}"
-      DTS:To="Package\Preparation SQL Task 1"
-      DTS:Value="2" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{F1C7A436-4CFE-4838-8A5F-ED3B4EFF9CDB\}]"
-      DTS:CreationName=""
-      DTS:DTSID="{A0D48218-B8F3-42B8-B8A0-7823F5065FDF}"
+      DTS:DTSID="{3E1B22CF-25AE-4F01-8DEE-6BB644769E29}"
       DTS:From="Package\Preparation SQL Task 1"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="{A0D48218-B8F3-42B8-B8A0-7823F5065FDF}"
+      DTS:ObjectName="{3E1B22CF-25AE-4F01-8DEE-6BB644769E29}"
       DTS:To="Package\Data Flow Task 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{CAADB5C0-3410-4151-937B-0584A41F93B0\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{D9F8A05F-DFF1-4A29-A464-E9966DC28E93}"
+      DTS:From="Package\Drop table(s) SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{D9F8A05F-DFF1-4A29-A464-E9966DC28E93}"
+      DTS:To="Package\Preparation SQL Task 1"
+      DTS:Value="2" />
   </DTS:PrecedenceConstraints>
 </DTS:Executable>

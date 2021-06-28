@@ -24,6 +24,18 @@
       <Dimension>
         <ID>Quién Vacunas</ID>
       </Dimension>
+      <Dimension>
+        <ID>Quien Profesionales</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Quien</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dimension Donde Municipio</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Cuándo</ID>
+      </Dimension>
     </Dimensions>
     <DataSourceImpersonationInfo>
       <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>

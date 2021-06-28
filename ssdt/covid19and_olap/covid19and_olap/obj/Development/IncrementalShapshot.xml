@@ -26,37 +26,65 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>4DhK6+UpQkuC2R3VtendK9TYXno=14/06/2021 19:04:4814/06/2021 18:51:53</TimeStamp>
+        <TimeStamp>jXp/eR2BMDIIUjjXYoam3Ver/Rc=28/06/2021 23:17:5314/06/2021 18:51:53</TimeStamp>
         <ID>
           <String>Covid19and</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>adv02RqAvu0nsTSMe1awezA3ySE=17/06/2021 0:21:1817/06/2021 0:18:30</TimeStamp>
+        <TimeStamp>6dJE+bpIPD8CBy0RkcwkzZzNz4Q=27/06/2021 19:38:2917/06/2021 0:18:30</TimeStamp>
         <ID>
           <String>Residencia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>yvn36p43oiprXM7zEDGYKyESJJ8=17/06/2021 0:53:2717/06/2021 0:23:18</TimeStamp>
+        <TimeStamp>IAOLPOEAIO0oO/Jsvvcw8/CVmEs=27/06/2021 19:30:4717/06/2021 0:23:18</TimeStamp>
         <ID>
           <String>Dimension Donde Provincia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>JsKEBMDgGigyiJz4XUzKpQ7czAw=17/06/2021 0:59:1317/06/2021 0:54:57</TimeStamp>
+        <TimeStamp>/lD2B398NaUO349/FPwYyhNWG2g=27/06/2021 19:25:3517/06/2021 0:54:57</TimeStamp>
         <ID>
           <String>Dónde DS</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>7yPQ/UNneeAVHXn3NN+V4L0uyu8=17/06/2021 1:19:0317/06/2021 1:18:29</TimeStamp>
+        <TimeStamp>7yPQ/UNneeAVHXn3NN+V4L0uyu8=17/06/2021 1:20:5717/06/2021 1:18:29</TimeStamp>
         <ID>
           <String>Quién Vacunas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KC15qfsWe/2OCkehf0VSPeqI9ls=27/06/2021 19:39:2420/06/2021 12:03:28</TimeStamp>
+        <ID>
+          <String>Quien Profesionales</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6xqRQB9wMA8/rRs1VywsvXnt6GE=27/06/2021 19:39:3120/06/2021 12:10:22</TimeStamp>
+        <ID>
+          <String>Quien</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oFH26jf3ML9FZgiwjoN39sP/S+w=28/06/2021 17:14:2827/06/2021 19:47:12</TimeStamp>
+        <ID>
+          <String>Dimension Donde Municipio</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZzfCgqK4YbT8SKa6y4k0ON8xql4=28/06/2021 23:30:0428/06/2021 23:22:22</TimeStamp>
+        <ID>
+          <String>Cuándo</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -71,5 +99,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-06-16T23:19:03.71Z</LastDeployed>
+  <LastDeployed>2021-06-28T21:30:08.536667Z</LastDeployed>
 </DeploymentSnapshot>
