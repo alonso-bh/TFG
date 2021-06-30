@@ -12,17 +12,25 @@
 #' @param path_proyecto Es el camino al proyecto (carpeta que contiena a su vez
 #' al diretorio 'datos/', donde a su vez encontraremos todos los datasets 
 #' que necesitamos). 
-generar_dimension_cuando <- function(path_proyecto){
+generar_dimension_cuando <- function(path_proyecto = getwd()){
   
   library('rio')
   library('readr')
   
-  # setwd(path_proyecto)
+  setwd(path_proyecto)
   # setwd("C:\\Users\\UX430U\\Desktop\\TFG")
   
   cuando <- import("datos/datos_dias_naturales.csv")
   
-  cuando <- cuando[!(cuando$Territorio == "Andalucía"),]
+  # eliminar las filas que tienen Andalucía
+  filas_andalucia <- c()
+  for (i in 1:nrow(cuando)){
+    if (grepl( "^Andaluc", cuando[i, "Territorio"]) ){
+      filas_andalucia <- c(filas_andalucia, i)
+    }
+  }
+  cuando <- cuando[-filas_andalucia,]
+  # cuando <- cuando[!(cuando$Territorio == "Andalucía"),]
   
   
   #install.packages("lubridate")
@@ -30,15 +38,17 @@ generar_dimension_cuando <- function(path_proyecto){
 
   # añadir las columnas de mes, año y semana del año (niveles de la dimensión)
   cuando$Mes <- month(dmy(cuando$`Fecha diagnóstico`) )
-  cuando$Año <- year(dmy(cuando$`Fecha diagnóstico`))
+  cuando$Anio <- year(dmy(cuando$`Fecha diagnóstico`))
   cuando$Semana <- week(dmy(cuando$`Fecha diagnóstico`))
   
   # eliminar las columnas que no son de la dimensión 
-  cuando <- cuando[, c("Fecha diagnóstico", "Mes", "Año", "Semana")]
+  cuando <- cuando[, c("Fecha diagnóstico", "Mes", "Anio", "Semana")]
   
   # borrar duplicados
   cuando <- cuando[!duplicated(cuando),]
-  colnames(cuando) <- c("Fecha", "Mes", "Año", "Semana")
+  
+  # seleccionar columnas que nos interesan
+  colnames(cuando) <- c("Fecha", "Mes", "Anio", "Semana")
 
   # añadir la columna mes (inicialmente vacía) "Nombre del Mes" 
   # para rellenarla con el nombre del mes asociado a la columna Mes (número)
@@ -71,34 +81,31 @@ generar_dimension_cuando <- function(path_proyecto){
       cuando[i,"Nombre del Mes"] <- "Diciembre"
     } 
   }
-  
-  # aplicación del caso de diseño: dimensión con varios roles 
-  # vamos a añadir el atributo "Día natural" para indicar que las fechas del
-  # dataset actual son por días naturales (L a D), frente a los que añadiremos
-  # después, que serán por fecha de notificación (días hábiles -> L a V).
-  cuando$`Tipo de Fecha` <- "Día natural"
 
-  # la tabla que tenemos hasta ahora la dejamos como está
   
+  ################################
   # Segundo tipo de Fecha: escoger cualquiera de otros datasets con datos COVID
   # descargados del IECA que contenga la fecha de notitifación de esos datos
   cuando2 <- import("datos/municipios.csv")
   
+  # esta lista es muy importante: tenemos que saber las fechas de días hábiles
+  cuando2_fechas <- cuando2$Fecha
+  cuando2_fechas <- cuando2_fechas[!duplicated(cuando2_fechas)]  
+  
   # añadir las columnas de mes, año y semana del año (niveles de la dimensión)
   cuando2$Mes <- month(dmy(cuando2$`Fecha`) )
-  cuando2$Año <- year(dmy(cuando2$`Fecha`))
+  cuando2$Anio <- year(dmy(cuando2$`Fecha`))
   cuando2$Semana <- week(dmy(cuando2$`Fecha`))
-  
-  
+
   # seleccionar solo atributos de tiempo
-  cuando2 <- cuando2[,c("Fecha", "Mes", "Año", "Semana")]
-  
-  # eliminar duplicados 
+  cuando2 <- cuando2[,c("Fecha", "Mes", "Anio", "Semana")]
+
+  # eliminar duplicados
   cuando2 <- cuando2[!duplicated(cuando2),]
-  
+
   # añadir columna con el nombre del mes
   cuando2$`Nombre del Mes` <- ""
-  
+
   for(i in 1:nrow(cuando2)){
     if(cuando2[i,"Mes"] == 1){
       cuando2[i,"Nombre del Mes"] <- "Enero"
@@ -124,18 +131,18 @@ generar_dimension_cuando <- function(path_proyecto){
       cuando2[i,"Nombre del Mes"] <- "Noviembre"
     } else if(cuando2[i,"Mes"] == 12){
       cuando2[i,"Nombre del Mes"] <- "Diciembre"
-    } 
+    }
   }
   
-  # aplicación del caso de diseño: dimensión con varios roles 
-  # vamos a añadir el atributo "Día natural" para indicar que las fechas del
-  # dataset actual son por días naturales (L a D), frente a los que añadiremos
-  # después, que serán por fecha de notificación (días hábiles -> L a V).
-  cuando2$`Tipo de Fecha` <- "Día hábil"
+  # fusionar conjuntos de datos
+  cuando_global <- rbind(cuando2, cuando)
   
-  # paso final: solapar los dos dataset (mismas columnas en número y nombre=>OK)
-  cuando_global <- rbind(cuando, cuando2)
-
+  # hasta aquí tareas por separado de los dos conjuntos (días naturales/hábiles)
+  # ahora tenemos que distinguir tipos de fechas y rellenar con ello los campos
+  
+  # borrar duplicados
+  cuando_global <- cuando_global[!duplicated(cuando_global),]
+  
   # añadir columna de los periodos covid (datos IECA)
   #info_periodos <- import("datos/periodos_metadatos.xlsx")
   #View(info_periodos)
@@ -144,24 +151,35 @@ generar_dimension_cuando <- function(path_proyecto){
   #     cuando_global[i,"periodo_covid"] <- "Enero"
   #   } else if (cuando_global[i,"Fecha"] == )
   # }
-    
-  # volvemos a eliminar duplicados para asegurarnos
-  cuando_global <- cuando_global[!duplicated(cuando_global),]
 
-  colnames(cuando_global) <- c("fecha", 
-                               "mes", 
-                               "anio", 
-                               "semana", 
-                               "nombre_mes", 
-                               "tipo_fecha" )
+  cuando_global$`Es dia natural` <- TRUE
+  cuando_global$`Es dia habil`   <- FALSE
+  
+  
+  # registrar los días hábiles modificando la columna "Es día hábil" 
+  # (aplicación del caso de diseño)
+  for(i in 1:length(cuando2_fechas)){   
+    for(j in 1:nrow(cuando_global)){
+      if ( as.character(cuando2_fechas[i]) == as.character(cuando_global[j,"Fecha"])) {
+        cuando_global[j, "Es dia habil"] <- TRUE
+      }
+    }
+  }
+  
+  colnames(cuando_global) <- c( "fecha", 
+                         "mes", 
+                         "anio", 
+                         "semana", 
+                         "nombre_mes", 
+                         "es_dia_natural",
+                         "es_dia_habil" )
   
   # añadir llave generada
   cuando_global$cod_cuando <- 1:nrow(cuando_global)
   
-  # cuando_global$fecha <- as.Date(cuando_global$fecha, format = "%d/%m/%y")
-  
+
   # almacenar dimensión 
-  write.table(cuando_global, "datos/dimension_cuando2.csv", row.names=FALSE, 
+  write.table(cuando_global, "datos/dimension_cuando.csv", row.names=FALSE, 
               col.names=TRUE, sep = ';', quote = FALSE)
 }
 
@@ -333,6 +351,8 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   
   dimension <- dimension[!duplicated(dimension),]
   
+  # eliminar la columna de población, q irá a la tabla de hechos 
+  dimension <- dimension[,-2]
   
   # enriquecer la dimension con el código de municipio del INE
   info_ine <- import("datos/20codmun.xlsx")
@@ -371,7 +391,6 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   dimension <- left_join(dimension, info_ine, by = "nombre_municipio")
   dimension$cod_donde_municipio <- 1:nrow(dimension)
   
-  
   # info sobre distrito sanitario y provincia de cada municipio
   info_dsprov <- import("datos/distritos_sanitarios.xlsx")
   colnames(info_dsprov) <- c("nombre_municipio", 
@@ -385,7 +404,25 @@ generar_dimension_donde_municipio (path_proyecto = getwd()){
   # arreglar filas de municipios sin especificar
   dimension <- dimension %>% fill(nombre_provincia, .direction = "down")
   dimension <- dimension %>% fill(cod_provincia, .direction = "down")
-  dimension[ (is.na(dimension$distrito_sanitario)), "distrito_sanitario"] <- "DS no especificado"
+  
+  provincias <- obtener_provincias()
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[1] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[1], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[2] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[2], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[3] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[3], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[4] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[4], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[5] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[5], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[6] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[6], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[7] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[7], " desconocido"))
+  dimension[ (is.na(dimension$distrito_sanitario) & dimension$nombre_provincia == provincias[8] ), 
+             "distrito_sanitario"] <- concatenar_strings(c("DS de ", provincias[8], " desconocido"))
+  
   dimension[ (is.na(dimension$codigo_municipio_ine)),"codigo_municipio_ine"] <- 0
     
   
@@ -420,11 +457,11 @@ generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
   dimension$cod_quien_vacunas <- 1:nrow(dimension)          
 
   # añadimos el nivel "mayores de edad"
-  dimension$adultos <- TRUE
+  dimension$adultos <- "SI"
   for(i in 1:nrow(dimension)){
     if( grepl( "^Menores de 16", dimension[i,"rango_edad"]) | 
         grepl( "^De 16 a 17", dimension[i,"rango_edad"] ) ){
-      dimension[i,"adultos"] <- FALSE
+      dimension[i,"adultos"] <- "NO"
     }
   }
   

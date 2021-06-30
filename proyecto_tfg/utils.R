@@ -3,6 +3,26 @@
 
 
 
+#' OBTENER UNA LISTA CON LAS PROVINCIAS DE ANDALUCÍA
+#'
+#' REcibe opcionalmente el path del proyecto (carpeta raíz TFG), aunque lo
+#' habitual será que no se le pase, y tome getwd(), suponiendo que se le llama
+#' desde una función que ya ha fijado previamente este valor.
+#' @param path_proyecto es un parámetro opcional para indicar el path donde 
+#' está la carpeta de trabajo. Lo habitual es que no se especifique, y se tome
+#' el valor por defecto. 
+obtener_provincias <- function(path_proyecto = getwd()) {
+  setwd(path_proyecto)
+  
+  provincias <- import("datos/cod_provincias.csv")
+  provincias <- provincias$nombre_provincia
+  provincias <- provincias[c(3,13,17,22,24,26,31,42)]
+  
+  return(provincias)
+}
+
+
+
 ################################################################################
 #' FUNCION PARA CONCATENAR CADENAS DE CARACTERES
 #' 

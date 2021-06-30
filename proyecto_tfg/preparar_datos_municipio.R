@@ -69,7 +69,7 @@ preparar_datos_municipio <- function(path_ficheros){
   # setwd("C:/Users/UX430U/Desktop/TFG")                    # descomentar para pruebas
   source("proyecto_tfg/utils.R")
   
-  # path_ficheros <- obtener_path_provincias_hoy("datos/10-06")  # cada día
+  # path_ficheros <- obtener_path_provincias_hoy("datos/17-06")  # cada día
   
   # transformar cada dataset de cada provincia antes de unirlos  
   # ZONA DE PRUEBAS
@@ -105,8 +105,8 @@ preparar_datos_municipio <- function(path_ficheros){
   
   # reemplazar NA (nulos) por el 0 
   datos_globales[is.na(datos_globales)] <- 0
-  datos_globales$`Tasa PDIA 14 días` <- gsub('-', 0, 
-                                             datos_globales$`Tasa PDIA 14 días`)
+  datos_globales[,5] <- gsub('-', 0, datos_globales[,5])  # reemplazar "-" por 0 en la columna de 'Tasa PDIA'
+  # datos_globales$`Tasa PDIA 14 días` <- gsub('-', 0,  datos_globales$`Tasa PDIA 14 días`)
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos...
   dataset_ayer <- "datos/ayer/municipios_ayer.csv" 

@@ -12,8 +12,8 @@ preparar_datos_residencias <- function(path_fichero){
   library('readr')
   
   setwd("C:/Users/UX430U/Desktop/TFG")
-  # path_fichero <- "datos/22-06/residencias.xls"
-  # esta_fecha   <-       "22/06/2021"
+  # path_fichero <- "datos/24-06/residencias.xls"
+  # esta_fecha   <-       "24/06/2021"
 
   source("proyecto_tfg/utils.R")
   
@@ -30,19 +30,8 @@ preparar_datos_residencias <- function(path_fichero){
   
   # eliminar filas con valores acumulados (de provincia y de la CA)
   excel <- excel[-2,]                       # eliminar fila de Andalucía 
-  provincias <- import("datos/cod_provincias.csv")
-  provincias <- provincias$nombre_provincia
+  provincias <- obtener_provincias()  # necesario import de utils.R 
   residencias_today <- excel[! is.element(excel$V1, provincias), ]
-  
-  # residencias_today<-excel[!(excel$V1=="Andalucía" | 
-  #                              excel$V1=="Almería" | 
-  #                              excel$V1=="Cádiz" | 
-  #                              excel$V1=="Huelva" | 
-  #                              excel$V1=="Sevilla" | 
-  #                              excel$V1=="Jaén" | 
-  #                              excel$V1=="Granada" | 
-  #                              excel$V1=="Córdoba" | 
-  #                              excel$V1=="Málaga"), ]
   
   # ---------------------------------
   # Ahora podemos hacer "unpivot" sobre la tabla para borrar la cabecera con el 

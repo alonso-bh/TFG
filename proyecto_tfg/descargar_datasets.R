@@ -6,12 +6,12 @@ args = commandArgs(trailingOnly=TRUE)
 if (length(args)==0) {
   stop("Debes proporcionar el camino (absoluto) a la carpeta de trabajo 'TFG'.")
 } else if (length(args)==1) {
-  # default output file
+  # default output file 
   sprintf("El camino introducido es: %s", args[1])
   setwd(args[1])
 }
 
-#setwd("C:/Users/UX430U/Desktop/TFG")  # descomentar para pruebas 
+# setwd("C:/Users/UX430U/Desktop/TFG")  # descomentar para pruebas 
 
 source("proyecto_tfg/utils.R")
 library(RCurl)
@@ -22,7 +22,6 @@ hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
 nombre_carpeta <- concatenar_strings(c("datos/", hoy))
 nombre_carpeta
 dir.create(nombre_carpeta)
-
 
 
 #########################
@@ -123,10 +122,12 @@ source("proyecto_tfg/preparar_datos_profesionales.R")
 source("proyecto_tfg/preparar_datos_vacunacion_basicos.R")
 
 
-#preparar_datos_municipio(path_provincias) 
+preparar_datos_municipio(path_provincias) 
 preparar_datos_residencias_edad_sexo(path_residencias_edad_sexo)
 preparar_datos_dias_naturales(path_dias_naturales) 
-#preparar_datos_residencias(path_residencias)
+preparar_datos_residencias(path_residencias)
 preparar_datos_profesionales(path_profesionales)
-# preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
+#preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
 
+
+# Llamar al script para generar/actualizar tablas de hechos y dimensiones 

@@ -127,10 +127,10 @@ preparar_datos_vacunacion_basicos <- function(paths_vacunacion){
   library(rio)
   library(tidyr)
   library(dplyr)
-  
+
   # setwd("C:/Users/UX430U/Desktop/TFG")
-  # incompleta  <- import("datos/02-06/datos_pauta_incompleta.xls")
-  # completa    <- import("datos/02-06/datos_pauta_completa.xls")
+  # incompleta  <- import("datos/11-06/datos_pauta_incompleta.xls")
+  # completa    <- import("datos/11-06/datos_pauta_completa.xls")
 
   incompleta <- import(paths_vacunacion[1])
   completa   <- import(paths_vacunacion[2])
@@ -148,7 +148,7 @@ preparar_datos_vacunacion_basicos <- function(paths_vacunacion){
   
   # añadir columna con la fecha de hoy
   fecha = format(Sys.time(), "%d/%m/%Y")  # get current date 
-  # fecha <- "01/06/2021"
+  # fecha <- "11/06/2021"
   datos_globales$Fecha <- fecha
   
   # restar los datos del día anterior para ver los valores netos de hoy
@@ -212,3 +212,4 @@ preparar_datos_vacunacion_basicos <- function(paths_vacunacion){
   }
   
 }
+
