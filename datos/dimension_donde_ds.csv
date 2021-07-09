@@ -1,35 +1,35 @@
-"distrito_sanitario";"cod_donde_ds";"nombre_provincia";"cod_provincia"
-"Almería (distrito)";1;"Almería";4
-"Levante-Alto Almanzora";2;"Almería";4
-"Poniente de Almería";3;"Almería";4
-"Campo de Gibraltar Este";4;"Cádiz";11
-"Campo de Gibraltar Oeste";5;"Cádiz";11
-"Bahía de Cádiz-La Janda";6;"Cádiz";11
-"Jerez-Costa Noroeste";7;"Cádiz";11
-"Sierra de Cádiz";8;"Cádiz";11
-"Córdoba (distrito)";9;"Córdoba";14
-"Córdoba Sur";10;"Córdoba";14
-"Guadalquivir";11;"Córdoba";14
-"Córdoba Norte";12;"Córdoba";14
-"Granada Sur";13;"Granada";18
-"Granada Nordeste";14;"Granada";18
-"Granada (distrito)";15;"Granada";18
-"Metropolitano de Granada";16;"Granada";18
-"Sierra de Huelva-Andévalo Central";17;"Huelva";21
-"Condado-Campiña";18;"Huelva";21
-"Huelva-Costa";19;"Huelva";21
-"Jaén Sur";20;"Jaén";23
-"Jaén (distrito)";21;"Jaén";23
-"Jaén Norte";22;"Jaén";23
-"Jaén Nordeste";23;"Jaén";23
-"La Vega";24;"Málaga";29
-"Axarquia";25;"Málaga";29
-"Valle del Guadalhorce";26;"Málaga";29
-"Costa del Sol";27;"Málaga";29
-"Málaga (distrito)";28;"Málaga";29
-"Serranía";29;"Málaga";29
-"Sevilla Sur";30;"Sevilla";41
-"Aljarafe";31;"Sevilla";41
-"Sevilla Este";32;"Sevilla";41
-"Sevilla Norte";33;"Sevilla";41
-"Sevilla (distrito)";34;"Sevilla";41
+distrito_sanitario;cod_donde_ds;nombre_provincia;cod_provincia
+Almería (distrito);1;Almería;4
+Levante-Alto Almanzora;2;Almería;4
+Poniente de Almería;3;Almería;4
+Campo de Gibraltar Este;4;Cádiz;11
+Campo de Gibraltar Oeste;5;Cádiz;11
+Bahía de Cádiz-La Janda;6;Cádiz;11
+Jerez-Costa Noroeste;7;Cádiz;11
+Sierra de Cádiz;8;Cádiz;11
+Córdoba (distrito);9;Córdoba;14
+Córdoba Sur;10;Córdoba;14
+Guadalquivir;11;Córdoba;14
+Córdoba Norte;12;Córdoba;14
+Granada Sur;13;Granada;18
+Granada Nordeste;14;Granada;18
+Granada (distrito);15;Granada;18
+Metropolitano de Granada;16;Granada;18
+Sierra de Huelva-Andévalo Central;17;Huelva;21
+Condado-Campiña;18;Huelva;21
+Huelva-Costa;19;Huelva;21
+Jaén Sur;20;Jaén;23
+Jaén (distrito);21;Jaén;23
+Jaén Norte;22;Jaén;23
+Jaén Nordeste;23;Jaén;23
+La Vega;24;Málaga;29
+Axarquia;25;Málaga;29
+Valle del Guadalhorce;26;Málaga;29
+Costa del Sol;27;Málaga;29
+Málaga (distrito);28;Málaga;29
+Serranía;29;Málaga;29
+Sevilla Sur;30;Sevilla;41
+Aljarafe;31;Sevilla;41
+Sevilla Este;32;Sevilla;41
+Sevilla Norte;33;Sevilla;41
+Sevilla (distrito);34;Sevilla;41
