@@ -28,16 +28,17 @@ preparar_datos_dias_naturales <- function(path_fichero = getwd()){
   # rellenar primera columna con la fecha correspondiente (primera fila del día)
   excel <- excel %>% fill(V1, .direction = "down")
   
+  # extraer nombre real de las columnas 
+  cabecera <- excel[1,]    # fila con los nombres
+  excel <- excel[-c(1),]          # borrar esta fila
+  
   # eliminar filas de datos totales (Andalucía), pues se calcularán al hacer
   #  roll-up por el cubo 
   source("proyecto_tfg/utils.R")
   provincias <- obtener_provincias()
-  excel <- excel[!(excel$V2 == "Andalucía"),]
+  #excel <- excel[!(excel$V2 == "Andalucía"),]
   excel <- excel[ (is.element(excel$V2, provincias)), ]
   
-  # extraer nombre real de las columnas 
-  colnames(excel) <- excel[1,]    # fila con los nombres
-  excel <- excel[-c(1),]          # borrar esta fila
   
   # salvar los datos
   write.table(excel, "datos/datos_dias_naturales.csv", row.names=FALSE, col.names=TRUE, sep = ';')
