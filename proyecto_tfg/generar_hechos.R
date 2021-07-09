@@ -11,15 +11,14 @@
 
 ################################################################################
 # HECHOS 1: Días naturales
-generar_hechos_dias_naturales <- function(path_proyecto = getwd()) {
+generar_hechos_dias_naturales <- function() {
   
   library(rio)
   library(tidyr)
   library(dplyr)
   source("proyecto_tfg/utils.R")
   
-  setwd(path_proyecto)
-  
+
   hechos <- import("datos/datos_dias_naturales.csv")
   
   # cargar dimensiones 
@@ -52,19 +51,17 @@ generar_hechos_dias_naturales <- function(path_proyecto = getwd()) {
   write.table(hechos, "datos/hechos_dias_naturales.csv", quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
 }
 
-# generar_hechos_dias_naturales(getwd())
 
 
 ################################################################################
 # HECHOS 2: Municipios
-generar_hechos_municipios <- function(path_proyecto){
+generar_hechos_municipios <- function(){
   
   library(rio)
   library(dplyr)
   library(stringr)
   
-  setwd(path_proyecto)
-  
+
   hechos <- import("datos/municipios.csv")
 
   colnames(hechos) <- c("nombre_municipio", 
@@ -105,19 +102,16 @@ generar_hechos_municipios <- function(path_proyecto){
   
 }
 
-# generar_hechos_municipios("C:/Users/UX430U/Desktop/TFG")
 
 
 
 ################################################################################
 # HECHOS 3: Residencias geográfico
-generar_hechos_residencias <- function(path_proyecto) {
+generar_hechos_residencias <- function() {
   
   library(rio)
   library(dplyr)
 
-  setwd(path_proyecto)
-  
   hechos <- import("datos/residencias.csv")  
   
   # cambiar nombre a tabla
@@ -152,12 +146,9 @@ generar_hechos_residencias <- function(path_proyecto) {
 }
 
 
-# generar_hechos_residencias(getwd())
-
-
 ################################################################################
 # hecho4 : residencias por edad-sexo
-generar_hechos_residencias_edad_sexo <- function(path_proyecto){
+generar_hechos_residencias_edad_sexo <- function(){
   
   library(rio)
   library(dplyr)
@@ -190,17 +181,14 @@ generar_hechos_residencias_edad_sexo <- function(path_proyecto){
   
 }
 
-# generar_hechos_residencias_edad_sexo(getwd())
 
 
 ################################################################################
 # Hechos 5: Vacunas
-generar_hechos_vacunas <- function(path_proyecto){
+generar_hechos_vacunas <- function(){
   
   library(rio)
   library(dplyr)
-  
-  setwd(path_proyecto)
   
   hechos <- import("datos/vacunas.csv")
 
@@ -237,15 +225,13 @@ generar_hechos_vacunas <- function(path_proyecto){
 }
 
 
-# generar_hechos_vacunas(getwd())
 
 
 ################################################################################
-generar_hechos_profesionales <- function (path_proyecto = getwd()){
+generar_hechos_profesionales <- function (){ 
   
   library(rio)
-  setwd(path_proyecto)
-  
+
   hechos <- import("datos/profesionales.csv")
 
   colnames(hechos) <- c("sexo",
@@ -278,4 +264,25 @@ generar_hechos_profesionales <- function (path_proyecto = getwd()){
 } 
 
 
-# generar_hechos_profesionales()
+
+
+# ----------------- EJECUCIÓN DE LOS PROCEDIMIENTOS PARA ACTUALIZAR CSV --------
+
+# Leer el camino a la carpeta de trabajo
+args = commandArgs(trailingOnly=TRUE)
+
+if (length(args)==0) {
+  stop("Debes proporcionar el camino (absoluto) a la carpeta de trabajo 'TFG'.")
+} else if (length(args)==1) {
+  sprintf("El camino introducido es: %s", args[1])
+  setwd(args[1])
+} 
+
+
+generar_hechos_dias_naturales()
+generar_hechos_municipios()
+generar_hechos_profesionales()
+generar_hechos_residencias()
+generar_hechos_residencias_edad_sexo()
+generar_hechos_vacunas()
+

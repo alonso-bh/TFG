@@ -1,7 +1,7 @@
 # código para procesar (ETL) el fichero con el informe diario sobre la situación
 #  de profesionales de riesgo
 
-
+################################################################################
 #' FUNCIÓN PARA PROCESAR  Y PREPARAR DATOS DE PROFESIONALES. 
 #' 
 #' Para que funcione correctamente es imprescindible pasar como parámetro a la 
@@ -16,8 +16,9 @@ preparar_datos_profesionales <- function(path_fichero, version=2){
   library("rio")
   library("tidyr") 
 
+  # Zona de pruebas 
   # esta_fecha   <-       "05/07/2021"
-  # path_fichero <- "datos/05-07/profesionales.xls"
+  # path_fichero <- "datos/05-07-21/profesionales.xls"
 
   # import excel
   excel <- import(path_fichero)
@@ -37,15 +38,13 @@ preparar_datos_profesionales <- function(path_fichero, version=2){
   # rellenar primera columna con los datos que faltan hacia abajo (Sexo)
   excel <- excel %>% fill(Sexo, .direction = "down")
   
-  # quitar filas con datos agregados (aquellas filas con Sexo='Ambos sexos') ya
-  #  que eso se mostrará al hacer "Roll-up"
+  # quitar filas con datos agregados (aquellas filas con Sexo='Ambos sexos')
   excel <- excel[!(excel$Sexo == "Ambos sexos"),]
   
-  # añadir columna con la fecha de hoy (notificación)
-  date_today <- format(Sys.Date(), "%d/%m/%Y")  # get current date 
-  # date_today <- esta_fecha # descomentar para pruebas 
-  
-  excel$Fecha <- date_today
+  # añadir columna con la fecha de hoy
+  fecha_hoy <- format(Sys.Date(), "%d/%m/%Y")  # get current date 
+  # fecha_hoy <- esta_fecha            # descomentar para pruebas 
+  excel$Fecha <- fecha_hoy
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
   dataset_ayer <- "datos/ayer/profesionales_ayer.csv" 
@@ -59,46 +58,37 @@ preparar_datos_profesionales <- function(path_fichero, version=2){
       # para que la resta de datos con los de hoy se haga correctamente
       ayer <- ayer[-c(6,16),]
     }
-    
-    # ahora 2 datasets: el de hoy y el de ayer, tenemos que restar dos a dos las
-    # columnas del mismo nombre que contienen datos acumulados, que son:
-    # columna 3. Confirmados PDIA
-    # columna 6. Total Confirmados
-    # columna 7. Curados
-    # columna 8. Fallecidos 
+
     hoy <- excel
     
-    # Almacenar los datos de hoy (sin restarlos, claro) para poder restarlos a
-    # los de el día siguiente. Se reescribe el fichero profesionales_ayer.csv
+    # Almacenar los datos de hoy para usarlos el día siguiente
     write.table(hoy, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
     
     
     # restar cada columna y modificarla en el dataset final del día de hoy 
-    # 1. 
+    # col 3. 
     aux1 <- c(as.numeric(hoy[,3]))
     aux2 <- c(as.numeric(ayer[,3]))
     aux <- aux1-aux2
     hoy$`Confirmados PDIA` <- as.character(aux)
     
-    # 2.
+    # col 6
     aux1 <- c(as.numeric(hoy[,6]))
     aux2 <- c(as.numeric(ayer[,6]))
     aux <- aux1-aux2   #
     hoy$`Total Confirmados` <- as.character(aux)
     
-    # 2.
+    # col 7
     aux1 <- c(as.numeric(hoy[,7]))
     aux2 <- c(as.numeric(ayer[,7]))
     aux <- aux1-aux2   #
     hoy$Fallecidos <- as.character(aux)
     
-    # 2.
+    # col 8
     aux1 <- c(as.numeric(hoy[,8]))
     aux2 <- c(as.numeric(ayer[,8]))
     aux <- aux1-aux2   #
     hoy$Curados <- as.character(aux)
-    
-    View(hoy)
     
     # añadir al dataset de profesionales los datos de hoy
     profesionales_csv <- "datos/profesionales.csv"
@@ -118,16 +108,12 @@ preparar_datos_profesionales <- function(path_fichero, version=2){
     
     
   } else{ 
-    # esto solo ocurre una vez, con el primer día del que tengamos datos, y 
-    # sirve para restarlo a los del día siguiente, que será el primer día válido
+    # esto solo ocurre una vez, con el primer día del que descargamos datos
     
-    # guardamos directamente nuestro dataset tal cual está
+    # guardamos directamente nuestro dataset 
     print("El archivo profesionales_ayer.csv no existía aún. ")
     write.table(excel, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
   
-} # fin de la función de trabajo con datos d eprofesionales 
-
-
-# preparar_datos_profesionales("datos/10-05/profesionales.xls")
+} # fin de la función de trabajo con datos de profesionales 
 

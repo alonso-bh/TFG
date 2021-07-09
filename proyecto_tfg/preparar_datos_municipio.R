@@ -14,16 +14,16 @@
 #' 
 preparar_provincia <- function(data_xls, provincia){
   
+  # códigos de provincias 
   codprov <- c('AL', 'CA','CO', 'GR',  'HU', 'JA', 'MA', 'SE')
   
   fecha <- format(Sys.time(), "%d/%m/%Y")  # get current date 
-  # fecha <- fecha_aux
-
-  # import xls as dataframe in order to transform the data
+  # fecha <- fecha_dada      # descomentar para pruebas 
+  
+  # importar xls 
   datos <- import(data_xls)
   
-  # eliminar filas innecesarias y filas asociadas a los distritos sanitarios
-  #  (datos agrupados) 
+  # eliminar filas innecesarias y filas con datos agregados 
   if (provincia == codprov[1]){          # almería
     datos <- datos[-c(1,2,3,4,5,8,56,98),]  
   }   else if(provincia == codprov[2]){  # cadiz
@@ -42,8 +42,7 @@ preparar_provincia <- function(data_xls, provincia){
     datos <- datos[-c(1,2,3,4,5,125,126,8,43,45,70,107),] 
   }
   
-  # renombrar columnas con el nombre correcto, de la primera fila actual del 
-  #  dataset 
+  # renombrar columnas con el nombre correcto, de la primera fila actual del dataset 
   colnames(datos) <- datos[c(1),]
   
   # borra cabecera duplicada y fila con datos agrupados de la provincia
@@ -56,22 +55,22 @@ preparar_provincia <- function(data_xls, provincia){
 }
 
 
-
 # ------------------------------------------------------------------------------
 #' Preparar datos del municipio: 
+#' 
+#' @param path_ficheros 
 preparar_datos_municipio <- function(path_ficheros){ 
   
   library("rio")
   library('readr')
   library('stringr')
   
-  # zona de pruebas
-  # setwd("C:/Users/UX430U/Desktop/TFG")                    # descomentar para pruebas
   source("proyecto_tfg/utils.R")
   
-  # path_ficheros <- obtener_path_provincias_hoy("datos/30-06")  # cada día
+  # path_ficheros <- obtener_path_provincias_hoy("datos/30-06-21")  # cada día
   
   # transformar cada dataset de cada provincia antes de unirlos  
+  
   # ZONA DE PRUEBAS
   # fecha_aux <- "30/06/2021"
   # almeria <- preparar_provincia(path_ficheros[1], 'AL', fecha_aux)
@@ -106,8 +105,7 @@ preparar_datos_municipio <- function(path_ficheros){
   # reemplazar NA (nulos) por el 0 
   datos_globales[is.na(datos_globales)] <- 0
   datos_globales[,5] <- gsub('-', 0, datos_globales[,5])  # reemplazar "-" por 0 en la columna de 'Tasa PDIA'
-  # datos_globales$`Tasa PDIA 14 días` <- gsub('-', 0,  datos_globales$`Tasa PDIA 14 días`)
-  
+
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos...
   dataset_ayer <- "datos/ayer/municipios_ayer.csv" 
   
@@ -150,14 +148,9 @@ preparar_datos_municipio <- function(path_ficheros){
     aux <- aux1-aux2   #
     hoy$Fallecidos <- as.character(aux)
     
-    #View(hoy)
     
     # añadir al dataset de municipios los datos de hoy
     municipios_csv <- "datos/municipios.csv" # datos preparados de cada día notificado
-    
-    # sustituir los puntos por comas para trabajar con ellos en las herramientas
-    # de Microsoft (SSMS/SSAS/Power BI/...)
-    #hoy$`Tasa PDIA 14 días` <- str_replace(hoy$`Tasa PDIA 14 días`, '\\.' , ',')
     
     
     if( file.exists(municipios_csv) ){ 
@@ -183,7 +176,4 @@ preparar_datos_municipio <- function(path_ficheros){
     write.table(datos_globales, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
 }
-
-
-# preparar_datos_municipio("", path_aux = "datos/04-06",  fecha_aux = "04/06/2021")
 

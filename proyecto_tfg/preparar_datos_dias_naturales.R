@@ -36,16 +36,14 @@ preparar_datos_dias_naturales <- function(path_fichero = getwd()){
   #  roll-up por el cubo 
   source("proyecto_tfg/utils.R")
   provincias <- obtener_provincias()
-  #excel <- excel[!(excel$V2 == "Andalucía"),]
   excel <- excel[ (is.element(excel$V2, provincias)), ]
   
+  # nombres de las columnas
+  colnames(excel) <- cabecera
   
   # salvar los datos
   write.table(excel, "datos/datos_dias_naturales.csv", row.names=FALSE, col.names=TRUE, sep = ';')
   
 }
 
-
-# source("proyecto_tfg/utils.R")
-# preparar_datos_dias_naturales()
 

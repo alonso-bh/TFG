@@ -76,7 +76,7 @@ tabla_plana <- function(datos, tipo, version){
     
   }
   
-  # des-dinamizar el dataset 
+  # des-dinamizar (unpivot) el dataset 
   grupo1 <- datos[,c(1,2,3)]
   grupo2 <- datos[,c(1,4,5)]
   grupo3 <- datos[,c(1,6,7)]
@@ -150,8 +150,8 @@ preparar_datos_vacunacion_basicos <- function(paths_vacunacion, version){
   library(tidyr)
   library(dplyr)
   
-  # incompleta  <- import("datos/07-07/datos_pauta_incompleta.xls")
-  # completa    <- import("datos/07-07/datos_pauta_completa.xls")
+  # incompleta  <- import("datos/dd-mm-aa/datos_pauta_incompleta.xls") #pruebas
+  # completa    <- import("datos/dd-mm-aa/datos_pauta_completa.xls")   #pruebas
 
   incompleta <- import(paths_vacunacion[1])
   completa   <- import(paths_vacunacion[2])

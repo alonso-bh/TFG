@@ -14,16 +14,16 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
   
   source("proyecto_tfg/utils.R")
   
-  # setwd("C:/Users/UX430U/Desktop/TFG")
   # esta_fecha <- "30/06/2021"
   # path_fichero <- "datos/30-06/residencias_edad.xls"
 
   # import excel
   excel <- import(path_fichero)
   
+  # guardar los sexos en una lista auxiliar 
   sexos <- c(excel[8,3], excel[8,7]) 
   
-  # remove non-valid rows, but before I save the first row with the type of "residencias" used
+  # eliminar filas vacías
   excel <- excel[-c(1,2,3,4,5,6,7,30,31),]
   excel <- excel[-c(1),]
   
@@ -37,74 +37,63 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
   
   
   # ---------------------------------
-  # Now we can manually  "unpivot" the table in orden to delete the row of the type of "Sex" (H/M)
-  # 1. get the first column
-  column1 <- excel[,1]
-  column2 <- excel[,2]
+  # Desdinamizar tabla
   
-  # 2. unpivot (we generate and then fix 2 subdatasets for both type of "Sexo")
+  # 1. unpivot (we generate and then fix 2 subdatasets for both type of "Sexo")
+  
   new_col <- "Sexo" 
   
-  # 2a. first type of "Sexo" -> "Hombres"
-  data_hombres <- excel[,c(1,2,3,4,5,6)]
+  # 1a. Hombres
+  datos_hombres <- excel[,c(1,2,3,4,5,6)]
   var_hombres <- sexos[1]
   
   
   # creating and filling the (new) date column
-  data_hombres$V7 = var_hombres
-  data_hombres[1,7] <- new_col
+  datos_hombres$V7 = var_hombres
+  datos_hombres[1,7] <- new_col
   
   
-  # 2b. second type of "sexo" -> "Mujeres"
-  data_mujeres <- excel[,c(1,2,7,8,9,10)]
+  # 1b. second type of "sexo" -> "Mujeres"
+  datos_mujeres <- excel[,c(1,2,7,8,9,10)]
   
-  # rename R colnames (V1,V2,...) in order to homogenize the manipulation of both sub-datasets
+  # renombrar columnas para manejarlas mejor 
   colnames <- list("V1","V2","V3","V4","V5","V6" )
-  colnames(data_mujeres) <- colnames
+  colnames(datos_mujeres) <- colnames
   
   var_mujeres <- sexos[2]
-  data_mujeres <- data_mujeres[-c(1),] # we don't need the row -> (Confirmados PDIA, UCI, etc) because we already have it in the previous subdataset 
+  datos_mujeres <- datos_mujeres[-c(1),] # we don't need the row -> (Confirmados PDIA, UCI, etc) because we already have it in the previous subdataset 
   
-  data_mujeres$V7 = var_mujeres
+  datos_mujeres$V7 = var_mujeres
   
+  # fusionar tablas 
+  datos_globales <- rbind(datos_hombres, datos_mujeres)
   
-  # append the subtables in a single one, then we need to add the today's date column 
-  data_clear <- rbind(data_hombres, data_mujeres)
-  
-  # replace null cells (NA) with a zero (0) -> NA <equiv> 0 for us in measures (UCI, Casos, etc)
-  data_clear[is.na(data_clear)] <- 0
+  # cambiar NAs (nulos) por 0
+  datos_globales[is.na(datos_globales)] <- 0
   
   # añadir columna con la fecha de hoy 
-  date_today <- format(Sys.time(), "%d/%m/%Y")  # get current date 
-  #date_today <- esta_fecha
+  fecha_hoy <- format(Sys.time(), "%d/%m/%Y")  # get current date 
+  # fecha_hoy <- esta_fecha   # descomentar para pruebas
   
-  data_clear$V9 <- date_today 
-  data_clear[1,8] <- "Fecha" 
+  datos_globales$V9 <- fecha_hoy 
+  datos_globales[1,8] <- "Fecha" 
   
-  # renombrar las columnas con los nombres originales (los que necesitamos): 
-  #  (Territorio, Fallecidos, etc)
-  colnames(data_clear) <- data_clear[1,]
-  data_clear <- data_clear[-c(1),]
-  
-  #View(data_clear)
+  # renombrar las columnas con los nombres originales
+  colnames(datos_globales) <- datos_globales[1,]
+  datos_globales <- datos_globales[-c(1),]
   
   # preparar dataset del día anterior para hacer la resta de casos/fallecidos/...
-  #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\ayer")
   dataset_ayer <- "datos/ayer/residencias_edad_sexo_ayer.csv" 
   
-  if ( file.exists(dataset_ayer) ) {
+  if ( file.exists(dataset_ayer) ) { 
     
     ayer <- import(dataset_ayer)
     
-    # ahora 2 datasets: el de hoy y el de ayer, tenemos que restar dos a dos las
-    # columnas del mismo nombre que contienen datos acumulados, que son:
-    # columna 
-    hoy <- data_clear
+    hoy <- datos_globales
     
     # Almacenar los datos de hoy (sin restarlos, claro) para poder restarlos a
     # los de el día siguiente. Se reescribe el fichero residencias_edad_sexo_ayer.csv
     write.table(hoy, dataset_ayer , row.names=FALSE, col.names=TRUE, sep = ';')
-    
     
     # restar cada columna y modificarla en el dataset final del día de hoy 
     # columna 2 
@@ -133,7 +122,6 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
     
 
     # añadir al dataset de residencias_edad_sexo.csv los datos de hoy
-    #setwd("C:\\Users\\UX430U\\Desktop\\TFG\\datos")
     residencias_edadsexo_csv <- "datos/residencias_edad_sexo.csv"
     
     if( file.exists(residencias_edadsexo_csv) ){ 
@@ -156,7 +144,7 @@ preparar_datos_residencias_edad_sexo <- function(path_fichero){
     
     # guardamos directamente nuestro dataset tal cual está
     print("El archivo residencias_edad_sexo_ayer.csv no existía aún. Se va a crear por primera vez con los datos de hoy.  ")
-    write.table(data_clear, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
+    write.table(datos_globales, dataset_ayer, row.names=FALSE, col.names=TRUE, sep = ';')
   }
   
   
