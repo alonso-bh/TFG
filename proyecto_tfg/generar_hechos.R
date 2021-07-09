@@ -3,7 +3,11 @@
 # generadas con el script 'generar_dimensiones.R' en formato CSV
 
 
-#setwd("C:\\Users\\UX430U\\Desktop\\TFG")
+
+##########################
+# PROCEDIMIENTOS PARA GENERAR TABLAS DE HECHOS EN FORMATO .CSV
+##########################
+
 
 ################################################################################
 # HECHOS 1: Días naturales
@@ -273,3 +277,5 @@ generar_hechos_profesionales <- function (path_proyecto = getwd()){
               quote = FALSE, col.names=TRUE, sep = ';')
 } 
 
+
+# generar_hechos_profesionales()

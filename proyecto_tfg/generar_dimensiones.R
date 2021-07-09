@@ -1,8 +1,9 @@
+# Alonso Bueno Herrero
 
-# Script para generar las dimensiones aplicando los casos de diseño 
-# especificados en la documentación del proyecto.
-
-#setwd("C:\\Users\\UX430U\\Desktop\\TFG")
+##########################
+# PROCEDIMIENTOS PARA GENERAR TABLAS DE 
+# LAS DIMENSIONES EN FORMATO .CSV
+##########################
 
 
 ################################################################################
@@ -191,7 +192,6 @@ generar_dimension_cuando <- function(path_proyecto = getwd()){
 #' @param path_proyecto es el camino a la carpeta principal de trabajo (TFG),
 #' que tendrá el mismo orden de ficheros y directorios actual para que funcionen
 #' las funciones implementadas tal cual están.
-
 generar_dimension_quien <- function(path_proyecto){
   
   library("rio")
@@ -252,6 +252,7 @@ generar_dimension_donde_provincia <- function(path_proyecto){
   write.table(provincias, "datos/dimension_donde_provincia.csv", 
               quote = FALSE , row.names=FALSE, col.names=TRUE, sep = ';')
 }
+
 
 ################################################################################
 #' FUNCION PARA GENERAR LA TABLA DE LA DIMENSION DONDE-DS 
@@ -330,6 +331,10 @@ generar_dimension_donde_distrito_sanitario <- function(path_proyecto){
 }
 
 
+################################################################################
+#' FUNCION PARA GENERAR LA TABLA DE LA DIMENSION DONDE-Municipio  
+#' 
+#' @param path_proyecto Es el path a la carpeta principal del proyecto.
 generar_dimension_donde_municipio (path_proyecto = getwd()){
   
   library(rio)
@@ -457,13 +462,13 @@ generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
   dimension$cod_quien_vacunas <- 1:nrow(dimension)          
 
   # añadimos el nivel "mayores de edad"
-  dimension$adultos <- "SI"
-  for(i in 1:nrow(dimension)){
-    if( grepl( "^Menores de 16", dimension[i,"rango_edad"]) | 
-        grepl( "^De 16 a 17", dimension[i,"rango_edad"] ) ){
-      dimension[i,"adultos"] <- "NO"
-    }
-  }
+  # dimension$adultos <- TRUE
+  # for(i in 1:nrow(dimension)){
+  #   if( grepl( "^Menores de 16", dimension[i,"rango_edad"]) | 
+  #       grepl( "^De 16 a 17", dimension[i,"rango_edad"] ) ){
+  #     dimension[i,"adultos"] <- FALSE
+  #   }
+  # }
   
   # almacenar la dimension 
   write.table(dimension, "datos/dimension_quien_vacunas.csv", row.names=FALSE, 
@@ -471,6 +476,10 @@ generar_dimension_quien_vacunas <- function(path_proyecto = getwd()){
 }
 
 
+################################################################################
+#' FUNCION PARA GENERAR LA TABLA DE LA DIMENSION RESIDENCIA  
+#' 
+#' @param path_proyecto Es el path a la carpeta principal del proyecto.
 generar_dimension_residencia(path_proyecto = getwd()){
   
   library(rio)
@@ -491,7 +500,10 @@ generar_dimension_residencia(path_proyecto = getwd()){
 }
 
 
-
+################################################################################
+#' FUNCION PARA GENERAR LA TABLA DE LA DIMENSION QUIEN-Profesionales  
+#' 
+#' @param path_proyecto Es el path a la carpeta principal del proyecto.
 generar_dimension_quien_profesionales <- function(path_proyecto = getwd()){
   
   library(rio)
@@ -517,3 +529,15 @@ generar_dimension_quien_profesionales <- function(path_proyecto = getwd()){
               quote = FALSE , col.names=TRUE, sep = ';')
   
 }
+
+
+# ----------------- EJECUCIÓN DE LOS PROCEDIMIENTOS PARA ACTUALIZAR CSV --------
+
+generar_dimension_cuando("C:/Users/UX430U/Desktop/TFG/")
+generar_dimension_quien()
+generar_dimension_donde_provincia()
+generar_dimension_donde_distrito_sanitario()
+generar_dimension_donde_municipio()
+generar_dimension_quien_vacunas()
+generar_dimension_residencia() 
+generar_dimension_quien_profesionales() 

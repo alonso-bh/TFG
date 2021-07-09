@@ -2,16 +2,17 @@
 # ALONSO BUENO HERRERO
 
 
-
+################################################################################
 #' OBTENER UNA LISTA CON LAS PROVINCIAS DE ANDALUCÍA
 #'
-#' REcibe opcionalmente el path del proyecto (carpeta raíz TFG), aunque lo
+#' Recibe opcionalmente el path del proyecto (carpeta raíz TFG), aunque lo
 #' habitual será que no se le pase, y tome getwd(), suponiendo que se le llama
 #' desde una función que ya ha fijado previamente este valor.
 #' @param path_proyecto es un parámetro opcional para indicar el path donde 
 #' está la carpeta de trabajo. Lo habitual es que no se especifique, y se tome
 #' el valor por defecto. 
 obtener_provincias <- function(path_proyecto = getwd()) {
+  library(rio)
   setwd(path_proyecto)
   
   provincias <- import("datos/cod_provincias.csv")
@@ -35,6 +36,7 @@ obtener_provincias <- function(path_proyecto = getwd()) {
 #' 'cad2' concatenadas, en ese orden, y sin ningún separador entre ambas
 concatenar_strings <- function(cadenas = c()){
   tmp <- cbind(cadenas)
+  
   library(stringr)
   str_c(tmp, collapse = "")
 }
@@ -42,9 +44,9 @@ concatenar_strings <- function(cadenas = c()){
 
 ################################################################################
 #' Obtener array con el camino relativo (dentro de la carpeta de trabajo TFG) 
-#' a cada fichero de cada provincia. Ejemplo: datos/25-04/Covid_04.xls (Almería)
+#' a cada fichero de cada provincia. Ejemplo: datos/25-04-21/Covid_04.xls (Almería)
 #' @param path_dir_hoy es la cadena formada por "datos/" y la carpeta asociada
-#' al día, con el formato DD-MM. Por ejemplo: 'datos/25-04'. 
+#' al día, con el formato dd-mm-yy. Por ejemplo: 'datos/25-04-21'. 
 obtener_path_provincias_hoy <- function (path_dir_hoy = ""){
   
   path_provincias <- c(
@@ -60,22 +62,4 @@ obtener_path_provincias_hoy <- function (path_dir_hoy = ""){
   
   return(path_provincias)
 }
-
-
-################################################################################
-#' Función para obtener la fecha de ayer (día anterior al día en que se llame
-#' a esta función) usando el objeto Sys.Date
-#' 
-#' @return Camino completo a la carpeta del día anterior
-#obtener_fecha_ayer <- function(){
-  # obtener fecha de ayer con el formato de "DD-MM", que es el usado en este
-  #  proyecto
-  #date_yesterday <- format(Sys.Date()-1, "%d-%m")
-  
-  # construir path al directorio del día anterior (yesterday)
-  #path_yesterday <- concatenar_strings("C:\\Users\\UX430U\\Desktop\\TFG\\datos\\", date_yesterday)
-  
-  #return (path_yesterday)
-#}
-
 

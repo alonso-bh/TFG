@@ -10,20 +10,24 @@
 #' @param Camino hacia el directorio donde están los datos de hoy sobre 
 #' profesionales, previamente descargados de la web de la Junta 
 #' 
-preparar_datos_profesionales <- function(path_fichero){
+preparar_datos_profesionales <- function(path_fichero, version=2){
   
   library('readr')
   library("rio")
   library("tidyr") 
-# 
-#   esta_fecha <- "03/06/2021"
-#   path_fichero <- "datos/03-06/profesionales.xls"
+
+  # esta_fecha   <-       "05/07/2021"
+  # path_fichero <- "datos/05-07/profesionales.xls"
 
   # import excel
   excel <- import(path_fichero)
   
   # quitar primeras y últimas filas "sucias" (sin datos)
-  excel <- excel[-c(1,2,3,4,5,6,38,39),]
+  if (version == 1){
+    excel <- excel[-c(1,2,3,4,5,6,38,39),]
+  } else if (version == 2){
+    excel <- excel[-c(1,2,3,4,5,6,35,36),]
+  }
   
   # asignar los nombres correctos a las columnas
   colnames <- excel[1,]
@@ -39,7 +43,7 @@ preparar_datos_profesionales <- function(path_fichero){
   
   # añadir columna con la fecha de hoy (notificación)
   date_today <- format(Sys.Date(), "%d/%m/%Y")  # get current date 
-  #date_today <- esta_fecha # descomentar para pruebas 
+  # date_today <- esta_fecha # descomentar para pruebas 
   
   excel$Fecha <- date_today
   
@@ -47,8 +51,14 @@ preparar_datos_profesionales <- function(path_fichero){
   dataset_ayer <- "datos/ayer/profesionales_ayer.csv" 
   
   if ( file.exists(dataset_ayer) ) {
-
+    
     ayer <- import(dataset_ayer)
+    
+    if(nrow(ayer) == 20 & version == 2){
+      # esto solo ocurre un día, pero hay que comprobarlo y adaptar el fichero
+      # para que la resta de datos con los de hoy se haga correctamente
+      ayer <- ayer[-c(6,16),]
+    }
     
     # ahora 2 datasets: el de hoy y el de ayer, tenemos que restar dos a dos las
     # columnas del mismo nombre que contienen datos acumulados, que son:
@@ -119,5 +129,5 @@ preparar_datos_profesionales <- function(path_fichero){
 } # fin de la función de trabajo con datos d eprofesionales 
 
 
-#preparar_datos_profesionales("datos/10-05/profesionales.xls")
+# preparar_datos_profesionales("datos/10-05/profesionales.xls")
 

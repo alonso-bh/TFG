@@ -1,48 +1,37 @@
+# Alonso Bueno Herrero - 2021
+
 
 # Leer el camino a la carpeta de trabajo
-
 args = commandArgs(trailingOnly=TRUE)
 
 if (length(args)==0) {
   stop("Debes proporcionar el camino (absoluto) a la carpeta de trabajo 'TFG'.")
 } else if (length(args)==1) {
-  # default output file 
   sprintf("El camino introducido es: %s", args[1])
   setwd(args[1])
 }
 
-# setwd("C:/Users/UX430U/Desktop/TFG")  # descomentar para pruebas 
 
+# fichero de utilidades  
 source("proyecto_tfg/utils.R")
-library(RCurl)
+library(RCurl)  # para descargar de la web vía URL
+
 
 # generar la carpeta para guardar los datos de hoy 
-hoy <- format(Sys.time(), "%d-%m") # formato establecido: dd-mm
-# hoy <- "03-06"
+hoy <- format(Sys.time(), "%d-%m-%y") # formato establecido: dd-mm
 nombre_carpeta <- concatenar_strings(c("datos/", hoy))
 nombre_carpeta
-dir.create(nombre_carpeta)
+dir.create(nombre_carpeta)   # crear carpeta en datos/
 
 
 #########################
 # DESCARGA DE FICHEROS 
 #########################
 
-# descargar ficheros de datos por provincia-dist.sanit.-pueblo
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_04.xls",destfile="Covid_04.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_11.xls",destfile="Covid_11.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_14.xls",destfile="Covid_14.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_18.xls",destfile="Covid_18.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_21.xls",destfile="Covid_21.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_23.xls",destfile="Covid_23.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_29.xls",destfile="Covid_29.xls",method="curl")
-# download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/salud/static/xls/Covid_41.xls",destfile="Covid_41.xls",method="curl")
 
-# acceso a datos covid: https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_2314&idNode=42348
-
+# DESCARGAR DATOS A NIVEL DE MUNICIPIOS (8 DATASETS, 1 POR PROVINCIA)
 path_provincias <- obtener_path_provincias_hoy(nombre_carpeta)
 
-# alternativa por badea (parece que es más fiable)
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=89e6d2a9-cfcd-4f0c-8d31-a6290fe8c4d8&type=0&foto=si&ejecutaDesde=&codConsulta=38665&consTipoVisua=JP" ,
               destfile=path_provincias[1],
               method="curl")
@@ -102,21 +91,19 @@ download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografi
               destfile = path_vacunas_1dosis,
               method = "curl")
 
-
 path_vacunas_2dosis <- concatenar_strings(c(nombre_carpeta, "/datos_pauta_completa.xls"))
 download.file("https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/stpivot/stpivot/Print?cube=013c864d-aa76-4366-bcfc-a9732eac5d7e&type=0&foto=si&ejecutaDesde=&codConsulta=53534&consTipoVisua=JP",
               destfile = path_vacunas_2dosis,
               method = "curl")
 
 
-
-## Tarea final: 
-#  EJECUTAR FUNCIONES PARA PROCESAR Y ALMACENAR LOS DATOS DESCARGADOS DE HOY
-
+#############################
+# PROCESAMIENTO DE DATOS
+#############################
 
 source("proyecto_tfg/preparar_datos_dias_naturales.R")
-source("proyecto_tfg/preparar_residencias_edad_sexo.R")
-source("proyecto_tfg/preparar_residencias.R")
+source("proyecto_tfg/preparar_datos_residencias_edad_sexo.R")
+source("proyecto_tfg/preparar_datos_residencias.R")
 source("proyecto_tfg/preparar_datos_municipio.R")
 source("proyecto_tfg/preparar_datos_profesionales.R")
 source("proyecto_tfg/preparar_datos_vacunacion_basicos.R")
@@ -126,8 +113,6 @@ preparar_datos_municipio(path_provincias)
 preparar_datos_residencias_edad_sexo(path_residencias_edad_sexo)
 preparar_datos_dias_naturales(path_dias_naturales) 
 preparar_datos_residencias(path_residencias)
-preparar_datos_profesionales(path_profesionales)
-#preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis))
+preparar_datos_profesionales(path_profesionales, 2)
+preparar_datos_vacunacion_basicos(c(path_vacunas_1dosis, path_vacunas_2dosis), 3)
 
-
-# Llamar al script para generar/actualizar tablas de hechos y dimensiones 

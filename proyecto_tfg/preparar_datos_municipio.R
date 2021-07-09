@@ -69,11 +69,11 @@ preparar_datos_municipio <- function(path_ficheros){
   # setwd("C:/Users/UX430U/Desktop/TFG")                    # descomentar para pruebas
   source("proyecto_tfg/utils.R")
   
-  # path_ficheros <- obtener_path_provincias_hoy("datos/17-06")  # cada día
+  # path_ficheros <- obtener_path_provincias_hoy("datos/30-06")  # cada día
   
   # transformar cada dataset de cada provincia antes de unirlos  
   # ZONA DE PRUEBAS
-  # fecha_aux <- "17/02/2021"
+  # fecha_aux <- "30/06/2021"
   # almeria <- preparar_provincia(path_ficheros[1], 'AL', fecha_aux)
   # cadiz   <- preparar_provincia(path_ficheros[2], 'CA', fecha_aux)
   # cordoba <- preparar_provincia(path_ficheros[3], 'CO', fecha_aux)

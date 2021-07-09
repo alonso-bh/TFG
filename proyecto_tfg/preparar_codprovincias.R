@@ -1,11 +1,12 @@
+# Alonso Bueno Herrero
 
-
-preparar_cod_provincias <- function(path_proyecto){
+################################################################################
+#' FUNCION PARA PROCESAR EL FICHERO AUXILIAR CON EL CÓDIGO INE DE LAS PROVINCIAS
+#' @param path_proyecto es la ruta a la carpeta del proyecto
+preparar_cod_provincias <- function(path_proyecto = getwd()){
   
   library(tidyr)
   library(rio)
-  
-  # setwd("C:\\Users\\UX430U\\Desktop\\TFG")
   
   setwd(path_proyecto)
   
@@ -19,9 +20,9 @@ preparar_cod_provincias <- function(path_proyecto){
   excel <- excel[-c(1),]
   colnames(excel) <- c("cod_provincia", "nombre_provincia" )
   
-  # almacenar los códigos como "cadena de caracteres" para que se mantengan con
-  # dos dígitos, y no se consideren como números 
+  # almacenar fichero
   excel$cod_provincia <- as.character(excel$cod_provincia)
-  write.table(excel, "datos/cod_provincias.csv", row.names=FALSE, col.names=TRUE, sep = ';')
+  write.table(excel, "datos/cod_provincias.csv", row.names=FALSE, 
+              col.names=TRUE, sep = ';')
   
 }
