@@ -1,0 +1,304 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="90a61c00-d3c2-406c-833d-3c70ec4397e8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Días Naturales</ID>
+  <Name>Días Naturales</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="6" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7034" scrolltop="19" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="76" x="19008" y="7662" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="464" top="5787" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000fd0b0000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_cuando" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_donde_provincia" left="6378" top="720" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3958" height="1947" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000760f00009b070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_donde_provincia" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="hechos_dias_naturales" left="20" top="0" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3958" height="3387" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000760f00003b0d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_hechos_dias_naturales" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1599" top="3087" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_dias_naturales-dimension_cuando]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1998" y="5787" />
+              <point x="1998" y="4587" />
+              <point x="1999" y="4587" />
+              <point x="1999" y="3387" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3678" top="1294" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_dias_naturales-dimension_donde_provincia]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="16" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6378" y="1693" />
+              <point x="3978" y="1693" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-7034</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>19</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>76</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="0c60f2cd-920b-4b01-ae1d-716b0a4ebc4a">
+      <ID>Cuándo</ID>
+      <Name>Cuándo</Name>
+      <DimensionID>Cuándo</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="24586c33-9a94-4cd7-b772-8cd8eb19530a">
+          <AttributeID>Cod Cuando</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="183666b7-3bac-4fe6-adf1-98097276aad0">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="78d8de39-b0ad-4fa0-9be5-bcaf31cd7689">
+          <AttributeID>Mes (número)</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="59ca0ebd-9954-46c3-8eb6-08849ed461e0">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f5fce9dc-bc80-4382-b0d3-66fee8416509">
+          <AttributeID>Semana del año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="04fe578a-27bf-4789-911f-dc2899ff7668">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9acbe331-0b0d-41ad-b944-308a4b8d6d79">
+          <AttributeID>Es Día Natural</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2f585036-29d6-434e-a842-d11b2baa6a42">
+          <AttributeID>Es Día Hábil</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="617c11dc-1015-4c88-94bc-1b0d830733fb">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="1d1b39c9-3166-48a3-8841-d066c7687aea">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="b35ff333-2d7f-4b6c-a149-be631a5f7e88">
+      <ID>Dónde Provincia</ID>
+      <Name>Dónde Provincia</Name>
+      <DimensionID>Dimension Donde Provincia</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="00af5059-342b-45e3-8192-f16ee0e79903">
+          <AttributeID>Cod Donde Provincia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2321addd-d9b8-4538-8931-2aa212eb7204">
+          <AttributeID>Provincia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="defc3a03-cec1-4696-a60c-c540ba84c57f">
+          <AttributeID>Código provincia INE</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="c3668a3b-8334-475e-b382-56230470e349">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="2ab524c5-3dd1-44b2-a8b2-925b618589b6">
+      <ID>Hechos Dias Naturales</ID>
+      <Name>Hechos Dias Naturales</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="d0b5faf7-31da-4a9d-aad5-47966bf89712">
+          <ID>Confirmados Pdia</ID>
+          <Name>Confirmados PDIA</Name>
+          <Source dwd:design-time-name="2e87c794-1a29-4e0f-b648-f662ae359233">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="348d37bb-1edf-41e3-a9e9-8263b536e624">
+              <TableID>dbo_hechos_dias_naturales</TableID>
+              <ColumnID>confirmados_pdia</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="2788749a-97c1-44b3-af63-9f2426172312">
+          <ID>Total Confirmados</ID>
+          <Name>Total Confirmados</Name>
+          <Source dwd:design-time-name="dc9c9083-f02a-4a2c-bc08-07389b1562ad">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="86bc184c-e502-45b7-b1a6-16158d5b12db">
+              <TableID>dbo_hechos_dias_naturales</TableID>
+              <ColumnID>total_confirmados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b4da23bb-6128-4527-8737-2024955a445d">
+          <ID>Hospitalizados</ID>
+          <Name>Hospitalizados</Name>
+          <Source dwd:design-time-name="b558fb00-4bc7-410d-bf85-7bc05a37f958">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="de942471-04e9-4f9d-9206-a501755eda4e">
+              <TableID>dbo_hechos_dias_naturales</TableID>
+              <ColumnID>hospitalizados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="52f0e043-50b8-4f6c-8f0d-ba8585789073">
+          <ID>Uci</ID>
+          <Name>UCI</Name>
+          <Source dwd:design-time-name="9ce23ff7-f732-4c03-8ae7-2d9cdab694c4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="99340d57-6e4b-40d9-89a3-d68b3319c519">
+              <TableID>dbo_hechos_dias_naturales</TableID>
+              <ColumnID>uci</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="79bb17ca-2e59-4e73-b3e3-10e92e0acd9c">
+          <ID>Fallecidos</ID>
+          <Name>Fallecidos</Name>
+          <Source dwd:design-time-name="fe4f1006-e6ab-422a-b01e-5070852e84b0">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f455117c-ea3b-4d4a-b6a0-42211a919460">
+              <TableID>dbo_hechos_dias_naturales</TableID>
+              <ColumnID>fallecidos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ede2f27f-ab35-4918-a3f4-bdf3ccff0294">
+          <CubeDimensionID>Cuándo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e38c4246-7b6b-4014-bc06-85d3c788624c">
+              <AttributeID>Cod Cuando</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="bf32105f-d04e-4f4d-b2da-544cb97fdd2f">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="26b09154-d149-4df6-a440-258404a50363">
+                    <TableID>dbo_hechos_dias_naturales</TableID>
+                    <ColumnID>cod_cuando</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="904d424f-d057-4cb8-9971-37540a8c77c3">
+          <CubeDimensionID>Dónde Provincia</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="82354d58-c2ba-4dcb-bc07-9569712a7473">
+              <AttributeID>Cod Donde Provincia</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8b478486-bbd3-4da1-83b8-096df024262a">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="474f20b9-de6f-4593-897a-6848ee78f8c0">
+                    <TableID>dbo_hechos_dias_naturales</TableID>
+                    <ColumnID>cod_donde_provincia</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="5ecef525-e68e-4a15-bd98-cb20deeb65dd">
+    <DataSourceViewID>Covid19and</DataSourceViewID>
+  </Source>
+</Cube>

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/13/2021 11:56:23 PM"
+  DTS:CreationDate="6/29/2021 7:33:59 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="DESKTOP-BJ5E84H"
   DTS:CreatorName="DESKTOP-BJ5E84H\aulas"
   DTS:Description="SSIS Package Description"
-  DTS:DTSID="{B72640D8-6BEC-48E3-904A-842398A0FA0F}"
+  DTS:DTSID="{03CFBFBB-976E-482B-9F4A-0E864CDB9BA2}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.5058.0"
   DTS:LocaleID="3082"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="importar_hechos_vacunas"
-  DTS:VersionGUID="{4323FE22-C9C1-4184-BFCA-9EF286DE8300}">
+  DTS:VersionGUID="{30485BFD-388C-46C3-8796-FDBE8A57D67D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{C81A2282-F8FC-4AC0-86D1-ACEE484B4F39}"
+      DTS:DTSID="{FD265EA1-919F-44F6-BB32-D377C4F4C590}"
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{3E9C97B9-632A-48EB-BFFD-86B18B430593}"
+      DTS:DTSID="{8EC1E50B-D1CA-42AB-8F2B-DF794028EBE7}"
       DTS:ObjectName="SourceConnectionFlatFile">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -48,7 +48,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="n_personas_1_dosis"
-              DTS:DTSID="{B28103B2-E94D-4E4B-9C9D-B06D3B0ECAD0}"
+              DTS:DTSID="{22751906-EC44-4A3B-98C8-F7324D21C5DF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="%personas_1_dosis"
-              DTS:DTSID="{B0B7E610-52CB-46B7-AE9A-8E1F7E9561BA}"
+              DTS:DTSID="{88018020-21EF-4EAD-911C-793D6C743C5A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +64,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="n_personas_pauta_completa"
-              DTS:DTSID="{E718DF47-EBB3-4CC9-8D90-6393DF071DB0}"
+              DTS:DTSID="{B2FFB6A7-25A6-44B8-9DB8-273DB8BCE3A3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,15 +72,15 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="%personas_pauta_completa"
-              DTS:DTSID="{469ED79B-DD01-43B6-B2C4-D81A27731862}"
+              DTS:DTSID="{8644BDC1-DD45-4C78-9405-99076E37FFA7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="2"
+              DTS:DataType="16"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_cuando"
-              DTS:DTSID="{3C8BD037-D67C-40A5-AEC7-FFBF6C3CE1A8}"
+              DTS:DTSID="{F2D8CECE-FCBC-4DED-B247-2F7D3AFB549B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -88,23 +88,15 @@
               DTS:DataType="16"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_donde_provincia"
-              DTS:DTSID="{8C6FFC42-19BE-41AE-8D4D-72DD699D227F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="16"
-              DTS:TextQualified="True"
-              DTS:ObjectName="cod_quien_vacunas"
-              DTS:DTSID="{8123C750-727E-48E3-966F-C71CAF6091F3}"
+              DTS:DTSID="{6B777D63-CB20-4B80-880F-BDB8A16D8DC3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="11"
+              DTS:DataType="16"
               DTS:TextQualified="True"
-              DTS:ObjectName="adultos"
-              DTS:DTSID="{3BE88FC5-318F-4EBE-8B96-12CCD70407A0}"
+              DTS:ObjectName="cod_quien_vacunas"
+              DTS:DTSID="{3F99CA63-0B8C-437D-A5F5-1ECEF19186F1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -117,7 +109,7 @@
       DTS:refId="Package\Data Flow Task 1"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:DelayValidation="True"
-      DTS:DTSID="{93593987-21C6-4390-A77D-D6E85AF76CB0}"
+      DTS:DTSID="{34336656-B5D8-40E7-B9BE-40CAFE68631E}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -142,6 +134,11 @@
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[cod_cuando]"
+                      cachedDataType="i1"
+                      cachedName="cod_cuando"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[cod_cuando]" />
+                    <inputColumn
                       refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[cod_donde_provincia]"
                       cachedDataType="i1"
                       cachedName="cod_donde_provincia"
@@ -162,6 +159,26 @@
                   name="Data Conversion Output"
                   synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_cuando]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_cuando]"
+                      name="cod_cuando"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[cod_cuando]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_donde_provincia]"
                       dataType="i2"
@@ -331,7 +348,7 @@
                       cachedDataType="i2"
                       cachedName="cod_cuando"
                       externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].ExternalColumns[cod_cuando]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[cod_cuando]" />
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_cuando]" />
                     <inputColumn
                       refId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].Columns[cod_donde_provincia]"
                       cachedDataType="i2"
@@ -344,12 +361,6 @@
                       cachedName="cod_quien_vacunas"
                       externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].ExternalColumns[cod_quien_vacunas]"
                       lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_quien_vacunas]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].Columns[adultos]"
-                      cachedDataType="bool"
-                      cachedName="adultos"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].ExternalColumns[adultos]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[adultos]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -381,10 +392,6 @@
                       refId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].ExternalColumns[cod_quien_vacunas]"
                       dataType="i2"
                       name="cod_quien_vacunas" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_vacunas.Inputs[Destination Input].ExternalColumns[adultos]"
-                      dataType="bool"
-                      name="adultos" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -526,7 +533,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[cod_cuando]"
-                      dataType="i2"
+                      dataType="i1"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[cod_cuando]"
@@ -584,26 +591,6 @@
                           name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[adultos]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[adultos]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].Columns[adultos]"
-                      name="adultos"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -625,7 +612,7 @@
                       name="%personas_pauta_completa" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[cod_cuando]"
-                      dataType="i2"
+                      dataType="i1"
                       name="cod_cuando" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[cod_donde_provincia]"
@@ -635,10 +622,6 @@
                       refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[cod_quien_vacunas]"
                       dataType="i1"
                       name="cod_quien_vacunas" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_vacunas_csv.Outputs[Flat File Source Output].ExternalColumns[adultos]"
-                      dataType="bool"
-                      name="adultos" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -689,7 +672,7 @@
     <DTS:Executable
       DTS:refId="Package\Drop table(s) SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{5D2E6491-7454-4F7F-A4A8-DDDB6EB5490F}"
+      DTS:DTSID="{3006C24E-6F03-49EC-AA89-126476CC3B5C}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Drop table(s) SQL Task 1"
@@ -698,14 +681,14 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C81A2282-F8FC-4AC0-86D1-ACEE484B4F39}"
+          SQLTask:Connection="{FD265EA1-919F-44F6-BB32-D377C4F4C590}"
           SQLTask:SqlStatementSource="drop table [dbo].[hechos_vacunas]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Preparation SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{AACC0120-EC9D-496D-B408-F987AE1ADB31}"
+      DTS:DTSID="{B4C5FE4D-56EF-4899-909F-84519A9C82B6}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -715,28 +698,28 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C81A2282-F8FC-4AC0-86D1-ACEE484B4F39}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_vacunas] (&#xA;[n_personas_1_dosis] smallint,&#xA;[%personas_1_dosis] real,&#xA;[n_personas_pauta_completa] smallint,&#xA;[%personas_pauta_completa] real,&#xA;[cod_cuando] smallint NOT NULL,&#xA;[cod_donde_provincia] smallint NOT NULL,&#xA;[cod_quien_vacunas] smallint NOT NULL,&#xA;[adultos] bit&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{FD265EA1-919F-44F6-BB32-D377C4F4C590}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_vacunas] (&#xA;[n_personas_1_dosis] smallint,&#xA;[%personas_1_dosis] real,&#xA;[n_personas_pauta_completa] smallint,&#xA;[%personas_pauta_completa] real,&#xA;[cod_cuando] smallint NOT NULL,&#xA;[cod_donde_provincia] smallint NOT NULL,&#xA;[cod_quien_vacunas] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{230D3E3F-5EA1-4D76-B0FB-E50AD01E10AD\}]"
+      DTS:refId="Package.PrecedenceConstraints[{0F776901-4C67-4500-8734-491582FDB9C6\}]"
       DTS:CreationName=""
-      DTS:DTSID="{230D3E3F-5EA1-4D76-B0FB-E50AD01E10AD}"
-      DTS:From="Package\Preparation SQL Task 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="{230D3E3F-5EA1-4D76-B0FB-E50AD01E10AD}"
-      DTS:To="Package\Data Flow Task 1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{BFDB37DB-8270-4B35-9E09-8CB54261CA2B\}]"
-      DTS:CreationName=""
-      DTS:DTSID="{BFDB37DB-8270-4B35-9E09-8CB54261CA2B}"
+      DTS:DTSID="{0F776901-4C67-4500-8734-491582FDB9C6}"
       DTS:From="Package\Drop table(s) SQL Task 1"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="{BFDB37DB-8270-4B35-9E09-8CB54261CA2B}"
+      DTS:ObjectName="{0F776901-4C67-4500-8734-491582FDB9C6}"
       DTS:To="Package\Preparation SQL Task 1"
       DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{A83B047E-8CB2-4AD2-B876-17BDD76B370C\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{A83B047E-8CB2-4AD2-B876-17BDD76B370C}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{A83B047E-8CB2-4AD2-B876-17BDD76B370C}"
+      DTS:To="Package\Data Flow Task 1" />
   </DTS:PrecedenceConstraints>
 </DTS:Executable>

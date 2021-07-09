@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2679" scrolltop="-3524" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8467" y="10795" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2679" scrolltop="-3524" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7408" y="7662" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -19,7 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="00080000fd0b0000a30e0000" />
             </control>
@@ -73,7 +73,6 @@
             <Shape Id="Cod Cuando" Expanded="true">
               <Attributes>
                 <Attribute Id="Cod Cuando" />
-                <Attribute Id="Semana del año" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
@@ -85,10 +84,9 @@
               </Attributes>
               <Position x="216" y="20" />
             </Shape>
-            <Shape Id="Mes" Expanded="true">
+            <Shape Id="Semana del año" Expanded="false">
               <Attributes>
-                <Attribute Id="Mes" />
-                <Attribute Id="Mes (número)" />
+                <Attribute Id="Semana del año" />
               </Attributes>
               <Position x="412" y="20" />
             </Shape>
@@ -97,6 +95,13 @@
                 <Attribute Id="Año" />
               </Attributes>
               <Position x="608" y="20" />
+            </Shape>
+            <Shape Id="Mes" Expanded="true">
+              <Attributes>
+                <Attribute Id="Mes" />
+                <Attribute Id="Mes (número)" />
+              </Attributes>
+              <Position x="412" y="69" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -120,6 +125,7 @@
       <ID>Cod Cuando</ID>
       <Name>Cod Cuando</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>487</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="e1e9dca0-b735-44fc-ab14-1e0b6fb94cff">
           <DataType>SmallInt</DataType>
@@ -134,12 +140,9 @@
           <AttributeID>Fecha</AttributeID>
           <Name>Fecha</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="1f5f0c36-00ff-48e9-9011-fbfd812839ef">
-          <AttributeID>Semana del año</AttributeID>
-          <Name>Semana del año</Name>
-        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
@@ -147,6 +150,7 @@
       <ID>Fecha</ID>
       <Name>Fecha</Name>
       <Type>Date</Type>
+      <EstimatedCount>487</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="216d02ac-9709-410b-9cf9-427863343393">
           <DataType>Date</DataType>
@@ -169,6 +173,10 @@
           <AttributeID>Es Día Natural</AttributeID>
           <Name>Es Día Natural</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8402bdeb-ad3c-426f-a60e-5ab2bd54faa5">
+          <AttributeID>Semana del año</AttributeID>
+          <Name>Semana del año</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
@@ -176,7 +184,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="ab409f59-2718-4c08-bce2-04ae7450ef5e">
       <ID>Mes (número)</ID>
-      <Name>Mes (número)</Name>
+      <Name>Mes - número</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="96e4f322-65f3-41c5-9635-d5c0c45f7c8a">
           <DataType>SmallInt</DataType>
@@ -194,6 +202,7 @@
       <ID>Año</ID>
       <Name>Año</Name>
       <Type>Years</Type>
+      <EstimatedCount>2</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="8f86b22a-9e2b-4fe4-a903-badcd7b17e8f">
           <DataType>SmallInt</DataType>
@@ -211,15 +220,36 @@
       <ID>Semana del año</ID>
       <Name>Semana del año</Name>
       <Type>WeekOfYear</Type>
+      <EstimatedCount>71</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="423dddc8-201f-4e6e-92b6-f6917a759e04">
+        <KeyColumn dwd:design-time-name="b3952aa0-7ec8-45e9-99a1-c6bcf64cc03b">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ade268a-de92-47db-9a3b-6cd0ad6ae667">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="61e6d263-9e8a-4947-9cf1-da7840ee7849">
             <TableID>dbo_dimension_cuando</TableID>
             <ColumnID>semana</ColumnID>
           </Source>
         </KeyColumn>
+        <KeyColumn dwd:design-time-name="2b033945-971a-470a-84e3-281cd1ce0ecd">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47a5129a-c230-4c38-80ae-7364cc4ac0f4">
+            <TableID>dbo_dimension_cuando</TableID>
+            <ColumnID>anio</ColumnID>
+          </Source>
+        </KeyColumn>
       </KeyColumns>
+      <NameColumn dwd:design-time-name="f169d576-1963-4b99-923f-1dc74bc9c4f6">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e18f6d95-451f-480c-bb5e-1e3b7bd8d1b7">
+          <TableID>dbo_dimension_cuando</TableID>
+          <ColumnID>semana</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="db9ca6f1-5e6b-4a83-8280-24e04b1a2472">
+          <AttributeID>Año</AttributeID>
+          <Name>Año</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
@@ -228,28 +258,29 @@
       <ID>Mes</ID>
       <Name>Mes</Name>
       <Type>Months</Type>
+      <EstimatedCount>17</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d269f598-881a-465f-9577-f562fadbedf5">
-          <DataType>WChar</DataType>
-          <DataSize>30</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="268276f9-be53-408f-a77a-670ebe3dca30">
-            <TableID>dbo_dimension_cuando</TableID>
-            <ColumnID>nombre_mes</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="b75ab18d-4665-4cff-9450-05b0a3dc9521">
+        <KeyColumn dwd:design-time-name="55e31c01-5775-4a96-b463-7674d7ccb282">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="de78043f-201a-45fd-94b4-c253853196e2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a99fa223-b9af-4a88-986c-d40f311d96cb">
             <TableID>dbo_dimension_cuando</TableID>
             <ColumnID>anio</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="f98b4c75-3120-4923-80e6-8ed6813e002b">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="106aa654-db52-4a20-abdb-5790ab15cf8f">
+            <TableID>dbo_dimension_cuando</TableID>
+            <ColumnID>mes</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <NameColumn dwd:design-time-name="5447a179-8640-4df0-9f4e-7b1ca181d7cd">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="5c3a5d75-9e3c-4e0b-bd64-c2f4da86c858">
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="64e22e2a-ebd9-49fd-86d2-a38d30773ceb">
           <TableID>dbo_dimension_cuando</TableID>
-          <ColumnID>anio</ColumnID>
+          <ColumnID>nombre_mes</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
@@ -259,7 +290,7 @@
         </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="ba4a0aad-c634-4035-93ca-87c2a611315c">
           <AttributeID>Mes (número)</AttributeID>
-          <Name>Mes (número)</Name>
+          <Name>Mes - número</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -315,6 +346,27 @@
           <SourceAttributeID>Mes</SourceAttributeID>
         </Level>
         <Level dwd:design-time-name="471fcafe-f7be-4d11-a557-6ebe40fba1f4">
+          <ID>Fecha</ID>
+          <Name>Fecha</Name>
+          <SourceAttributeID>Fecha</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="06807728-e964-444f-af26-1bb3f290ea13">
+      <ID>Hierarchy 1</ID>
+      <Name>Jerarquía Semana</Name>
+      <Levels>
+        <Level dwd:design-time-name="0e596cbb-b254-4d7b-81f1-cb14c44e7804">
+          <ID>Año</ID>
+          <Name>Año</Name>
+          <SourceAttributeID>Año</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="a49cee9d-bc51-4bab-a6b7-83e1a36b4604">
+          <ID>Semana del año</ID>
+          <Name>Semana del año</Name>
+          <SourceAttributeID>Semana del año</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="1078445c-1d3c-478b-b612-f091df62c5d6">
           <ID>Fecha</ID>
           <Name>Fecha</Name>
           <SourceAttributeID>Fecha</SourceAttributeID>

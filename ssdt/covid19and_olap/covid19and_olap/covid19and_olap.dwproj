@@ -6,6 +6,68 @@
     <Name>covid19and_olap.database</Name>
     <FullPath>covid19and_olap.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Profesionales.cube</Name>
+      <FullPath>Profesionales.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Profesionales.partitions</Name>
+          <FullPath>Profesionales.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vacunas.cube</Name>
+      <FullPath>Vacunas.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Vacunas.partitions</Name>
+          <FullPath>Vacunas.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Municipios.cube</Name>
+      <FullPath>Municipios.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Municipios.partitions</Name>
+          <FullPath>Municipios.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Residencias.cube</Name>
+      <FullPath>Residencias.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Residencias.partitions</Name>
+          <FullPath>Residencias.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Residencias Edad-Sexo.cube</Name>
+      <FullPath>Residencias Edad-Sexo.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Residencias Edad-Sexo.partitions</Name>
+          <FullPath>Residencias Edad-Sexo.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Días Naturales.cube</Name>
+      <FullPath>Días Naturales.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Días Naturales.partitions</Name>
+          <FullPath>Días Naturales.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>Residencia.dim</Name>

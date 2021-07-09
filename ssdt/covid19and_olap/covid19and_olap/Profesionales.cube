@@ -1,0 +1,316 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c8b44cd3-f92a-44d8-a624-2207ad490621" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Profesionales</ID>
+  <Name>Profesionales</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7585" scrolltop="-408" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="21632" y="7662" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_quien_profesionales" left="20" top="6147" logicalid="6" controlid="1" masterid="0" hint1="0" hint2="0" width="4445" height="1947" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800005d1100009b070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_quien_profesionales" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="hechos_profesionales" left="20" top="0" logicalid="7" controlid="2" masterid="0" hint1="0" hint2="0" width="4445" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800005d110000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_hechos_profesionales" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="6865" top="0" logicalid="8" controlid="3" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000fd0b0000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_cuando" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1843" top="3447" logicalid="9" controlid="4" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_profesionales-dimension_quien_profesionales]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="6" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="2242" y="6147" />
+              <point x="2242" y="3747" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4165" top="1474" logicalid="10" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_profesionales-dimension_cuando]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="16" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6865" y="1873" />
+              <point x="4465" y="1873" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-7585</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-408</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="b27f2ab7-a306-4727-a619-26041383bc4a">
+      <ID>Quién Profesionales</ID>
+      <Name>Quién Profesionales</Name>
+      <DimensionID>Quien Profesionales</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="49d265cc-a428-4301-86e1-d4f315150a2a">
+          <AttributeID>Cod Quien Profesionales</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="006fced7-0166-44af-8704-5432b453631e">
+          <AttributeID>Sexo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2b80b186-5a9e-436a-9f31-25e7cbcc22b0">
+          <AttributeID>Categoría profesional</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="1cdfc993-cea2-4f3d-b4fe-91c64e2e3c9e">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="2e72b5d6-9406-4091-b468-f855666fdb63">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="71451d50-772f-4b86-81aa-4bfd4689a95a">
+      <ID>Cuándo</ID>
+      <Name>Cuándo</Name>
+      <DimensionID>Cuándo</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="389a8d3b-adc4-4545-abbf-38026f596d9e">
+          <AttributeID>Cod Cuando</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e825e3ec-c4ca-4311-9583-223faaa455d5">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f5022f50-c22f-47f6-96d5-581e45ad2cc0">
+          <AttributeID>Mes (número)</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0256e73b-76e1-4eda-ba60-3010f6afac73">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4999b505-2df0-44f1-a08d-91ae45b74d98">
+          <AttributeID>Semana del año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9986eec3-61fa-4df8-b098-47c08033cd71">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9f368461-1144-467f-ac66-cf56ffba84f8">
+          <AttributeID>Es Día Natural</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fd76c184-e638-4094-b691-e681c3549c66">
+          <AttributeID>Es Día Hábil</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="22db5b5c-da03-4601-b21a-715bb697cb4d">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="50acff09-249f-42d1-a7ff-15537f3defcb">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="0c9f129e-ab30-4d34-82b5-462518818f10">
+      <ID>Hechos Profesionales</ID>
+      <Name>Hechos Profesionales</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="6b234a88-97c5-4806-82a5-a8dc4debb323">
+          <ID>Confirmados Pdia</ID>
+          <Name>Confirmados PDIA</Name>
+          <Source dwd:design-time-name="abfe20ea-83e8-44f7-b357-ac6179afbb2d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ee8be90a-b4ab-4ee6-8274-3fed6d3e0c16">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>confirmados_pdia</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="9baf137e-c41b-4cfe-9e7f-be31f1456c01">
+          <ID>Confirmados Pdia 14d</ID>
+          <Name>Confirmados PDIA 14 días</Name>
+          <Source dwd:design-time-name="f0788271-da61-41a6-9d4f-f152f692d1b7">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="03a8a534-8491-4e05-af91-3ca7b4058aeb">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>confirmados_pdia_14d</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b2bef883-2fca-41c7-90e3-e12098e83c92">
+          <ID>Confirmados Pdia 7d</ID>
+          <Name>Confirmados PDIA 7 días</Name>
+          <Source dwd:design-time-name="2b2bda1a-abf7-4376-ba81-939a346390b4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7de13824-7894-4df8-a0e7-87257dac134c">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>confirmados_pdia_7d</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="43108be6-0609-463d-9730-d79b822eeb18">
+          <ID>Total Confirmados</ID>
+          <Name>Total Confirmados</Name>
+          <Source dwd:design-time-name="458b6f4a-0fd1-4c80-8a30-296bc2426cee">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5b686c04-9258-49d2-9dae-034332f315b1">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>total_confirmados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="084f631c-1460-428b-ac2c-903d37b3f660">
+          <ID>Fallecidos</ID>
+          <Name>Fallecidos</Name>
+          <Source dwd:design-time-name="d56497b3-d366-4576-8589-d118c07d6e93">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="e49818b3-9c33-42ac-8846-4ea47acbc269">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>fallecidos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="02f94a48-eca1-4a04-98e5-59e651ed9e73">
+          <ID>Curados</ID>
+          <Name>Curados</Name>
+          <Source dwd:design-time-name="037d26a9-1688-4d5b-a450-e24eee55acb0">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="9b659e48-4dc6-4a09-b0cf-51133088db3e">
+              <TableID>dbo_hechos_profesionales</TableID>
+              <ColumnID>curados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="13653b6a-9771-41f8-93f5-6ddb12521e48">
+          <CubeDimensionID>Quién Profesionales</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b847bc59-2eb9-4ce4-a1ff-4c467bb045a2">
+              <AttributeID>Cod Quien Profesionales</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c17a9781-ee32-4351-8094-f3d587742bbe">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f0eaef52-e62c-4784-8398-21bb803ce7b2">
+                    <TableID>dbo_hechos_profesionales</TableID>
+                    <ColumnID>cod_quien_profesionales</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4f551f98-a42e-4a01-95b0-f8e674ef93fe">
+          <CubeDimensionID>Cuándo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="702de8c2-c004-4d60-8d70-f6d147ad004d">
+              <AttributeID>Cod Cuando</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="caba20e8-c3ae-4984-9227-51ba232a7d60">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0c0fab65-55d5-489c-a4f4-270c18627e91">
+                    <TableID>dbo_hechos_profesionales</TableID>
+                    <ColumnID>cod_cuando</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="e1939119-ce3c-44ff-9a30-73428b7523d0">
+    <DataSourceViewID>Covid19and</DataSourceViewID>
+  </Source>
+</Cube>

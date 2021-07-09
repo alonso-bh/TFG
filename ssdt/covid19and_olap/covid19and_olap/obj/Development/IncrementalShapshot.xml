@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <ProcessingOption>Default</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -26,65 +26,107 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>jXp/eR2BMDIIUjjXYoam3Ver/Rc=28/06/2021 23:17:5314/06/2021 18:51:53</TimeStamp>
+        <TimeStamp>4jwpbpOSAripcNklFjD9VxFVAHs=06/07/2021 19:24:4606/07/2021 19:23:55</TimeStamp>
         <ID>
           <String>Covid19and</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>6dJE+bpIPD8CBy0RkcwkzZzNz4Q=27/06/2021 19:38:2917/06/2021 0:18:30</TimeStamp>
+        <TimeStamp>p1t6haY3xcx50lwEDqFMShIQ6VM=08/07/2021 16:57:4017/06/2021 0:18:30</TimeStamp>
         <ID>
           <String>Residencia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>IAOLPOEAIO0oO/Jsvvcw8/CVmEs=27/06/2021 19:30:4717/06/2021 0:23:18</TimeStamp>
+        <TimeStamp>0Myo2K9SyOAYHNDk2nrrm0KOvPM=01/07/2021 14:58:2717/06/2021 0:23:18</TimeStamp>
         <ID>
           <String>Dimension Donde Provincia</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>/lD2B398NaUO349/FPwYyhNWG2g=27/06/2021 19:25:3517/06/2021 0:54:57</TimeStamp>
+        <TimeStamp>nqh0BrjlbxtHBZxeDuFMdn3jQP8=01/07/2021 14:49:0517/06/2021 0:54:57</TimeStamp>
         <ID>
           <String>Dónde DS</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>7yPQ/UNneeAVHXn3NN+V4L0uyu8=17/06/2021 1:20:5717/06/2021 1:18:29</TimeStamp>
+        <TimeStamp>X23tICFXc+J526LGWnujFIdQxnI=05/07/2021 23:50:3317/06/2021 1:18:29</TimeStamp>
         <ID>
           <String>Quién Vacunas</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>KC15qfsWe/2OCkehf0VSPeqI9ls=27/06/2021 19:39:2420/06/2021 12:03:28</TimeStamp>
+        <TimeStamp>UsZZ8NG3AkeMwJwa5diJwRzsQwk=08/07/2021 16:58:2320/06/2021 12:03:28</TimeStamp>
         <ID>
           <String>Quien Profesionales</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>6xqRQB9wMA8/rRs1VywsvXnt6GE=27/06/2021 19:39:3120/06/2021 12:10:22</TimeStamp>
+        <TimeStamp>ulm0yTbGsTBnxZCNnuefIxGPnUk=08/07/2021 16:58:3520/06/2021 12:10:22</TimeStamp>
         <ID>
           <String>Quien</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>oFH26jf3ML9FZgiwjoN39sP/S+w=28/06/2021 17:14:2827/06/2021 19:47:12</TimeStamp>
+        <TimeStamp>lKXdaAJ9Oy9PDw60G4oVFD6o8ik=08/07/2021 3:03:1727/06/2021 19:47:12</TimeStamp>
         <ID>
           <String>Dimension Donde Municipio</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ZzfCgqK4YbT8SKa6y4k0ON8xql4=28/06/2021 23:30:0428/06/2021 23:22:22</TimeStamp>
+        <TimeStamp>zqlsNcWsyYsUoho49gOLTU1fC0g=08/07/2021 16:59:0528/06/2021 23:22:22</TimeStamp>
         <ID>
           <String>Cuándo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>a9admrpJBVfff5Y/w2UfwRPf8yw=09/07/2021 2:01:4930/06/2021 19:14:37lvM7UQ6KRgxH5DTt+0htSO8PU8c=30/06/2021 19:14:3730/06/2021 19:14:37</TimeStamp>
+        <ID>
+          <String>Profesionales</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>kSFPMU5yRQSlaxH2+RZyqNIXWDw=09/07/2021 2:21:4730/06/2021 22:49:47oIC96yy9UlumY8jAgbyDUZzEbl8=30/06/2021 22:49:4830/06/2021 22:49:47</TimeStamp>
+        <ID>
+          <String>Vacunas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>3J5r7epipVnvHdFrtXONUvyLM9w=08/07/2021 23:21:2230/06/2021 23:39:42m2mTR8+SVZCL+9GXSgmLJKHns60=30/06/2021 23:39:4230/06/2021 23:39:42</TimeStamp>
+        <ID>
+          <String>Municipios</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>FQEeTM4mX4FyJht3W7qfynvm1T8=09/07/2021 2:02:2130/06/2021 23:51:06JB7lMn567v+9IWNCdNADDr2a6eA=30/06/2021 23:51:0730/06/2021 23:51:06</TimeStamp>
+        <ID>
+          <String>Residencias</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>mLtqzj/EQTLaz3pB58kgc7OgoLI=08/07/2021 17:17:2001/07/2021 16:16:073xhmxbk7aNAlRitUqXBDw/ZIdjo=01/07/2021 16:16:0801/07/2021 16:16:07</TimeStamp>
+        <ID>
+          <String>Residencias Edad-Sexo</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>/pr2JKnYkrPBCpDbDhNNz4naNfg=08/07/2021 17:18:0801/07/2021 17:03:02PL9mYpdiM8ODKkqNWcuJ6oLrsrM=01/07/2021 17:03:0201/07/2021 17:03:02</TimeStamp>
+        <ID>
+          <String>Días Naturales</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -99,5 +141,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-06-28T21:30:08.536667Z</LastDeployed>
+  <LastDeployed>2021-07-09T00:24:10.806667Z</LastDeployed>
 </DeploymentSnapshot>

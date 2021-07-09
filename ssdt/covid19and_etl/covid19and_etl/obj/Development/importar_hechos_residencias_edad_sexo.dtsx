@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/11/2021 1:48:34 AM"
+  DTS:CreationDate="7/6/2021 7:12:21 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="DESKTOP-BJ5E84H"
   DTS:CreatorName="DESKTOP-BJ5E84H\aulas"
   DTS:Description="SSIS Package Description"
-  DTS:DTSID="{B45D9D31-D272-4125-BC6E-1D91ADC9E8D9}"
+  DTS:DTSID="{0576CC94-D57B-4FB6-9364-FE7AC021B203}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.5058.0"
   DTS:LocaleID="3082"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="importar_hechos_residencias_edad_sexo"
-  DTS:VersionGUID="{9CC12669-DDDC-4E05-9F58-C52A3DC1089B}">
+  DTS:VersionGUID="{211E25D8-BF84-4DF3-95E3-88F1FFB3D36C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{0EBDA8C6-5405-4988-A590-68277C6DE342}"
+      DTS:DTSID="{1A78739C-7179-4FDF-B253-8D1B4C4D11B1}"
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{7B7F866F-0DB8-4F6B-831F-61FFF63FF7EB}"
+      DTS:DTSID="{CDE12CFC-DE13-49E8-B31B-101779484F44}"
       DTS:ObjectName="SourceConnectionFlatFile">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -45,50 +45,50 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="16"
+              DTS:DataType="2"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;confirmados_pdia&quot;"
-              DTS:DTSID="{80AEC69B-3FE5-46AF-9207-19F6F2762265}"
+              DTS:ObjectName="confirmados_pdia"
+              DTS:DTSID="{24C518FA-1A47-481E-BA53-AF22E2B8D298}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="total_confirmados"
+              DTS:DTSID="{1AECF379-9EA5-4AD7-AE9B-FB9209B3203E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="curados"
+              DTS:DTSID="{609D965F-FC82-49BE-B381-21519ADBA16C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fallecidos"
+              DTS:DTSID="{9293CB3C-476F-450D-91AE-93CE35D447E9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="16"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;total_confirmados&quot;"
-              DTS:DTSID="{5ADC5660-9DB8-4DC1-83FD-AA046A03F492}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="16"
-              DTS:TextQualified="True"
-              DTS:ObjectName="&quot;curados&quot;"
-              DTS:DTSID="{759F737F-9483-47FD-A7C6-8F7C29C7382A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="16"
-              DTS:TextQualified="True"
-              DTS:ObjectName="&quot;fallecidos&quot;"
-              DTS:DTSID="{AD038542-8C35-4A2C-B12F-02D1647EFAE5}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="16"
-              DTS:TextQualified="True"
-              DTS:ObjectName="&quot;cod_quien&quot;"
-              DTS:DTSID="{E8C75297-0B74-4C53-89D3-3F35A29F29BB}"
+              DTS:ObjectName="cod_quien"
+              DTS:DTSID="{9FBC8A32-7A01-4241-B7FB-6F8AEE60258A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
               DTS:DataType="2"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;cod_cuando&quot;"
-              DTS:DTSID="{024B618C-2986-4836-B85C-A14A1B075CD2}"
+              DTS:ObjectName="cod_cuando"
+              DTS:DTSID="{2A9C2121-EB8C-4FAF-BED8-9364271B9030}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -101,7 +101,7 @@
       DTS:refId="Package\Data Flow Task 1"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:DelayValidation="True"
-      DTS:DTSID="{33CED84E-4F57-4C2A-BC35-F237C160A28D}"
+      DTS:DTSID="{FB608C41-B5ED-4DEE-9F52-8F947F199349}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -126,30 +126,10 @@
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[&quot;confirmados_pdia&quot;]"
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[cod_quien]"
                       cachedDataType="i1"
-                      cachedName="&quot;confirmados_pdia&quot;"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;confirmados_pdia&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[&quot;total_confirmados&quot;]"
-                      cachedDataType="i1"
-                      cachedName="&quot;total_confirmados&quot;"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;total_confirmados&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[&quot;curados&quot;]"
-                      cachedDataType="i1"
-                      cachedName="&quot;curados&quot;"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;curados&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[&quot;fallecidos&quot;]"
-                      cachedDataType="i1"
-                      cachedName="&quot;fallecidos&quot;"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;fallecidos&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[&quot;cod_quien&quot;]"
-                      cachedDataType="i1"
-                      cachedName="&quot;cod_quien&quot;"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_quien&quot;]" />
+                      cachedName="cod_quien"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_quien]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -162,99 +142,19 @@
                   synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;confirmados_pdia&quot;]"
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_quien]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;confirmados_pdia&quot;]"
-                      name="&quot;confirmados_pdia&quot;"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_quien]"
+                      name="cod_quien"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns["confirmados_pdia"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;total_confirmados&quot;]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;total_confirmados&quot;]"
-                      name="&quot;total_confirmados&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns["total_confirmados"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;curados&quot;]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;curados&quot;]"
-                      name="&quot;curados&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns["curados"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;fallecidos&quot;]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;fallecidos&quot;]"
-                      name="&quot;fallecidos&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns["fallecidos"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;cod_quien&quot;]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;cod_quien&quot;]"
-                      name="&quot;cod_quien&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns["cod_quien"]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_quien]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -362,68 +262,68 @@
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;confirmados_pdia&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[confirmados_pdia]"
                       cachedDataType="i2"
-                      cachedName="&quot;confirmados_pdia&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;confirmados_pdia&quot;]"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;confirmados_pdia&quot;]" />
+                      cachedName="confirmados_pdia"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[confirmados_pdia]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[confirmados_pdia]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;total_confirmados&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[total_confirmados]"
                       cachedDataType="i2"
-                      cachedName="&quot;total_confirmados&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;total_confirmados&quot;]"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;total_confirmados&quot;]" />
+                      cachedName="total_confirmados"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[total_confirmados]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[total_confirmados]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;curados&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[curados]"
                       cachedDataType="i2"
-                      cachedName="&quot;curados&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;curados&quot;]"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;curados&quot;]" />
+                      cachedName="curados"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[curados]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[curados]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;fallecidos&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[fallecidos]"
                       cachedDataType="i2"
-                      cachedName="&quot;fallecidos&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;fallecidos&quot;]"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;fallecidos&quot;]" />
+                      cachedName="fallecidos"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[fallecidos]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[fallecidos]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;cod_quien&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[cod_quien]"
                       cachedDataType="i2"
-                      cachedName="&quot;cod_quien&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;cod_quien&quot;]"
-                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[&quot;cod_quien&quot;]" />
+                      cachedName="cod_quien"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[cod_quien]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[cod_quien]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[&quot;cod_cuando&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].Columns[cod_cuando]"
                       cachedDataType="i2"
-                      cachedName="&quot;cod_cuando&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;cod_cuando&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_cuando&quot;]" />
+                      cachedName="cod_cuando"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[cod_cuando]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_cuando]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;confirmados_pdia&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[confirmados_pdia]"
                       dataType="i2"
-                      name="&quot;confirmados_pdia&quot;" />
+                      name="confirmados_pdia" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;total_confirmados&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[total_confirmados]"
                       dataType="i2"
-                      name="&quot;total_confirmados&quot;" />
+                      name="total_confirmados" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;curados&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[curados]"
                       dataType="i2"
-                      name="&quot;curados&quot;" />
+                      name="curados" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;fallecidos&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[fallecidos]"
                       dataType="i2"
-                      name="&quot;fallecidos&quot;" />
+                      name="fallecidos" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;cod_quien&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[cod_quien]"
                       dataType="i2"
-                      name="&quot;cod_quien&quot;" />
+                      name="cod_quien" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[&quot;cod_cuando&quot;]"
+                      refId="Package\Data Flow Task 1\Destination - hechos_residencias_edad_sexo.Inputs[Destination Input].ExternalColumns[cod_cuando]"
                       dataType="i2"
-                      name="&quot;cod_cuando&quot;" />
+                      name="cod_cuando" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -484,113 +384,113 @@
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;confirmados_pdia&quot;]"
-                      dataType="i1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;confirmados_pdia&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;confirmados_pdia&quot;]"
-                      name="&quot;confirmados_pdia&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;total_confirmados&quot;]"
-                      dataType="i1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;total_confirmados&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;total_confirmados&quot;]"
-                      name="&quot;total_confirmados&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;curados&quot;]"
-                      dataType="i1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;curados&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;curados&quot;]"
-                      name="&quot;curados&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;fallecidos&quot;]"
-                      dataType="i1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;fallecidos&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;fallecidos&quot;]"
-                      name="&quot;fallecidos&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_quien&quot;]"
-                      dataType="i1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;cod_quien&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_quien&quot;]"
-                      name="&quot;cod_quien&quot;"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_cuando&quot;]"
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[confirmados_pdia]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;cod_cuando&quot;]"
-                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[&quot;cod_cuando&quot;]"
-                      name="&quot;cod_cuando&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[confirmados_pdia]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[confirmados_pdia]"
+                      name="confirmados_pdia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[total_confirmados]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[total_confirmados]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[total_confirmados]"
+                      name="total_confirmados"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[curados]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[curados]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[curados]"
+                      name="curados"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[fallecidos]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[fallecidos]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[fallecidos]"
+                      name="fallecidos"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_quien]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[cod_quien]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_quien]"
+                      name="cod_quien"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_cuando]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[cod_cuando]"
+                      lineageId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].Columns[cod_cuando]"
+                      name="cod_cuando"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -607,29 +507,29 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;confirmados_pdia&quot;]"
-                      dataType="i1"
-                      name="&quot;confirmados_pdia&quot;" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;total_confirmados&quot;]"
-                      dataType="i1"
-                      name="&quot;total_confirmados&quot;" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;curados&quot;]"
-                      dataType="i1"
-                      name="&quot;curados&quot;" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;fallecidos&quot;]"
-                      dataType="i1"
-                      name="&quot;fallecidos&quot;" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;cod_quien&quot;]"
-                      dataType="i1"
-                      name="&quot;cod_quien&quot;" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[&quot;cod_cuando&quot;]"
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[confirmados_pdia]"
                       dataType="i2"
-                      name="&quot;cod_cuando&quot;" />
+                      name="confirmados_pdia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[total_confirmados]"
+                      dataType="i2"
+                      name="total_confirmados" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[curados]"
+                      dataType="i2"
+                      name="curados" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[fallecidos]"
+                      dataType="i2"
+                      name="fallecidos" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[cod_quien]"
+                      dataType="i1"
+                      name="cod_quien" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - hechos_residencias_edad_sexo_csv.Outputs[Flat File Source Output].ExternalColumns[cod_cuando]"
+                      dataType="i2"
+                      name="cod_cuando" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -680,7 +580,7 @@
     <DTS:Executable
       DTS:refId="Package\Drop table(s) SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{2B5D5FEB-0898-4C4A-94CD-EEF5552CF63D}"
+      DTS:DTSID="{19B738EC-70A7-4D57-9A6A-9FB5842685EC}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Drop table(s) SQL Task 1"
@@ -689,14 +589,14 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{0EBDA8C6-5405-4988-A590-68277C6DE342}"
+          SQLTask:Connection="{1A78739C-7179-4FDF-B253-8D1B4C4D11B1}"
           SQLTask:SqlStatementSource="drop table [dbo].[hechos_residencias_edad_sexo]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Preparation SQL Task 1"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:DTSID="{85D0AD65-5230-4FB7-B0E2-FF638E818698}"
+      DTS:DTSID="{32DFF136-026A-4911-B8A7-4D02A5787514}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
@@ -706,28 +606,28 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{0EBDA8C6-5405-4988-A590-68277C6DE342}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_residencias_edad_sexo] (&#xA;[&quot;confirmados_pdia&quot;] smallint,&#xA;[&quot;total_confirmados&quot;] smallint,&#xA;[&quot;curados&quot;] smallint,&#xA;[&quot;fallecidos&quot;] smallint,&#xA;[&quot;cod_quien&quot;] smallint NOT NULL,&#xA;[&quot;cod_cuando&quot;] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{1A78739C-7179-4FDF-B253-8D1B4C4D11B1}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[hechos_residencias_edad_sexo] (&#xA;[confirmados_pdia] smallint,&#xA;[total_confirmados] smallint,&#xA;[curados] smallint,&#xA;[fallecidos] smallint,&#xA;[cod_quien] smallint NOT NULL,&#xA;[cod_cuando] smallint NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{424004CD-1C89-4171-BD3E-26DD8ABBB752\}]"
+      DTS:refId="Package.PrecedenceConstraints[{55A248FB-1D0D-4732-BB70-B9A0916ECA9A\}]"
       DTS:CreationName=""
-      DTS:DTSID="{424004CD-1C89-4171-BD3E-26DD8ABBB752}"
-      DTS:From="Package\Preparation SQL Task 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="{424004CD-1C89-4171-BD3E-26DD8ABBB752}"
-      DTS:To="Package\Data Flow Task 1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{8A380B0F-0A1F-4722-8A21-87A0BFCB636F\}]"
-      DTS:CreationName=""
-      DTS:DTSID="{8A380B0F-0A1F-4722-8A21-87A0BFCB636F}"
+      DTS:DTSID="{55A248FB-1D0D-4732-BB70-B9A0916ECA9A}"
       DTS:From="Package\Drop table(s) SQL Task 1"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="{8A380B0F-0A1F-4722-8A21-87A0BFCB636F}"
+      DTS:ObjectName="{55A248FB-1D0D-4732-BB70-B9A0916ECA9A}"
       DTS:To="Package\Preparation SQL Task 1"
       DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{92C5B65F-0B27-48F8-A21C-FC9D9C9911DD\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{92C5B65F-0B27-48F8-A21C-FC9D9C9911DD}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{92C5B65F-0B27-48F8-A21C-FC9D9C9911DD}"
+      DTS:To="Package\Data Flow Task 1" />
   </DTS:PrecedenceConstraints>
 </DTS:Executable>

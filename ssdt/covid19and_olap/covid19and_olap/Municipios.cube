@@ -1,0 +1,349 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="af06078f-a3c0-4e96-a35d-1e8f5d90afcc" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Municipios</ID>
+  <Name>Municipios</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8770" scrolltop="-4" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="90" x="21632" y="7662" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="7288" top="359" logicalid="6" controlid="1" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000fd0b0000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_cuando" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="hechos_municipios" left="20" top="0" logicalid="7" controlid="2" masterid="0" hint1="0" hint2="0" width="4868" height="4466" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800000413000072110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_hechos_municipios" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_donde_municipio" left="453" top="6866" logicalid="8" controlid="3" masterid="0" hint1="0" hint2="0" width="4001" height="3027" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000a10f0000d30b0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_donde_municipio" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4588" top="1833" logicalid="9" controlid="4" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_municipios-dimension_cuando]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="16" destattachpoint="25" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="7288" y="2232" />
+              <point x="6088" y="2232" />
+              <point x="6088" y="2233" />
+              <point x="4888" y="2233" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="2054" top="4166" logicalid="10" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_municipios-dimension_donde_municipio]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="6" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="2453" y="6866" />
+              <point x="2453" y="5666" />
+              <point x="2454" y="5666" />
+              <point x="2454" y="4466" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-8770</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>90</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="1d560579-cfc0-4227-9a34-83bedec268a4">
+      <ID>Cuándo</ID>
+      <Name>Cuándo</Name>
+      <DimensionID>Cuándo</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="21123a13-813c-40c9-8c5c-95c5ca250b7b">
+          <AttributeID>Cod Cuando</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fa08eab7-4ecd-4008-9676-846e40f15bd7">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a76613c1-5e36-43a2-83f8-f4321cbf116a">
+          <AttributeID>Mes (número)</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7f2207b9-b9de-4abd-927e-abfe0559e71a">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ac8faf51-fb8b-4095-b99e-823aae880c63">
+          <AttributeID>Semana del año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a574dde2-93ba-49f6-b637-f9672ba91880">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="19940b60-f8f3-415f-8ce0-3b2a2bdd7d51">
+          <AttributeID>Es Día Natural</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5ed86e68-4498-42bb-bc21-e2d4dd1ef2ad">
+          <AttributeID>Es Día Hábil</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="c2247ba7-5b78-4dee-b039-c5b7694b571c">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="5dbd2201-f9c5-4ea7-9f91-857ea8134bf6">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="2f356fc6-05a4-4a0d-a649-bccfd2df649a">
+      <ID>Dónde Municipio</ID>
+      <Name>Dónde Municipio</Name>
+      <DimensionID>Dimension Donde Municipio</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bd5ce41b-ff91-40a8-bfb3-46e69451804a">
+          <AttributeID>Cod Donde Municipio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9974c383-07c4-4e69-968e-fae8ff86c237">
+          <AttributeID>Municipio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3bece995-5296-40df-bb64-f4d0ebb79c32">
+          <AttributeID>Código INE del municipio</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="83bef3b2-8383-49a3-bcf5-64be014c65ba">
+          <AttributeID>Distrito Sanitario</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3f92a953-9682-4d94-b7a2-3b9f6a667acf">
+          <AttributeID>Provincia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a0b51881-88f5-4f29-8c4a-6a98e71d0816">
+          <AttributeID>Código de Provincia INE</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="25d2229e-93b5-4f4a-a01f-b91c7cf885f4">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="d8fc1a17-5116-4e26-9778-1cd9bd3fc6c4">
+      <ID>Hechos Municipios</ID>
+      <Name>Hechos Municipios</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="7cddf037-45a4-4826-a30a-5a5ec1b725c5">
+          <ID>Poblacion</ID>
+          <Name>Poblacion</Name>
+          <Source dwd:design-time-name="c24996fc-7bb7-4bda-96bc-371e2868c71d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="10e80d32-5231-412d-8c6a-9b7586bb0545">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>poblacion</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="80525269-196f-49e3-abe2-3043bf591224">
+          <ID>Confirmados Pdia</ID>
+          <Name>Confirmados PDIA</Name>
+          <Source dwd:design-time-name="89c729b2-7a31-491b-97e1-254cd3aab394">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7d836044-39f1-458f-9638-eab532c21e36">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>confirmados_pdia</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ddb2039b-41f4-40aa-9fa0-bf9eb596c8f6">
+          <ID>Confirmados Pdia 14d</ID>
+          <Name>Confirmados PDIA 14 días</Name>
+          <Source dwd:design-time-name="d6f92ea2-4d4a-4f57-953a-ba59ec62443e">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="be320046-c50a-4ae1-bbb7-91178d64b351">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>confirmados_pdia_14d</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="e58fc711-db40-4df7-b6a2-836aca6d75dd">
+          <ID>Tasa Confirmados Pdia 14d</ID>
+          <Name>Tasa Confirmados PDIA 14 días</Name>
+          <AggregateFunction>AverageOfChildren</AggregateFunction>
+          <Source dwd:design-time-name="805e6238-093a-40cb-9f2d-56378c36794f">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d831c70b-a0c2-4805-ac0e-6fc334e5d9eb">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>tasa_confirmados_pdia_14d</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c3c8273e-6144-4477-a265-3cf4946c2310">
+          <ID>Confirmados Pdia 7d</ID>
+          <Name>Confirmados PDIA 7 días</Name>
+          <Source dwd:design-time-name="8d617c4b-0e30-4de6-a734-6c45e66892b3">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="e610884a-9d42-4653-9c56-250f48c87ccd">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>confirmados_pdia_7d</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="405732c9-8cd6-4a8b-8573-bfab61f5bf3a">
+          <ID>Total Confirmados</ID>
+          <Name>Total Confirmados</Name>
+          <Source dwd:design-time-name="1a564856-a454-4f4c-a09c-5bb213a93ce2">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1e86e6a4-155b-4cdc-8198-d0bf4a7a53cd">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>total_confirmados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="0658f1da-c5c0-43fb-bd3e-7af1a5139697">
+          <ID>Curados</ID>
+          <Name>Curados</Name>
+          <Source dwd:design-time-name="6bcd07d7-690b-4d65-af25-26b42e3e22bf">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="dfaa7b37-6120-42d1-bd8f-44aadf898f6b">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>curados</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="0aa6ce6a-9e7a-44fd-8f84-878a885a3a2d">
+          <ID>Fallecidos</ID>
+          <Name>Fallecidos</Name>
+          <Source dwd:design-time-name="a143c0fb-5395-4c4a-950a-1d68fa55b460">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="be61f3dd-5ba4-497d-88cf-198d56aa48b0">
+              <TableID>dbo_hechos_municipios</TableID>
+              <ColumnID>fallecidos</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="bff030b9-132b-4e24-9dea-40f89ba84663">
+          <CubeDimensionID>Cuándo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c148c0b4-258d-4af3-8037-56718f2b37ee">
+              <AttributeID>Cod Cuando</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2a0e5c62-55a1-4a19-98fe-75d53d1df385">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f85341b1-a100-45d8-8698-79ca46d83a57">
+                    <TableID>dbo_hechos_municipios</TableID>
+                    <ColumnID>cod_cuando</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7ec5e015-0147-4e0f-b484-3ee35cda8757">
+          <CubeDimensionID>Dónde Municipio</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="30b1159b-5232-402a-a8e2-b3be390e807a">
+              <AttributeID>Cod Donde Municipio</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d4cae4f6-70bb-4b22-8d25-71e22cce397e">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5fdcc363-8caf-43ec-b532-f498e1da31fa">
+                    <TableID>dbo_hechos_municipios</TableID>
+                    <ColumnID>cod_donde_municipio</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="bc89550c-e7ed-4d4b-a63d-ba741d9cf560">
+    <DataSourceViewID>Covid19and</DataSourceViewID>
+  </Source>
+</Cube>

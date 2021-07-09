@@ -37,6 +37,86 @@
         <ID>Cuándo</ID>
       </Dimension>
     </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>Profesionales</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Profesionales</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Profesionales</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Vacunas</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Vacunas</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Vacunas</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Municipios</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Municipios</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Municipios</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Residencias</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Residencias</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Residencias</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Residencias Edad-Sexo</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Residencias Edad Sexo</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Residencias Edad Sexo</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Días Naturales</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Hechos Dias Naturales</ID>
+            <Partitions>
+              <Partition>
+                <ID>Hechos Dias Naturales</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
     <DataSourceImpersonationInfo>
       <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
       <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>

@@ -1,0 +1,360 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c13e2ac0-de71-4fd9-a97a-90b65a3ee871" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Vacunas</ID>
+  <Name>Vacunas</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-9454" scrolltop="1000" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="21632" y="7662" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="hechos_vacunas" left="20" top="4347" logicalid="8" controlid="1" masterid="0" hint1="0" hint2="0" width="4974" height="3387" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800006e1300003b0d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_hechos_vacunas" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_quien_vacunas" left="623" top="0" logicalid="9" controlid="2" masterid="0" hint1="0" hint2="0" width="3768" height="1947" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000b80e00009b070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_quien_vacunas" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_cuando" left="972" top="10134" logicalid="10" controlid="3" masterid="0" hint1="0" hint2="0" width="3069" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000fd0b0000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_cuando" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="dimension_donde_provincia" left="7394" top="5067" logicalid="11" controlid="4" masterid="0" hint1="0" hint2="0" width="3958" height="1947" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000760f00009b070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimension_donde_provincia" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1007" top="7434" logicalid="12" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_vacunas-dimension_cuando]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="0" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1406" y="10134" />
+              <point x="1406" y="8934" />
+              <point x="1407" y="8934" />
+              <point x="1407" y="7734" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4694" top="5091" logicalid="13" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_vacunas-dimension_donde_provincia]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="1" sourceattachpoint="14" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="7394" y="5490" />
+              <point x="4994" y="5490" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="458" top="1448" logicalid="14" controlid="7" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[hechos_vacunas-dimension_quien_vacunas]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="1" destattachpoint="2" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="857" y="1947" />
+              <point x="857" y="4347" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-9454</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>1000</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>75</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="36d67d59-fff8-4bd4-8cff-3d2951f7085d">
+      <ID>Cuándo</ID>
+      <Name>Cuándo</Name>
+      <DimensionID>Cuándo</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="471936f0-dd23-4712-aed2-a995c8a30884">
+          <AttributeID>Cod Cuando</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6f5ef570-228a-4ae4-a491-b85e1e5f9985">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b125b548-7455-4c52-a2cb-b6beac9ae7e3">
+          <AttributeID>Mes (número)</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2e76ec9b-04a4-4665-9af1-a1e02e2d0df9">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4b78bd2e-cd28-42cb-a7f8-d4e6bd02beeb">
+          <AttributeID>Semana del año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="77c1a671-a0cc-4ff4-bf54-c6433fc17e13">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="71763af7-aafa-4ca9-86b1-0deb8f4989d8">
+          <AttributeID>Es Día Natural</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="92d46b12-379b-455f-bb7b-3e0acb188b70">
+          <AttributeID>Es Día Hábil</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="20eb4d72-df76-42cf-b9c9-a1dfcaf9ea57">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="d5a818ae-28c3-446c-b90c-8501b5d2954a">
+          <HierarchyID>Hierarchy 1</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="7614815e-b429-4e5b-b872-d05654672de1">
+      <ID>Dónde Provincia</ID>
+      <Name>Dónde Provincia</Name>
+      <DimensionID>Dimension Donde Provincia</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="772ff27b-c784-4aa0-a94e-982a46321db4">
+          <AttributeID>Cod Donde Provincia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f5d1e31c-da78-4de0-ac07-d3d140cd4265">
+          <AttributeID>Provincia</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d54fd4b5-1955-45d1-9793-ae7b23a9cb06">
+          <AttributeID>Código provincia INE</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="28871e3a-6fe1-499e-af9c-e0f3668e39b7">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="cb78f881-7316-4379-abae-a66a4f864835">
+      <ID>Quién Vacunas</ID>
+      <Name>Quién Vacunas</Name>
+      <DimensionID>Quién Vacunas</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ee61a22e-0752-44ba-bfde-bcf290fed45c">
+          <AttributeID>Cod Quien Vacunas</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cfb9bd3c-559c-4589-9351-9d6466f7161a">
+          <AttributeID>Rango de Edad</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="ef4a7557-f191-42a2-841d-51b346d079a3">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="c3cf2b49-c57f-4f61-b55e-c117a0e5beac">
+      <ID>Hechos Vacunas</ID>
+      <Name>Hechos Vacunas</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="377313e9-1d7a-490d-a2df-9b4bbaca7b56">
+          <ID>n Personas 1 Dosis</ID>
+          <Name>Nº personas con 1 dosis</Name>
+          <Source dwd:design-time-name="0ba473b9-856c-40c9-aad3-91b2736116eb">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="8aa10ed5-fe7d-4284-aab6-2fafe3799ba8">
+              <TableID>dbo_hechos_vacunas</TableID>
+              <ColumnID>n_personas_1_dosis</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="687e953f-14f5-4ed0-88f1-49e764bd7fec">
+          <ID>personas 1 Dosis</ID>
+          <Name>Porcentaje de personas 1 Dosis</Name>
+          <AggregateFunction>AverageOfChildren</AggregateFunction>
+          <Source dwd:design-time-name="4e152acd-45d8-4041-950f-dd031bda6f10">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d2f68b0b-19af-49af-a668-68a37ef25f23">
+              <TableID>dbo_hechos_vacunas</TableID>
+              <ColumnID>_x0025_personas_1_dosis</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="eeaa375e-0a70-4562-87dd-d283ff8508c6">
+          <ID>n Personas Pauta Completa</ID>
+          <Name>Nº de personas con pauta completa</Name>
+          <Source dwd:design-time-name="aa2e99ea-9c45-4e5a-83be-2ee5bfa50d5e">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c87c6b0a-87f1-4207-af1f-b9eb8cb0621c">
+              <TableID>dbo_hechos_vacunas</TableID>
+              <ColumnID>n_personas_pauta_completa</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="73e4bf79-1dc2-47c4-ab34-a9c893b37d72">
+          <ID>personas Pauta Completa</ID>
+          <Name>Porcentaje de personas con pauta completa</Name>
+          <AggregateFunction>AverageOfChildren</AggregateFunction>
+          <Source dwd:design-time-name="a13b2fb8-ecf1-4b2c-b5d1-9932548ac442">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="a2d80f07-6537-48f1-8f12-2cf297e19462">
+              <TableID>dbo_hechos_vacunas</TableID>
+              <ColumnID>_x0025_personas_pauta_completa</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="05ce2624-989b-49c2-87d8-0950383ebdc1">
+          <CubeDimensionID>Cuándo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bc2f9857-23d8-48ee-a50e-1de9bbd5f65b">
+              <AttributeID>Cod Cuando</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d30ea61d-79fa-414b-a6f3-abc3a7938894">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="70039154-6aaa-4f0c-8144-6fd158ad60a0">
+                    <TableID>dbo_hechos_vacunas</TableID>
+                    <ColumnID>cod_cuando</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ca2104d2-cccc-4239-bca2-294ba874fcb4">
+          <CubeDimensionID>Dónde Provincia</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f6a4b70d-9b65-4550-a075-8811ef3f1b37">
+              <AttributeID>Cod Donde Provincia</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c8a9d730-9927-4faa-b254-6f367ff92146">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="33149013-d305-456c-bcb5-7dca2ebebfda">
+                    <TableID>dbo_hechos_vacunas</TableID>
+                    <ColumnID>cod_donde_provincia</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4c694c9e-bfe7-4da7-8061-fb85feb6a524">
+          <CubeDimensionID>Quién Vacunas</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c6ecf125-7c35-42d4-9448-ec3667af021c">
+              <AttributeID>Cod Quien Vacunas</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="25f8b87e-134f-47f0-b968-9ade533abeee">
+                  <DataType>SmallInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="91255210-5f2e-4ab2-a552-ff4845e868eb">
+                    <TableID>dbo_hechos_vacunas</TableID>
+                    <ColumnID>cod_quien_vacunas</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="ee62652a-87ed-4367-b889-f0ab5bf0ed48">
+    <DataSourceViewID>Covid19and</DataSourceViewID>
+  </Source>
+</Cube>
